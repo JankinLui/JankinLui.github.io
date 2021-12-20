@@ -3,12 +3,12 @@ const ap = new APlayer({
     fixed: true,
     autoplay: true,
     listFolded: true,
-    loop: 'all',
-    order: 'random',
+    // loop: 'all',
+    // order: 'random',
     preload: 'auto',
-    volume: 0.7,
-    mutex: true,
-    listMaxHeight: 90,
+    // volume: 0.7,
+    // mutex: true,
+    // listMaxHeight: 90,
     // lrcType: 3,
     audio: [
       {
