@@ -203,18 +203,27 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/09/16/azzm/" target="_self">
-          命令行安装图形界面&amp;&amp;win远程桌面&amp;&amp;终端分屏
+        <a href="/2021/10/07/jiben/" target="_self">
+          基本与专业名词
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/09/16/azzm/" target="_self">
+        <a href="/2021/10/07/jiben/" target="_self">
           
           
             
           
-          命令行安装图形界面yum groupinstall “X Window System”       //首先安装X(X Window System)，命令为yum grouplist                                            //检查一下我们已经安装的软件以及可以安装的软件yum groupinstall “GNOME Desktop” “Graphic
+          服务器部分：
+机架式服务器1U 2U 4U 8U（Unit—服务器的高度1.75英寸=4.445CM）
+刀片式服务器
+塔式服务器
+
+UPS：电池，用于断电时，大多只能提供服务器十几分钟，用来断电时有时间保存数据
+CPU路数：就是服务器中cpu的个数，单路=一个cpu、双路=两个cpu…… 
+CPU核数：决定了服务器并行（同时）处理任务能力
+内存中有两个储存空间
+buffer 缓冲区 在数据准备存储
         </a>
       </p>
 
@@ -222,8 +231,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-09-16 20:34" pubdate>
-              2021-09-16
+            <time datetime="2021-10-07 04:40" pubdate>
+              2021-10-07
             </time>
           </div>
         
@@ -231,11 +240,7 @@
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Linux/">Linux</a>
-            
-              <a href="/categories/Linux/%E7%BB%88%E7%AB%AF%E7%AE%A1%E7%90%86/">终端管理</a>
-            
-              <a href="/categories/Linux/%E7%BB%88%E7%AB%AF%E7%AE%A1%E7%90%86/%E5%9B%BE%E5%BD%A2%E5%8C%96/">图形化</a>
+              <a href="/categories/%E8%BF%90%E7%BB%B4%E7%BB%BC%E5%90%88%E6%9E%B6%E6%9E%84/">运维综合架构</a>
             
           </div>
         
@@ -243,11 +248,7 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Linux/">Linux</a>
-            
-              <a href="/tags/%E7%BB%88%E7%AB%AF%E7%AE%A1%E7%90%86/">终端管理</a>
-            
-              <a href="/tags/%E5%9B%BE%E5%BD%A2%E5%8C%96/">图形化</a>
+              <a href="/tags/%E8%BF%90%E7%BB%B4%E7%BB%BC%E5%90%88%E6%9E%B6%E6%9E%84/">运维综合架构</a>
             
           </div>
         
@@ -261,19 +262,20 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/1985/10/26/hello-world/" target="_self">
-          Hello World
+        <a href="/2021/09/18/weix/" target="_self">
+          Ubuntu安装微信等
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/1985/10/26/hello-world/" target="_self">
+        <a href="/2021/09/18/weix/" target="_self">
           
           
             
           
-          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick
+          1.安装deepin-wine环境依次执行以下命令，git目录名可自己设置
+mkdir ~/gitcd ~/gitgit clone https://gitee.com/wszqkzqk/deepin-wine-for-ubuntu.gitcd deepin-wine-for-ubuntu./install.sh
+2.下载deepin-wine容器下载微信的deb包（建议选择最新的版本）：http
         </a>
       </p>
 
@@ -281,18 +283,476 @@ Quick
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="1985-10-26 16:15" pubdate>
-              1985-10-26
+            <time datetime="2021-09-18 16:02" pubdate>
+              2021-09-18
             </time>
           </div>
         
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Ubuntu/">Ubuntu</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Ubuntu/">Ubuntu</a>
+            
+              <a href="/tags/Ubuntu%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/">Ubuntu安装常用软件</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/09/18/blj/" target="_self">
+          堡垒机&amp;跳板机
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/09/18/blj/" target="_self">
+          
+          
+            
+          
+          开源堡垒机推荐
+jumpserver————官方地址：http://www.jumpserver.org/
+Teleport—————官方地址：http://tp4a.com/
+
+telepost安装
+下载
+Wget https://tp4a.com/static/download/telepost-server-linux-x64-3.2.2.tar.gz
+
+解压
+Tar xf teleport
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-09-18 15:38" pubdate>
+              2021-09-18
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Linux/">Linux</a>
+            
+              <a href="/categories/Linux/%E5%A0%A1%E5%9E%92%E6%9C%BA/">堡垒机</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Linux/">Linux</a>
+            
+              <a href="/tags/%E5%A0%A1%E5%9E%92%E6%9C%BA/">堡垒机</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/09/18/sqli/" target="_self">
+          sqli-labs搭建
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/09/18/sqli/" target="_self">
+          
+          
+            
+          
+          sqli-labs是一个学习SQL注入的实验平台下载地址：https://github.com/Audi-1/sqli-labs
+●1.快速搭建LAMP环境CentOS6.5 IP:192.168.112.100
+(见“实训项目5通过SQLmap进行SQL注入并获得后台管理员账号和密码”，部署DVWA网站，搭建LAMP环境之1-4)
+
+●2.安装sqli-labs教学环境使用rz命令上传sqli-
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-09-18 15:34" pubdate>
+              2021-09-18
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Linux/">Linux</a>
+            
+              <a href="/categories/Linux/%E5%AE%89%E5%85%A8%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">安全环境搭建</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Linux/">Linux</a>
+            
+              <a href="/tags/%E5%AE%89%E5%85%A8%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">安全环境搭建</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/09/18/dvwa/" target="_self">
+          DVWA搭建
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/09/18/dvwa/" target="_self">
+          
+          
+            
+          
+          DVWA安装Wget https://github.com/ethicalhack3r/DVWA/archive/master.zip 下载dvwa压缩包
+安装所需环境[root@wgxy63 ~]# p-gd yum install -y httpd mysql-server mysql php php-mysql ph注：php-gd 库：gd 库是 php 处理图形的扩展库，gd 库提供了一
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-09-18 15:27" pubdate>
+              2021-09-18
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Linux/">Linux</a>
+            
+              <a href="/categories/Linux/%E5%AE%89%E5%85%A8%E5%AE%89%E5%85%A8%E7%8E%AF%E5%A2%83/">安全安全环境</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Linux/">Linux</a>
+            
+              <a href="/tags/%E5%AE%89%E5%85%A8%E5%AE%89%E5%85%A8%E7%8E%AF%E5%A2%83/">安全安全环境</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/09/18/discuz/" target="_self">
+          Discuz搭建
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/09/18/discuz/" target="_self">
+          
+          
+            
+          
+          简介CrossdayDiscuz! Board（简称 Discuz!）是北京康盛新创科技有限责任公司推出的一套通用的社区论坛软件系统。自2001年6月面世以来，Discuz!已拥有15年以上的应用历史和200多万网站用户案例，是全球成熟度最高、覆盖率最大的论坛软件系统之一。目前最新版本Discuz! X3.3正式版于2017年1月1日发布，是 X3.2 的稳定版本。
+第一步：安装环境​    安装
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-09-18 15:21" pubdate>
+              2021-09-18
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Linux/">Linux</a>
+            
+              <a href="/categories/Linux/Discuz/">Discuz</a>
+            
+              <a href="/categories/Linux/Discuz/%E8%AE%BA%E5%9D%9B/">论坛</a>
+            
+          </div>
         
         
       </div>
     </article>
   </div>
 
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/09/17/disk/" target="_self">
+          磁盘分区&amp;磁盘阵列
+        </a>
+      </h1>
 
+      <p class="index-excerpt">
+        <a href="/2021/09/17/disk/" target="_self">
+          
+          
+            
+          
+          磁盘分区FDISK硬盘接口：IDE/EIDE，SCSI，SATA，SASSATA（Serial Advanced Technology Attachment），串行高级技术附件，串口硬盘SAS（Serial Attached SCSI），串行连接SCSI接口，串行连接小型计算机系统接口SSD（Solid State Disk或Solid State Drive）固态硬盘硬盘：温彻斯特 温盘Sect
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-09-17 20:09" pubdate>
+              2021-09-17
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Linux/">Linux</a>
+            
+              <a href="/categories/Linux/Linux%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86/">Linux磁盘管理</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/09/17/samba/" target="_self">
+          Ubuntu下配置samba实现文件夹共享
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/09/17/samba/" target="_self">
+          
+          
+            
+          
+          samba的安装:   sudo apt-get install samba   sudo apt-get install smbfs   sudo apt-get install cifs-utils执行第二命令时出现了如下的错误正在读取软件包列表… 完成正在分析软件包的依赖关系树正在读取状态信息… 完成现在没有可用的软件包 smbfs，但是它被其它的软件包引用了。这可能意味着这个缺失的软件包可
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-09-17 19:36" pubdate>
+              2021-09-17
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Linux/">Linux</a>
+            
+              <a href="/categories/Linux/Ubuntu/">Ubuntu</a>
+            
+              <a href="/categories/Linux/Ubuntu/samba/">samba</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Linux/">Linux</a>
+            
+              <a href="/tags/Ubuntu/">Ubuntu</a>
+            
+              <a href="/tags/samba/">samba</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/09/17/dnsserver/" target="_self">
+          dns-server
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/09/17/dnsserver/" target="_self">
+          
+          
+            
+          
+          简写1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253#yum install bind*                                 //获取DNS所有的软件包yum install -y bind bind-chroot bind-
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-09-17 19:17" pubdate>
+              2021-09-17
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Linux/">Linux</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Linux/">Linux</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/09/16/http/" target="_self">
+          安装配置http
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/09/16/http/" target="_self">
+          
+          
+            
+          
+          Apache 静态网页的搭建​    关闭防火墙 and SELiunx
+12345#Rpm -qa | grep http                                                --检查软件包（一共4个包）		/etc/httpd/conf/httpd.conf                                     --apache的主配
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-09-16 20:39" pubdate>
+              2021-09-16
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Linux/">Linux</a>
+            
+              <a href="/categories/Linux/Web/">Web</a>
+            
+              <a href="/categories/Linux/Web/Apache/">Apache</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Linux/">Linux</a>
+            
+              <a href="/tags/Web/">Web</a>
+            
+              <a href="/tags/Apache/">Apache</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
 
 
 
