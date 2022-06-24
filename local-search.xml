@@ -4,6 +4,29 @@
   
   
   <entry>
+    <title>命令行安装图形界面&amp;&amp;win远程桌面&amp;&amp;终端分屏</title>
+    <link href="/2021/09/16/azzm/"/>
+    <url>/2021/09/16/azzm/</url>
+    
+    <content type="html"><![CDATA[<h1 id="命令行安装图形界面"><a href="#命令行安装图形界面" class="headerlink" title="命令行安装图形界面"></a>命令行安装图形界面</h1><p>yum groupinstall “X Window System”       //首先安装X(X Window System)，命令为<br>yum grouplist                                            //检查一下我们已经安装的软件以及可以安装的软件<br>yum groupinstall “GNOME Desktop” “Graphical Administration Tools”</p><p>startx </p><p>输入“systemctl get-default”可查看当前启动界面，本例中显示“graphical.target”（图形界面）<br>输入“systemctl set-default multi-user.target”并按回车键即可设置为默认以文本界面启动</p><h1 id="win远程桌面Linux"><a href="#win远程桌面Linux" class="headerlink" title="win远程桌面Linux"></a>win远程桌面Linux</h1><p>1.保证Linux是有桌面界面的版本<br>2.安装xrdp,xrdp在 EPEL仓库可以使用，所以配置 EPEL仓库： rpm -Uvh <a href="https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm">https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm</a><br>或者 yum -y install epel-release<br>3.安装插件<br>yum -y install xrdp<br>4.安装插件<br>yum -y install tigervnc-server<br>5.启动服务<br>systemctl start xrdp</p><p>Systemctl stop NetworkManager</p><p>打开CMD，输入mstsc，填写登录Linux的用户名和密码</p><h1 id="终端分屏"><a href="#终端分屏" class="headerlink" title="终端分屏"></a>终端分屏</h1><p>使用tmux分屏（既可以左右分屏，也可以上下分屏）、</p><p>（1）安装工具</p><p>在ubuntu系统中使用sudo apt-get install tmux安装tmux工具</p><p>（2）使用工具 </p><ol><li><p>输入命令tmux使用工具</p></li><li><p>上下分屏：ctrl + b  再按 “</p></li><li><p>左右分屏：ctrl + b  再按 %</p></li><li><p>切换屏幕：ctrl + b  再按o</p></li><li><p>关闭一个终端：ctrl + b  再按x</p></li><li><p>上下分屏与左右分屏切换： ctrl + b  再按空格键</p></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+      <category>终端管理</category>
+      
+      <category>图形化</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Hello World</title>
     <link href="/1985/10/26/hello-world/"/>
     <url>/1985/10/26/hello-world/</url>
