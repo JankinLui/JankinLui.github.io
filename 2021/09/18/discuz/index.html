@@ -206,7 +206,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      462 字
+      460 字
     </span>
   
 
@@ -251,31 +251,31 @@
             <div class="markdown-body">
               <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>CrossdayDiscuz! Board（简称 Discuz!）是北京康盛新创科技有限责任公司推出的一套通用的社区论坛软件系统。自2001年6月面世以来，Discuz!已拥有15年以上的应用历史和200多万网站用户案例，是全球成熟度最高、覆盖率最大的论坛软件系统之一。目前最新版本Discuz! X3.3正式版于2017年1月1日发布，是 X3.2 的稳定版本。</p>
 <h1 id="第一步：安装环境"><a href="#第一步：安装环境" class="headerlink" title="第一步：安装环境"></a>第一步：安装环境</h1><p>​    安装Apache、MySQL、PHP<br>​    yum install httpd php php-fpm php-mysql mysql mysql-server -y<br>​        （centos7版本中的MySQL安装方式与6版本不同：yum install mariadb*）<br>​    </p>
-<pre><code>启动服务
-    6版本                                                                 7版本
-        
-        service httpd start                                                   systemctl start httpd.service
-        service mysqld start                                                                systemctl start mariadb.service
-        service php-fpm start                                                             systemctl start php-fpm.service
-</code></pre>
-<h1 id="第二部：配置数据库"><a href="#第二部：配置数据库" class="headerlink" title="第二部：配置数据库"></a>第二部：配置数据库</h1><p>​    配置MySQL<br>​        mysqladmin -u root password “XXXXXXXX” (此处的密码可进行自定义）设置好 MySQL 的密码后， 对账号密码进行验证<br>​        mysql -u root -p输入刚刚设定好的密码，可以登录到 MySQL 中，则说明配置正确。退出 MySQL<br>​        </p>
-<pre><code>检查LAMP环境配置
-    vim /etc/www/html/test.php
-    中添加
-    &lt;?php echo &quot;&lt;title&gt;Test Page&lt;/title&gt;&quot;; phpinfo() ?&gt;输入完成后，按“Esc”键，输入 “:wq”，保存文件并返回
-    
-    http:// IP/test.php 出现PHP页面,则说明 LAMP 环境配置成功
-</code></pre>
-<h1 id="第三步：安装Discuz"><a href="#第三步：安装Discuz" class="headerlink" title="第三步：安装Discuz"></a>第三步：安装Discuz</h1><pre><code>1.下载安装包
-wget http://download.comsenz.com/DiscuzX/3.2/Discuz_X3.2_SC_UTF8.zip
-2.解压安装包
-unzip Discuz_X3.2_SC_UTF8.zip
-3.把解压后的 “upload” 文件夹下的所有文件复制到 “/var/www/html/”。
-cp -r upload/* /var/www/html/
-4.将写权限赋予给其他用户。这些目录文件上传到服务器之后，默认只有 root 用户才有写权限。
-chmod -R 777 /var/www/html
-5.至此，论坛已经完全搭建完毕，可以在浏览器中进行安装了。
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash">启动服务<br>6版本:<br>service httpd start<br>systemctl start httpd.service<br>service mysqld start <br><br>7版本:<br>systemctl start mariadb.service<br>service php-fpm start             <br>systemctl start php-fpm.service<br></code></pre></td></tr></table></figure>
+
+<h1 id="第二部：配置数据库"><a href="#第二部：配置数据库" class="headerlink" title="第二部：配置数据库"></a>第二部：配置数据库</h1><p>​    配置MySQL<br>​        mysqladmin -u root password “XXXXXXXX” (此处的密码可进行自定义）设置好 MySQL 的密码后， 对账号密码进行验证<br>​        mysql -u root -p输入刚刚设定好的密码，可以登录到 MySQL 中，则说明配置正确。退出 MySQL</p>
+<p>检查LAMP环境配置        </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">vim /etc/www/html/test.php<br></code></pre></td></tr></table></figure>
+
+<p>​    中添加</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span> <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;&lt;title&gt;Test Page&lt;/title&gt;&quot;</span>; phpinfo() <span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>输入完成后，按“Esc”键，输入 “:wq”，保存文件并返回<br>http:// IP/test.php 出现PHP页面,则说明 LAMP 环境配置成功</p>
+<h1 id="第三步：安装Discuz"><a href="#第三步：安装Discuz" class="headerlink" title="第三步：安装Discuz"></a>第三步：安装Discuz</h1><p>1.下载安装包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">wget http://download.comsenz.com/DiscuzX/3.2/Discuz_X3.2_SC_UTF8.zip<br></code></pre></td></tr></table></figure>
+
+<p>2.解压安装包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">unzip Discuz_X3.2_SC_UTF8.zip<br></code></pre></td></tr></table></figure>
+
+
+
+<p>3.把解压后的 “upload” 文件夹下的所有文件复制到 “/var/www/html/”。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">cp -r upload/* /var/www/html/<br></code></pre></td></tr></table></figure>
+
+<p>4.将写权限赋予给其他用户。这些目录文件上传到服务器之后，默认只有 root 用户才有写权限。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">chmod -R 777 /var/www/html<br></code></pre></td></tr></table></figure>
+
+<p>5.至此，论坛已经完全搭建完毕，可以在浏览器中进行安装了。</p>
 
             </div>
             <hr>
@@ -314,7 +314,7 @@ chmod -R 777 /var/www/html
                     
                     
                       <a href="/2021/09/17/disk/">
-                        <span class="hidden-mobile">磁盘分区&磁盘阵列</span>
+                        <span class="hidden-mobile"></span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

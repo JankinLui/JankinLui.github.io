@@ -240,7 +240,7 @@ buffer 缓冲区 在数据准备存储
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E8%BF%90%E7%BB%B4%E7%BB%BC%E5%90%88%E6%9E%B6%E6%9E%84/">运维综合架构</a>
+              <a href="/categories/Linux/">Linux</a>
             
           </div>
         
@@ -274,8 +274,11 @@ buffer 缓冲区 在数据准备存储
             
           
           1.安装deepin-wine环境依次执行以下命令，git目录名可自己设置
-mkdir ~/gitcd ~/gitgit clone https://gitee.com/wszqkzqk/deepin-wine-for-ubuntu.gitcd deepin-wine-for-ubuntu./install.sh
-2.下载deepin-wine容器下载微信的deb包（建议选择最新的版本）：http
+12345mkdir ~/gitcd ~/gitgit clone https://gitee.com/wszqkzqk/deepin-wine-for-ubuntu.gitcd deepin-wine-for-ubuntu./install.sh
+
+
+
+2.下载deepin-wine容器下载微信的deb包（建议选择最新的
         </a>
       </p>
 
@@ -337,10 +340,9 @@ Teleport—————官方地址：http://tp4a.com/
 
 telepost安装
 下载
-Wget https://tp4a.com/static/download/telepost-server-linux-x64-3.2.2.tar.gz
-
+1wget https://tp4a.com/static/download/telepost-server-linux-x64-3.2.2.tar.gz
 解压
-Tar xf teleport
+1tar xf telepor
         </a>
       </p>
 
@@ -393,10 +395,10 @@ Tar xf teleport
             
           
           sqli-labs是一个学习SQL注入的实验平台下载地址：https://github.com/Audi-1/sqli-labs
-●1.快速搭建LAMP环境CentOS6.5 IP:192.168.112.100
+1.快速搭建LAMP环境CentOS6.5 IP:192.168.112.100
 (见“实训项目5通过SQLmap进行SQL注入并获得后台管理员账号和密码”，部署DVWA网站，搭建LAMP环境之1-4)
 
-●2.安装sqli-labs教学环境使用rz命令上传sqli-
+2.安装sqli-labs教学环境使用rz命令上传sqli-la
         </a>
       </p>
 
@@ -537,7 +539,7 @@ Tar xf teleport
       <h1 class="index-header">
         
         <a href="/2021/09/17/disk/" target="_self">
-          磁盘分区&amp;磁盘阵列
+          
         </a>
       </h1>
 
@@ -547,7 +549,9 @@ Tar xf teleport
           
             
           
-          磁盘分区FDISK硬盘接口：IDE/EIDE，SCSI，SATA，SASSATA（Serial Advanced Technology Attachment），串行高级技术附件，串口硬盘SAS（Serial Attached SCSI），串行连接SCSI接口，串行连接小型计算机系统接口SSD（Solid State Disk或Solid State Drive）固态硬盘硬盘：温彻斯特 温盘Sect
+          title: 磁盘分区&amp;磁盘阵列date: 2021-9-17  20:34:13categories: [Linux]tags: [Linux, Linux磁盘分区管理]
+一、磁盘分区FDISK硬盘接口：IDE/EIDE，SCSI，SATA，SAS
+SATA（Serial Advanced Technology Attachment），串行高级技术附件，串口硬盘 SAS（Serial A
         </a>
       </p>
 
@@ -560,13 +564,6 @@ Tar xf teleport
             </time>
           </div>
         
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Linux/">Linux</a>
-            
-          </div>
         
         
       </div>
@@ -646,7 +643,10 @@ Tar xf teleport
           
             
           
-          简写1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253#yum install bind*                                 //获取DNS所有的软件包yum install -y bind bind-chroot bind-
+          配置单个DNS安装DNS获取DNS所有的软件包
+123yum install bind*或yum install -y bind bind-chroot bind-utils
+
+配置DNS文件修改DNS主配置文件1234vi /etc/named.conf 	修改：		listen-on port 53 &#123; any; &#125;;		allow-query     &#123; any
         </a>
       </p>
 
