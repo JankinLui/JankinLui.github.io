@@ -77,7 +77,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/">&nbsp;<strong>🏷️小胖博客</strong>&nbsp;</a>
+       href="/">&nbsp;<strong>JANKINLIU</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -133,18 +133,6 @@
               <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/links/">
-                <i class="iconfont icon-link-fill"></i>
-                友链
               </a>
             </li>
           
@@ -476,13 +464,13 @@
 <p>RAID5：</p>
 <p># mdadm -C /dev/md5  -l 5  -n 3 /dev/vdb1 /dev/vdc1 /dev/vdc2</p>
 <p><img src="/2021/09/17/disk/mac/Documents/blog/hexo/source/_posts/disk/14.jpg" srcset="/img/loading.gif" lazyload></p>
-<h2 id="1-创建磁盘阵列RAID10"><a href="#1-创建磁盘阵列RAID10" class="headerlink" title="1.创建磁盘阵列RAID10"></a>1.创建磁盘阵列RAID10</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">mdadm -C /dev/md10 -l 10 -n 4 /dev/vdb1 /dev/vdc1 /dev/vdd1 /dev/vdd2 mdadm<br></code></pre></td></tr></table></figure>
+<h2 id="1-创建磁盘阵列RAID10"><a href="#1-创建磁盘阵列RAID10" class="headerlink" title="1.创建磁盘阵列RAID10"></a>1.创建磁盘阵列RAID10</h2><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">mdadm -C /dev/md10 -l 10 -n 4 /dev/vdb1 /dev/vdc1 /dev/vdd1 /dev/vdd2 mdadm<br></code></pre></div></td></tr></table></figure>
 
 
 
 <p>的主要参数： -a 检测设备名称</p>
 <p>-C 创建</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># mdadm -C /dev/md10 -l 10 -n 4 /dev/vdb1 /dev/vdc1 /dev/vdd1 /dev/vdd2</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash"><span class="hljs-comment"># mdadm -C /dev/md10 -l 10 -n 4 /dev/vdb1 /dev/vdc1 /dev/vdd1 /dev/vdd2</span><br></code></pre></div></td></tr></table></figure>
 
 
 
@@ -490,38 +478,38 @@
 <p>-l 指定 RAID 级别                            -l 10</p>
 <p>-v 显示过程</p>
 <p>-f 模拟设备损坏</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">mdadm /dev/md10 -f /dev/vdb1<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">mdadm /dev/md10 -f /dev/vdb1<br></code></pre></div></td></tr></table></figure>
 
 
 
 <p>-r 移除设备            </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">mdadm /dev/md10 -r /dev/vdb1<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">mdadm /dev/md10 -r /dev/vdb1<br></code></pre></div></td></tr></table></figure>
 
 
 
 <p>-Q <strong>查看摘要信息</strong></p>
 <p>-D 查看详细信息 </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># mdadm -D /dev/md10</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash"><span class="hljs-comment"># mdadm -D /dev/md10</span><br></code></pre></div></td></tr></table></figure>
 
 
 
 <p>-S 停止 RAID 磁盘阵列</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">madadm -S /dev/md10<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">madadm -S /dev/md10<br></code></pre></div></td></tr></table></figure>
 
 
 
 <p>-A 激活RAID 磁盘阵列  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># madadm -A /dev/md10</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash"><span class="hljs-comment"># madadm -A /dev/md10</span><br></code></pre></div></td></tr></table></figure>
 
 
 
 <p>-x 1 /dev/sde 添加一个热备盘</p>
-<h2 id="2-移除磁盘阵列RAID10"><a href="#2-移除磁盘阵列RAID10" class="headerlink" title="2.移除磁盘阵列RAID10"></a>2.移除磁盘阵列RAID10</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">umount /dev/md10<br>mdadm -S /dev/md0<br>mdadm --misc --zero-superblock /dev/vdd&#123;1,2&#125;   //删除磁盘分区<br></code></pre></td></tr></table></figure>
+<h2 id="2-移除磁盘阵列RAID10"><a href="#2-移除磁盘阵列RAID10" class="headerlink" title="2.移除磁盘阵列RAID10"></a>2.移除磁盘阵列RAID10</h2><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">umount /dev/md10<br>mdadm -S /dev/md0<br>mdadm --misc --zero-superblock /dev/vdd&#123;1,2&#125;   //删除磁盘分区<br></code></pre></div></td></tr></table></figure>
 
 
 
 <p>删除或注销配置文件mdadm.conf和fstab等</p>
-<h2 id="3-检查"><a href="#3-检查" class="headerlink" title="3.检查"></a>3.检查</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash">lsblk<br>df -hT<br>mount<br>fdisk /dev/md10<br>file /dev/md10<br>	/dev/md10: block special<br>lsblk<br>blkid       //查看生成好的md10等磁盘的文件系统格式及UUID<br><br><span class="hljs-built_in">echo</span> <span class="hljs-string">&#x27;- - -&#x27;</span> &gt; /sys/class/scsi_host/host1/scan    //添加硬盘，使用命令让系统识别<br></code></pre></td></tr></table></figure>
+<h2 id="3-检查"><a href="#3-检查" class="headerlink" title="3.检查"></a>3.检查</h2><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">lsblk<br>df -hT<br>mount<br>fdisk /dev/md10<br>file /dev/md10<br>	/dev/md10: block special<br>lsblk<br>blkid       //查看生成好的md10等磁盘的文件系统格式及UUID<br><br><span class="hljs-built_in">echo</span> <span class="hljs-string">&#x27;- - -&#x27;</span> &gt; /sys/class/scsi_host/host1/scan    //添加硬盘，使用命令让系统识别<br></code></pre></div></td></tr></table></figure>
 
 
 
@@ -625,13 +613,13 @@
 <p>└─vdb1           252:17  0 1023.7M 0 part vdc             252:32  0   1G 0 disk </p>
 <p>└─vdc1           252:33  0 1023.7M 0 part vdd             252:48  0   <strong>2G</strong> 0 disk ├─vdd1           252:49  0   1G 0 part └─vdd2           252:50  0 1023.3M 0 part</p>
 <p>![计算机生成了可选文字: [root@host．192．168．133．7一]#Isblk NAME 闾A」：MIN 100p0 vda vdal vda2 29.5G （dm．0） 26.5G （dm．1） 252：16 252：17 252：32 252：33 252：48 252：49 252：50 252：0 252：1 252：2 253：0 253：1 RPI 0 0 0 0 0 0 0 0 0 0 0 0 0 SIZEROTYPEMOUNTPOINT 4．2G 1100p[media 40G 0disk 500闾 0part<a href="file:////Users/mac/Library/Group%20Containers/UBF8T346G9.Office/TemporaryItems/msohtmlclip/clip_image016.jpg">boot part 匕 VOIGroup VOIGroup vdb vdc Lvdc1 vdd vddl vdd2 root Swap 3G IG 1023。7 IG 1023．7 2G IG 1023．3 0 0Ivm/ 0Ivm[SWAP] 0disk 0 part 0disk 0 part 0disk 0 part 0 part [root@host．192．168．133．7一]#</a></p>
-<h2 id="1-创建RAID10"><a href="#1-创建RAID10" class="headerlink" title="1.创建RAID10"></a>1.创建RAID10</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">mdadm -C /dev/md10 -l 10 -n 4 /dev/vdb1 /dev/vdc1 /dev/vdd1 /dev/vdd2<br></code></pre></td></tr></table></figure>
+<h2 id="1-创建RAID10"><a href="#1-创建RAID10" class="headerlink" title="1.创建RAID10"></a>1.创建RAID10</h2><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">mdadm -C /dev/md10 -l 10 -n 4 /dev/vdb1 /dev/vdc1 /dev/vdd1 /dev/vdd2<br></code></pre></div></td></tr></table></figure>
 
 <p>mdadm: Defaulting to version 1.2 metadata mdadm: array /dev/md10 started.</p>
 <p>其中：-C Create创建，-l level级别，-n 硬盘或分区个数若显示：</p>
 <p>-bash: mdadm: command not found </p>
 <p>需配置本地yum源，安装mdadm</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">yum install mdadm -y<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">yum install mdadm -y<br></code></pre></div></td></tr></table></figure>
 
 
 
@@ -905,8 +893,8 @@
 <td>![计算机生成了可选文字: <a href="file:////Users/mac/Library/Group%20Containers/UBF8T346G9.Office/TemporaryItems/msohtmlclip/clip_image026.jpg">．192．168．133．7 swapon ．S Filename /dev/dm-l /dev/md10p1 [root@host．192．168．133．7一]# Type partltlon partltlon Size 3145720 511992 Used 0 0 Pr主0rity ．2</a></td>
 </tr>
 </tbody></table>
-<pre><code>**/dev/md10p1     partition 511992   0   -2**
-</code></pre>
+<div class="hljs code-wrapper"><pre><code>**/dev/md10p1     partition 511992   0   -2**
+</code></pre></div>
 <h3 id="lsblk-查看分区及挂载情况"><a href="#lsblk-查看分区及挂载情况" class="headerlink" title="# lsblk      //查看分区及挂载情况"></a># lsblk      //查看分区及挂载情况</h3><p>NAME            MAJ:MIN RM  SIZE RO TYPE  MOUNTPOINT loop0             7:0  0  4.2G 1 loop  /media vda             252:0  0   40G 0 disk  </p>
 <p>├─vda1           252:1  0  500M 0 part  /boot</p>
 <p>└─vda2           252:2  0  29.5G 0 part  </p>
@@ -1373,6 +1361,16 @@
   
 
   
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        鄂ICP备2021017549号
+      </a>
+    </span>
+    
+  </div>
+
 
   
 <div>
@@ -1513,12 +1511,6 @@
 
 
 
-
-
-  
-<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/DynamicRibbon.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/Cherry.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/gradient.css.js"></script>
 
 
 

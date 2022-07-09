@@ -77,7 +77,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/">&nbsp;<strong>🏷️小胖博客</strong>&nbsp;</a>
+       href="/">&nbsp;<strong>JANKINLIU</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -133,18 +133,6 @@
               <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/links/">
-                <i class="iconfont icon-link-fill"></i>
-                友链
               </a>
             </li>
           
@@ -255,21 +243,21 @@
 </ol>
 <h1 id="telepost安装"><a href="#telepost安装" class="headerlink" title="telepost安装"></a>telepost安装</h1><ol>
 <li><p>下载</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">wget https://tp4a.com/static/download/telepost-server-linux-x64-3.2.2.tar.gz<br></code></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">wget https://tp4a.com/static/download/telepost-server-linux-x64-3.2.2.tar.gz<br></code></pre></div></td></tr></table></figure></li>
 <li><p>解压</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">tar xf teleport-server-linux-x64-3.2.2.tar.gz<br></code></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">tar xf teleport-server-linux-x64-3.2.2.tar.gz<br></code></pre></div></td></tr></table></figure></li>
 <li><p>cd进入目录，执行 ./setup.sh</p>
 </li>
 <li><p>使用端口</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">netstats -ntlup | grep : 7190<br></code></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">netstats -ntlup | grep : 7190<br></code></pre></div></td></tr></table></figure></li>
 <li><p>使用mysql当数据库，它支持sqlist和mysql</p>
 </li>
 <li><p>新建一个库</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">Mysql &gt; create database teleport default charset utf8;<br></code></pre></td></tr></table></figure></li>
+<figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">Mysql &gt; create database teleport default charset utf8;<br></code></pre></div></td></tr></table></figure></li>
 <li><p>给库授权</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs mysql">Mysql &gt; grant all on teleport .* to &#x27;telepost&#x27;@&#x27;localhost&#x27; identified by &#x27;123&#x27;;<br>mysql &gt; flush privileges;<br></code></pre></td></tr></table></figure></li>
+<figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">Mysql &gt; grant all on teleport .* to &#x27;telepost&#x27;@&#x27;localhost&#x27; identified by &#x27;123&#x27;;<br>mysql &gt; flush privileges;<br></code></pre></div></td></tr></table></figure></li>
 <li><p>修改telepost的配置文件</p>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-comment">#grep -Ev &#x27;;|^$&#x27; /usr/local/telepost/data/etc/web.ini</span><br><br><span class="hljs-section">[common]</span><br><span class="hljs-attr">port</span> = <span class="hljs-number">7190</span><br><span class="hljs-attr">log-level</span> = <span class="hljs-number">2</span><br><span class="hljs-attr">debug-mode</span> = <span class="hljs-number">0</span><br><span class="hljs-attr">core-server-rpc</span> = http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">52080</span>/rpc<br><br><span class="hljs-section">[database]</span><br><span class="hljs-attr">type</span> = mysql<br><span class="hljs-attr">mysql-host</span> = <span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span><br><span class="hljs-attr">mysql-port</span> = <span class="hljs-number">3306</span><br><span class="hljs-attr">mysql-db</span> = teleport<br><span class="hljs-attr">mysql-prefix</span> = tp_<br><span class="hljs-attr">mysql-user</span> = teleport<br><span class="hljs-attr">mysql-password</span> = <span class="hljs-number">123</span><br></code></pre></td></tr></table></figure></li>
+<figure class="highlight ini"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs ini"><span class="hljs-comment">#grep -Ev &#x27;;|^$&#x27; /usr/local/telepost/data/etc/web.ini</span><br><br><span class="hljs-section">[common]</span><br><span class="hljs-attr">port</span> = <span class="hljs-number">7190</span><br><span class="hljs-attr">log-level</span> = <span class="hljs-number">2</span><br><span class="hljs-attr">debug-mode</span> = <span class="hljs-number">0</span><br><span class="hljs-attr">core-server-rpc</span> = http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">52080</span>/rpc<br><br><span class="hljs-section">[database]</span><br><span class="hljs-attr">type</span> = mysql<br><span class="hljs-attr">mysql-host</span> = <span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span><br><span class="hljs-attr">mysql-port</span> = <span class="hljs-number">3306</span><br><span class="hljs-attr">mysql-db</span> = teleport<br><span class="hljs-attr">mysql-prefix</span> = tp_<br><span class="hljs-attr">mysql-user</span> = teleport<br><span class="hljs-attr">mysql-password</span> = <span class="hljs-number">123</span><br></code></pre></div></td></tr></table></figure></li>
 </ol>
 <h1 id="特别注意"><a href="#特别注意" class="headerlink" title="特别注意"></a>特别注意</h1><p>录像存放路径/usr/local/teleport/data/replay</p>
 <p>长时间后会占用比较大的的空间，建议使用单独的存储盘或远程NAS、SAN分布式式储存挂载，以防空间不够使用Nginx，反向代理</p>
@@ -428,6 +416,16 @@
   
 
   
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        鄂ICP备2021017549号
+      </a>
+    </span>
+    
+  </div>
+
 
   
 <div>
@@ -568,12 +566,6 @@
 
 
 
-
-
-  
-<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/DynamicRibbon.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/Cherry.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/gradient.css.js"></script>
 
 
 

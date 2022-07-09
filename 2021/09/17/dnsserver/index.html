@@ -77,7 +77,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/">&nbsp;<strong>🏷️小胖博客</strong>&nbsp;</a>
+       href="/">&nbsp;<strong>JANKINLIU</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -133,18 +133,6 @@
               <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/links/">
-                <i class="iconfont icon-link-fill"></i>
-                友链
               </a>
             </li>
           
@@ -250,67 +238,67 @@
             
             <div class="markdown-body">
               <h1 id="配置单个DNS"><a href="#配置单个DNS" class="headerlink" title="配置单个DNS"></a>配置单个DNS</h1><h2 id="安装DNS"><a href="#安装DNS" class="headerlink" title="安装DNS"></a>安装DNS</h2><p>获取DNS所有的软件包</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">yum install <span class="hljs-built_in">bind</span>*<br>或<br>yum install -y <span class="hljs-built_in">bind</span> bind-chroot bind-utils<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">yum install <span class="hljs-built_in">bind</span>*<br>或<br>yum install -y <span class="hljs-built_in">bind</span> bind-chroot bind-utils<br></code></pre></div></td></tr></table></figure>
 
-<h2 id="配置DNS文件"><a href="#配置DNS文件" class="headerlink" title="配置DNS文件"></a>配置DNS文件</h2><h3 id="修改DNS主配置文件"><a href="#修改DNS主配置文件" class="headerlink" title="修改DNS主配置文件"></a>修改DNS主配置文件</h3><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-keyword">vi</span> /etc/named.<span class="hljs-keyword">conf</span> <br>	修改：<br>		listen-<span class="hljs-keyword">on</span> port <span class="hljs-number">53</span> &#123; any; &#125;;<br>		allow-query     &#123; any; &#125;;<br></code></pre></td></tr></table></figure>
+<h2 id="配置DNS文件"><a href="#配置DNS文件" class="headerlink" title="配置DNS文件"></a>配置DNS文件</h2><h3 id="修改DNS主配置文件"><a href="#修改DNS主配置文件" class="headerlink" title="修改DNS主配置文件"></a>修改DNS主配置文件</h3><figure class="highlight vim"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs vim"><span class="hljs-keyword">vi</span> /etc/named.<span class="hljs-keyword">conf</span> <br>	修改：<br>		listen-<span class="hljs-keyword">on</span> port <span class="hljs-number">53</span> &#123; any; &#125;;<br>		allow-query     &#123; any; &#125;;<br></code></pre></div></td></tr></table></figure>
 
-<h3 id="修改、反向解析配置文件"><a href="#修改、反向解析配置文件" class="headerlink" title="修改、反向解析配置文件"></a>修改、反向解析配置文件</h3><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-keyword">vi</span> /etc/named.rfc1912.zones<br>	添加：<br>		zone <span class="hljs-string">&quot;ljq.com&quot;</span> IN &#123;<br>		        <span class="hljs-built_in">type</span> master;<br>		        <span class="hljs-keyword">file</span> <span class="hljs-string">&quot;ljq.com.zone&quot;</span>;<br>		        allow-<span class="hljs-keyword">update</span> &#123; none; &#125;;<br>		&#125;;<br>		zone <span class="hljs-string">&quot;221.168.192.in-addr.arpa&quot;</span> IN &#123;<br>		        <span class="hljs-built_in">type</span> master;<br>		        <span class="hljs-keyword">file</span> <span class="hljs-string">&quot;221.168.192.rev&quot;</span>;<br>		        allow-<span class="hljs-keyword">update</span> &#123; none; &#125;;<br>		&#125;;<br>		<br><span class="hljs-keyword">cd</span> /var/name<br><span class="hljs-keyword">cp</span> -<span class="hljs-keyword">p</span> named.localhost ljq.<span class="hljs-keyword">com</span>.zone<br><span class="hljs-keyword">cp</span> -<span class="hljs-keyword">p</span> named.loopback <span class="hljs-number">221.168</span>.<span class="hljs-number">192</span>.rev<br><br><span class="hljs-keyword">vi</span> ljq.<span class="hljs-keyword">com</span>.zone<br>	修改：<br>		$TTL <span class="hljs-number">1</span>D<br>		@       IN SOA  @ root.ljq.<span class="hljs-keyword">com</span>. (<br>		                                        <span class="hljs-number">0</span>       ; serial<br>		                                        <span class="hljs-number">1</span>D      ; refresh<br>		                                        <span class="hljs-number">1</span>H      ; retry<br>		                                        <span class="hljs-number">1</span>W      ; expire<br>		                                        <span class="hljs-number">3</span>H )    ; minimum<br>		              NS      dns.ljq.<span class="hljs-keyword">com</span>.<br>		www     A       <span class="hljs-number">192.168</span>.<span class="hljs-number">221.7</span><br>		ftp         A       <span class="hljs-number">192.168</span>.<span class="hljs-number">221.7</span><br>		dns        A       <span class="hljs-number">192.168</span>.<span class="hljs-number">221.7</span><br>		<br>#vi <span class="hljs-number">221.168</span>.<span class="hljs-number">192</span>.rev<br>	修改：<br>		$TTL <span class="hljs-number">1</span>D<br>		@       IN SOA  @ root.ljq.<span class="hljs-keyword">com</span>. (<br>		                                        <span class="hljs-number">0</span>       ; serial<br>		                                        <span class="hljs-number">1</span>D      ; refresh<br>		                                        <span class="hljs-number">1</span>H      ; retry<br>		                                        <span class="hljs-number">1</span>W      ; expire<br>		                                        <span class="hljs-number">3</span>H )    ; minimum<br>		        NS      dns.ljq.<span class="hljs-keyword">com</span>.<br>		<span class="hljs-number">7</span>       PTR     www.ljq.<span class="hljs-keyword">com</span><br>		<span class="hljs-number">7</span>       PTR     ftp.ljq.<span class="hljs-keyword">com</span><br>		<span class="hljs-number">7</span>       PTR     dns.ljq.<span class="hljs-keyword">com</span><br></code></pre></td></tr></table></figure>
+<h3 id="修改、反向解析配置文件"><a href="#修改、反向解析配置文件" class="headerlink" title="修改、反向解析配置文件"></a>修改、反向解析配置文件</h3><figure class="highlight vim"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs vim"><span class="hljs-keyword">vi</span> /etc/named.rfc1912.zones<br>	添加：<br>		zone <span class="hljs-string">&quot;ljq.com&quot;</span> IN &#123;<br>		        <span class="hljs-built_in">type</span> master;<br>		        <span class="hljs-keyword">file</span> <span class="hljs-string">&quot;ljq.com.zone&quot;</span>;<br>		        allow-<span class="hljs-keyword">update</span> &#123; none; &#125;;<br>		&#125;;<br>		zone <span class="hljs-string">&quot;221.168.192.in-addr.arpa&quot;</span> IN &#123;<br>		        <span class="hljs-built_in">type</span> master;<br>		        <span class="hljs-keyword">file</span> <span class="hljs-string">&quot;221.168.192.rev&quot;</span>;<br>		        allow-<span class="hljs-keyword">update</span> &#123; none; &#125;;<br>		&#125;;<br>		<br><span class="hljs-keyword">cd</span> /var/name<br><span class="hljs-keyword">cp</span> -<span class="hljs-keyword">p</span> named.localhost ljq.<span class="hljs-keyword">com</span>.zone<br><span class="hljs-keyword">cp</span> -<span class="hljs-keyword">p</span> named.loopback <span class="hljs-number">221.168</span>.<span class="hljs-number">192</span>.rev<br><br><span class="hljs-keyword">vi</span> ljq.<span class="hljs-keyword">com</span>.zone<br>	修改：<br>		$TTL <span class="hljs-number">1</span>D<br>		@       IN SOA  @ root.ljq.<span class="hljs-keyword">com</span>. (<br>		                                        <span class="hljs-number">0</span>       ; serial<br>		                                        <span class="hljs-number">1</span>D      ; refresh<br>		                                        <span class="hljs-number">1</span>H      ; retry<br>		                                        <span class="hljs-number">1</span>W      ; expire<br>		                                        <span class="hljs-number">3</span>H )    ; minimum<br>		              NS      dns.ljq.<span class="hljs-keyword">com</span>.<br>		www     A       <span class="hljs-number">192.168</span>.<span class="hljs-number">221.7</span><br>		ftp         A       <span class="hljs-number">192.168</span>.<span class="hljs-number">221.7</span><br>		dns        A       <span class="hljs-number">192.168</span>.<span class="hljs-number">221.7</span><br>		<br>#vi <span class="hljs-number">221.168</span>.<span class="hljs-number">192</span>.rev<br>	修改：<br>		$TTL <span class="hljs-number">1</span>D<br>		@       IN SOA  @ root.ljq.<span class="hljs-keyword">com</span>. (<br>		                                        <span class="hljs-number">0</span>       ; serial<br>		                                        <span class="hljs-number">1</span>D      ; refresh<br>		                                        <span class="hljs-number">1</span>H      ; retry<br>		                                        <span class="hljs-number">1</span>W      ; expire<br>		                                        <span class="hljs-number">3</span>H )    ; minimum<br>		        NS      dns.ljq.<span class="hljs-keyword">com</span>.<br>		<span class="hljs-number">7</span>       PTR     www.ljq.<span class="hljs-keyword">com</span><br>		<span class="hljs-number">7</span>       PTR     ftp.ljq.<span class="hljs-keyword">com</span><br>		<span class="hljs-number">7</span>       PTR     dns.ljq.<span class="hljs-keyword">com</span><br></code></pre></div></td></tr></table></figure>
 
-<h2 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">systemctl start named.service            //启动dns服务<br></code></pre></td></tr></table></figure>
+<h2 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h2><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">systemctl start named.service            //启动dns服务<br></code></pre></div></td></tr></table></figure>
 
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">systemctl <span class="hljs-built_in">enable</span> named.service          //开机自动启动<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">systemctl <span class="hljs-built_in">enable</span> named.service          //开机自动启动<br></code></pre></div></td></tr></table></figure>
 
 
 
-<h1 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h1><h2 id="查看是否已经安装DNS包"><a href="#查看是否已经安装DNS包" class="headerlink" title="查看是否已经安装DNS包"></a>查看是否已经安装DNS包</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">rpm -qa | grep <span class="hljs-built_in">bind</span><br></code></pre></td></tr></table></figure>
+<h1 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h1><h2 id="查看是否已经安装DNS包"><a href="#查看是否已经安装DNS包" class="headerlink" title="查看是否已经安装DNS包"></a>查看是否已经安装DNS包</h2><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">rpm -qa | grep <span class="hljs-built_in">bind</span><br></code></pre></div></td></tr></table></figure>
 
 <p>bind-9.7.0-5.P2.el6.i686.rpm        //默认没有安装</p>
 <p>bind-libs-9.7.0-5.P2.el6.i686       //默认已安装bind-libs包</p>
 <p>bind-utils-9.7.0-5.P2.el6.i686      //默认已安装bind-utils包，有nslookup命令</p>
 <p>bind-chroot-9.7.0-5.P2.el6.i686.rpm //默认没有安装</p>
-<h2 id="安装-基于本地安装"><a href="#安装-基于本地安装" class="headerlink" title="安装(基于本地安装)"></a>安装(基于本地安装)</h2><h3 id="挂载光驱"><a href="#挂载光驱" class="headerlink" title="挂载光驱"></a>挂载光驱</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">mount /dev/cdrom /media<br><span class="hljs-built_in">cd</span> /media/Packages<br>ls <span class="hljs-built_in">bind</span>*<br></code></pre></td></tr></table></figure>
+<h2 id="安装-基于本地安装"><a href="#安装-基于本地安装" class="headerlink" title="安装(基于本地安装)"></a>安装(基于本地安装)</h2><h3 id="挂载光驱"><a href="#挂载光驱" class="headerlink" title="挂载光驱"></a>挂载光驱</h3><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">mount /dev/cdrom /media<br><span class="hljs-built_in">cd</span> /media/Packages<br>ls <span class="hljs-built_in">bind</span>*<br></code></pre></div></td></tr></table></figure>
 
-<h3 id="安装DNS包"><a href="#安装DNS包" class="headerlink" title="安装DNS包"></a>安装DNS包</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">rpm -ivh bind-9.7.0-5.P2.el6.i686.rpm<br>rpm -ivh bind-chroot-9.7.0-5.P2.el6.i686.rpm<br></code></pre></td></tr></table></figure>
+<h3 id="安装DNS包"><a href="#安装DNS包" class="headerlink" title="安装DNS包"></a>安装DNS包</h3><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">rpm -ivh bind-9.7.0-5.P2.el6.i686.rpm<br>rpm -ivh bind-chroot-9.7.0-5.P2.el6.i686.rpm<br></code></pre></div></td></tr></table></figure>
 
-<h3 id="启动服务-1"><a href="#启动服务-1" class="headerlink" title="启动服务"></a>启动服务</h3><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">service named <span class="hljs-literal">start</span><br></code></pre></td></tr></table></figure>
+<h3 id="启动服务-1"><a href="#启动服务-1" class="headerlink" title="启动服务"></a>启动服务</h3><figure class="highlight crmsh"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs crmsh">service named <span class="hljs-literal">start</span><br></code></pre></div></td></tr></table></figure>
 
-<h3 id="关闭防火墙"><a href="#关闭防火墙" class="headerlink" title="关闭防火墙"></a>关闭防火墙</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk">service iptables stop          <span class="hljs-regexp">//</span>临时关闭防火墙<br>chkconfig iptables off         <span class="hljs-regexp">//</span>设置开机关闭防火墙<br>chkconfig --list | grep iptables  <span class="hljs-regexp">//</span>检查开机状态<br></code></pre></td></tr></table></figure>
+<h3 id="关闭防火墙"><a href="#关闭防火墙" class="headerlink" title="关闭防火墙"></a>关闭防火墙</h3><figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">service iptables stop          <span class="hljs-regexp">//</span>临时关闭防火墙<br>chkconfig iptables off         <span class="hljs-regexp">//</span>设置开机关闭防火墙<br>chkconfig --list | grep iptables  <span class="hljs-regexp">//</span>检查开机状态<br></code></pre></div></td></tr></table></figure>
 
 <p>iptables           0:关闭    1:关闭    2:关闭    3:关闭    4:关闭    5:关闭    6:关闭</p>
-<h3 id="关闭SELinux"><a href="#关闭SELinux" class="headerlink" title="关闭SELinux"></a>关闭SELinux</h3><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs arduino">setenforce <span class="hljs-number">0</span>                   <span class="hljs-comment">//设置SELinux为Permissive</span><br>getenforce                     <span class="hljs-comment">//查看状态</span><br>	Permissive                       <span class="hljs-comment">//宽容模式</span><br>vim /etc/selinux/config        <span class="hljs-comment">//设置开机SELinux为Permissive</span><br>	SELINUX=Permissive<br></code></pre></td></tr></table></figure>
+<h3 id="关闭SELinux"><a href="#关闭SELinux" class="headerlink" title="关闭SELinux"></a>关闭SELinux</h3><figure class="highlight arduino"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs arduino">setenforce <span class="hljs-number">0</span>                   <span class="hljs-comment">//设置SELinux为Permissive</span><br>getenforce                     <span class="hljs-comment">//查看状态</span><br>	Permissive                       <span class="hljs-comment">//宽容模式</span><br>vim /etc/selinux/config        <span class="hljs-comment">//设置开机SELinux为Permissive</span><br>	SELINUX=Permissive<br></code></pre></div></td></tr></table></figure>
 
-<h3 id="开机自动启动"><a href="#开机自动启动" class="headerlink" title="开机自动启动"></a>开机自动启动</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">chkconfig named on             <span class="hljs-regexp">//</span>设置开机自动启动<br>chkconfig --list | grep named  <span class="hljs-regexp">//</span>查看运行状态<br></code></pre></td></tr></table></figure>
+<h3 id="开机自动启动"><a href="#开机自动启动" class="headerlink" title="开机自动启动"></a>开机自动启动</h3><figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">chkconfig named on             <span class="hljs-regexp">//</span>设置开机自动启动<br>chkconfig --list | grep named  <span class="hljs-regexp">//</span>查看运行状态<br></code></pre></div></td></tr></table></figure>
 
 <p>named          0:关闭    1:关闭    2:启用    3:启用    4:启用    5:启用    6:关闭</p>
 <h3 id="DNS默认功能测试及众多配置文件的作用"><a href="#DNS默认功能测试及众多配置文件的作用" class="headerlink" title="DNS默认功能测试及众多配置文件的作用"></a>DNS默认功能测试及众多配置文件的作用</h3><h4 id="默认可以对主机名localhost进行正向解析和反向解析"><a href="#默认可以对主机名localhost进行正向解析和反向解析" class="headerlink" title="默认可以对主机名localhost进行正向解析和反向解析"></a>默认可以对主机名localhost进行正向解析和反向解析</h4><p>在测试默认的功能之前，必须先将Linux系统中的DNS设置为本机的IP：192.168.112.128，即将本机作为Linux系统上网的DNS服务器</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">vim <span class="hljs-regexp">/etc/</span>resolv.conf<br>nameserver <span class="hljs-number">192.168</span>.<span class="hljs-number">112.128</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">vim <span class="hljs-regexp">/etc/</span>resolv.conf<br>nameserver <span class="hljs-number">192.168</span>.<span class="hljs-number">112.128</span><br></code></pre></div></td></tr></table></figure>
 
 <p>修改配置文件/etc/named.conf中关于DNS的安全访问控制</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><code class="hljs awk">vim <span class="hljs-regexp">/etc/</span>named.conf<br><br> <span class="hljs-number">10</span> options &#123;<br><br> <span class="hljs-number">11</span>         listen-on port <span class="hljs-number">53</span> &#123; <span class="hljs-number">192.168</span>.<span class="hljs-number">112.128</span>; &#125;;    <span class="hljs-regexp">//</span><span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>改为<span class="hljs-number">192.168</span>.<span class="hljs-number">112.128</span><br><br> <span class="hljs-number">12</span>         listen-on-v6 port <span class="hljs-number">53</span> &#123; ::<span class="hljs-number">1</span>; &#125;;<br><br> <span class="hljs-number">13</span>         directory       <span class="hljs-string">&quot;/var/named&quot;</span>;<br><br> <span class="hljs-number">14</span>         dump-file       <span class="hljs-string">&quot;/var/named/data/cache_dump.db&quot;</span>;<br><br> <span class="hljs-number">15</span>         statistics-file <span class="hljs-string">&quot;/var/named/data/named_stats.txt&quot;</span>;<br><br> <span class="hljs-number">16</span>         memstatistics-file <span class="hljs-string">&quot;/var/named/data/named_mem_stats.txt&quot;</span>;<br><br> <span class="hljs-number">17</span>         allow-query     &#123; any; &#125;;                  <span class="hljs-regexp">//</span>localhost改为any<br><br> <span class="hljs-number">18</span>         recursion yes;<br><br> <span class="hljs-number">19</span> <br><br> <span class="hljs-number">20</span> <span class="hljs-regexp">//</span>      dnssec-enable yes;                         <span class="hljs-regexp">//</span>注释掉<br><br> <span class="hljs-number">21</span> <span class="hljs-regexp">//</span>      dnssec-validation yes;                     <span class="hljs-regexp">//</span>注释掉<br><br> <span class="hljs-number">22</span> <span class="hljs-regexp">//</span>      dnssec-lookaside auto;                     <span class="hljs-regexp">//</span>注释掉<br><br> <span class="hljs-number">23</span> <br><br> <span class="hljs-number">24</span>         <span class="hljs-regexp">/* Path to ISC DLV key */</span><br><br> <span class="hljs-number">25</span>         bindkeys-file <span class="hljs-string">&quot;/etc/named.iscdlv.key&quot;</span>;<br><br> <span class="hljs-number">26</span> &#125;;<br><br> <span class="hljs-number">27</span> <br><br> <span class="hljs-number">28</span> logging &#123;<br><br> <span class="hljs-number">29</span>         channel default_debug &#123;<br><br> <span class="hljs-number">30</span>                 file <span class="hljs-string">&quot;data/named.run&quot;</span>;<br><br> <span class="hljs-number">31</span>                 severity dynamic;<br><br> <span class="hljs-number">32</span>         &#125;;<br><br> <span class="hljs-number">33</span> &#125;;<br><br> <span class="hljs-number">34</span> <br><br> <span class="hljs-number">35</span> zone <span class="hljs-string">&quot;.&quot;</span> IN &#123;<br><br> <span class="hljs-number">36</span>         type hint;<br><br> <span class="hljs-number">37</span>         file <span class="hljs-string">&quot;named.ca&quot;</span>;<br><br> <span class="hljs-number">38</span> &#125;;                                                 <span class="hljs-regexp">//</span>第<span class="hljs-number">35</span>-<span class="hljs-number">38</span>行不能删，因为它能解析整个互联网<br><br> <span class="hljs-number">39</span> <br><br> <span class="hljs-number">40</span> include <span class="hljs-string">&quot;/etc/named.rfc1912.zones&quot;</span>;                <span class="hljs-regexp">//</span>主配置文件<span class="hljs-regexp">/etc/</span>named.rfc1912.zones，用于增加主机名和域名的正向解析和反向解析配置<br></code></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">vim <span class="hljs-regexp">/etc/</span>named.conf<br><br> <span class="hljs-number">10</span> options &#123;<br><br> <span class="hljs-number">11</span>         listen-on port <span class="hljs-number">53</span> &#123; <span class="hljs-number">192.168</span>.<span class="hljs-number">112.128</span>; &#125;;    <span class="hljs-regexp">//</span><span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>改为<span class="hljs-number">192.168</span>.<span class="hljs-number">112.128</span><br><br> <span class="hljs-number">12</span>         listen-on-v6 port <span class="hljs-number">53</span> &#123; ::<span class="hljs-number">1</span>; &#125;;<br><br> <span class="hljs-number">13</span>         directory       <span class="hljs-string">&quot;/var/named&quot;</span>;<br><br> <span class="hljs-number">14</span>         dump-file       <span class="hljs-string">&quot;/var/named/data/cache_dump.db&quot;</span>;<br><br> <span class="hljs-number">15</span>         statistics-file <span class="hljs-string">&quot;/var/named/data/named_stats.txt&quot;</span>;<br><br> <span class="hljs-number">16</span>         memstatistics-file <span class="hljs-string">&quot;/var/named/data/named_mem_stats.txt&quot;</span>;<br><br> <span class="hljs-number">17</span>         allow-query     &#123; any; &#125;;                  <span class="hljs-regexp">//</span>localhost改为any<br><br> <span class="hljs-number">18</span>         recursion yes;<br><br> <span class="hljs-number">19</span> <br><br> <span class="hljs-number">20</span> <span class="hljs-regexp">//</span>      dnssec-enable yes;                         <span class="hljs-regexp">//</span>注释掉<br><br> <span class="hljs-number">21</span> <span class="hljs-regexp">//</span>      dnssec-validation yes;                     <span class="hljs-regexp">//</span>注释掉<br><br> <span class="hljs-number">22</span> <span class="hljs-regexp">//</span>      dnssec-lookaside auto;                     <span class="hljs-regexp">//</span>注释掉<br><br> <span class="hljs-number">23</span> <br><br> <span class="hljs-number">24</span>         <span class="hljs-regexp">/* Path to ISC DLV key */</span><br><br> <span class="hljs-number">25</span>         bindkeys-file <span class="hljs-string">&quot;/etc/named.iscdlv.key&quot;</span>;<br><br> <span class="hljs-number">26</span> &#125;;<br><br> <span class="hljs-number">27</span> <br><br> <span class="hljs-number">28</span> logging &#123;<br><br> <span class="hljs-number">29</span>         channel default_debug &#123;<br><br> <span class="hljs-number">30</span>                 file <span class="hljs-string">&quot;data/named.run&quot;</span>;<br><br> <span class="hljs-number">31</span>                 severity dynamic;<br><br> <span class="hljs-number">32</span>         &#125;;<br><br> <span class="hljs-number">33</span> &#125;;<br><br> <span class="hljs-number">34</span> <br><br> <span class="hljs-number">35</span> zone <span class="hljs-string">&quot;.&quot;</span> IN &#123;<br><br> <span class="hljs-number">36</span>         type hint;<br><br> <span class="hljs-number">37</span>         file <span class="hljs-string">&quot;named.ca&quot;</span>;<br><br> <span class="hljs-number">38</span> &#125;;                                                 <span class="hljs-regexp">//</span>第<span class="hljs-number">35</span>-<span class="hljs-number">38</span>行不能删，因为它能解析整个互联网<br><br> <span class="hljs-number">39</span> <br><br> <span class="hljs-number">40</span> include <span class="hljs-string">&quot;/etc/named.rfc1912.zones&quot;</span>;                <span class="hljs-regexp">//</span>主配置文件<span class="hljs-regexp">/etc/</span>named.rfc1912.zones，用于增加主机名和域名的正向解析和反向解析配置<br></code></pre></div></td></tr></table></figure>
 
 <p>①第11行127.0.0.1改为192.168.112.128</p>
 <p>②第17行localhost改为any</p>
 <p>③第20-22行注释掉：//注释掉3行</p>
 <p>重新启动DNS服务器</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">service named restart<br>cat <span class="hljs-regexp">/etc/</span>resolv.conf<br></code></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">service named restart<br>cat <span class="hljs-regexp">/etc/</span>resolv.conf<br></code></pre></div></td></tr></table></figure>
 
 <p>nameserver 192.168.112.128</p>
-<h4 id="默认可以对主机名localhost进行正向解析"><a href="#默认可以对主机名localhost进行正向解析" class="headerlink" title="默认可以对主机名localhost进行正向解析"></a>默认可以对主机名localhost进行正向解析</h4><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs less"><span class="hljs-selector-tag">host</span> <span class="hljs-selector-tag">localhost</span>  <span class="hljs-comment">//正向解析</span><br><span class="hljs-selector-tag">localhost</span> <span class="hljs-selector-tag">has</span> <span class="hljs-selector-tag">address</span> <span class="hljs-selector-tag">127</span><span class="hljs-selector-class">.0</span><span class="hljs-selector-class">.0</span><span class="hljs-selector-class">.1</span><br><span class="hljs-selector-tag">localhost</span> <span class="hljs-selector-tag">has</span> <span class="hljs-selector-tag">IPv6</span> <span class="hljs-selector-tag">address</span> ::<span class="hljs-selector-tag">1</span><br>正向解析成功！<br></code></pre></td></tr></table></figure>
+<h4 id="默认可以对主机名localhost进行正向解析"><a href="#默认可以对主机名localhost进行正向解析" class="headerlink" title="默认可以对主机名localhost进行正向解析"></a>默认可以对主机名localhost进行正向解析</h4><figure class="highlight less"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs less"><span class="hljs-selector-tag">host</span> <span class="hljs-selector-tag">localhost</span>  <span class="hljs-comment">//正向解析</span><br><span class="hljs-selector-tag">localhost</span> <span class="hljs-selector-tag">has</span> <span class="hljs-selector-tag">address</span> <span class="hljs-selector-tag">127</span><span class="hljs-selector-class">.0</span><span class="hljs-selector-class">.0</span><span class="hljs-selector-class">.1</span><br><span class="hljs-selector-tag">localhost</span> <span class="hljs-selector-tag">has</span> <span class="hljs-selector-tag">IPv6</span> <span class="hljs-selector-tag">address</span> ::<span class="hljs-selector-tag">1</span><br>正向解析成功！<br></code></pre></div></td></tr></table></figure>
 
 <p>E：去掉localhost has IPv6 address ::1提示的方法</p>
-<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs tap">vim /var/named/named.localhost<br>     <span class="hljs-number"> 1 </span>$TTL 1D<br>     <span class="hljs-number"> 2 </span>@       IN SOA  @ rname.invalid. (<br>     <span class="hljs-number"> 3 </span>                                       <span class="hljs-number"> 0 </span>      ; serial<br>     <span class="hljs-number"> 4 </span>                                        1D      ; refresh<br>     <span class="hljs-number"> 5 </span>                                        1H      ; retry<br>     <span class="hljs-number"> 6 </span>                                        1W      ; expire<br>     <span class="hljs-number"> 7 </span>                                        3H )    ; minimum<br>     <span class="hljs-number"> 8 </span>        NS      @<br>     <span class="hljs-number"> 9 </span>        A       127.0.0.1<br>    <span class="hljs-number"> 10 </span>        AAAA    ::1                //删掉第10行<br></code></pre></td></tr></table></figure>
+<figure class="highlight tap"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs tap">vim /var/named/named.localhost<br>     <span class="hljs-number"> 1 </span>$TTL 1D<br>     <span class="hljs-number"> 2 </span>@       IN SOA  @ rname.invalid. (<br>     <span class="hljs-number"> 3 </span>                                       <span class="hljs-number"> 0 </span>      ; serial<br>     <span class="hljs-number"> 4 </span>                                        1D      ; refresh<br>     <span class="hljs-number"> 5 </span>                                        1H      ; retry<br>     <span class="hljs-number"> 6 </span>                                        1W      ; expire<br>     <span class="hljs-number"> 7 </span>                                        3H )    ; minimum<br>     <span class="hljs-number"> 8 </span>        NS      @<br>     <span class="hljs-number"> 9 </span>        A       127.0.0.1<br>    <span class="hljs-number"> 10 </span>        AAAA    ::1                //删掉第10行<br></code></pre></div></td></tr></table></figure>
 
 <p>验证：</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">service</span> named restart<br>host localhost<br>localhost has address <span class="hljs-number">127.0.0.1</span><br>正向解析成功！<br></code></pre></td></tr></table></figure>
+<figure class="highlight nginx"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs nginx"><span class="hljs-attribute">service</span> named restart<br>host localhost<br>localhost has address <span class="hljs-number">127.0.0.1</span><br>正向解析成功！<br></code></pre></div></td></tr></table></figure>
 
-<h4 id="默认可以对主机名localhost进行反向解析"><a href="#默认可以对主机名localhost进行反向解析" class="headerlink" title="默认可以对主机名localhost进行反向解析"></a>默认可以对主机名localhost进行反向解析</h4><figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs tap">vim /var/named/named.loopback<br>     <span class="hljs-number"> 1 </span>$TTL 1D<br>     <span class="hljs-number"> 2 </span>@       IN SOA  @ rname.invalid. (<br>     <span class="hljs-number"> 3 </span>                                       <span class="hljs-number"> 0 </span>      ; serial<br>     <span class="hljs-number"> 4 </span>                                        1D      ; refresh<br>     <span class="hljs-number"> 5 </span>                                        1H      ; retry<br>     <span class="hljs-number"> 6 </span>                                        1W      ; expire<br>     <span class="hljs-number"> 7 </span>                                        3H )    ; minimum<br>     <span class="hljs-number"> 8 </span>        NS      @<br>     <span class="hljs-number"> 9 </span>        A       127.0.0.1<br>    <span class="hljs-number"> 10 </span>        AAAA    ::1                //删掉第10行<br>    <span class="hljs-number"> 11 </span>        PTR     localhost.<br></code></pre></td></tr></table></figure>
+<h4 id="默认可以对主机名localhost进行反向解析"><a href="#默认可以对主机名localhost进行反向解析" class="headerlink" title="默认可以对主机名localhost进行反向解析"></a>默认可以对主机名localhost进行反向解析</h4><figure class="highlight tap"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs tap">vim /var/named/named.loopback<br>     <span class="hljs-number"> 1 </span>$TTL 1D<br>     <span class="hljs-number"> 2 </span>@       IN SOA  @ rname.invalid. (<br>     <span class="hljs-number"> 3 </span>                                       <span class="hljs-number"> 0 </span>      ; serial<br>     <span class="hljs-number"> 4 </span>                                        1D      ; refresh<br>     <span class="hljs-number"> 5 </span>                                        1H      ; retry<br>     <span class="hljs-number"> 6 </span>                                        1W      ; expire<br>     <span class="hljs-number"> 7 </span>                                        3H )    ; minimum<br>     <span class="hljs-number"> 8 </span>        NS      @<br>     <span class="hljs-number"> 9 </span>        A       127.0.0.1<br>    <span class="hljs-number"> 10 </span>        AAAA    ::1                //删掉第10行<br>    <span class="hljs-number"> 11 </span>        PTR     localhost.<br></code></pre></div></td></tr></table></figure>
 
-<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs accesslog">host <span class="hljs-number">127</span>.<span class="hljs-number">0</span>.<span class="hljs-number">0</span>.<span class="hljs-number">1</span>  //反向解析<br><span class="hljs-number">1.0.0.127</span>.in-addr.arpa domain name pointer localhost.<br>反向解析成功！<br></code></pre></td></tr></table></figure>
+<figure class="highlight accesslog"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs accesslog">host <span class="hljs-number">127</span>.<span class="hljs-number">0</span>.<span class="hljs-number">0</span>.<span class="hljs-number">1</span>  //反向解析<br><span class="hljs-number">1.0.0.127</span>.in-addr.arpa domain name pointer localhost.<br>反向解析成功！<br></code></pre></div></td></tr></table></figure>
 
 <h4 id="默认可以解析整个互联网"><a href="#默认可以解析整个互联网" class="headerlink" title="默认可以解析整个互联网"></a>默认可以解析整个互联网</h4><p>做此测试操作的前提是，Linux本身能够正常上网（即能够正常打开网页）。</p>
 <p>只是将原来的DNS设置成我们自己的DNS服务器，以此来测试我们自己的DNS服务器的功能。</p>
 <p>先用Linux中的命令host来进行测试，如下所示：</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">host www<span class="hljs-selector-class">.baidu</span><span class="hljs-selector-class">.com</span><br>host www<span class="hljs-selector-class">.sohu</span>.com<br></code></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs stylus">host www<span class="hljs-selector-class">.baidu</span><span class="hljs-selector-class">.com</span><br>host www<span class="hljs-selector-class">.sohu</span>.com<br></code></pre></div></td></tr></table></figure>
 
 <p>再将Windows作为客户端，在图形界面下测试DNS是否能够解析整个互联网（即是否能够通过自己的DNS服务器来打开网页）。</p>
 <p>前提条件是要保证Windows与Linux能够Ping通。（在虚拟机里准备或安装一个Win7 NAT方式来进行测试）</p>
@@ -319,7 +307,7 @@
 <h5 id="etc-named-conf"><a href="#etc-named-conf" class="headerlink" title="/etc/named.conf"></a>/etc/named.conf</h5><p>主配置文件，安全访问控制：修改192.168.112.128，any，//注释掉3行</p>
 <h5 id="etc-named-rfc1912-zones"><a href="#etc-named-rfc1912-zones" class="headerlink" title="/etc/named.rfc1912.zones"></a>/etc/named.rfc1912.zones</h5><p>主配置文件，需要增加主机名wgxy和域名test.com的正向解析和反向解析配置</p>
 <h5 id="var-named-named-ca"><a href="#var-named-named-ca" class="headerlink" title="/var/named/named.ca"></a>/var/named/named.ca</h5><p>根域配置文件，不能删，不用修改，因为它能解析整个互联网！</p>
-<pre><code>  1 ; &lt;&lt;&gt;&gt; DiG 9.5.0b2 &lt;&lt;&gt;&gt; +bufsize=1200 +norec NS . @a.root-servers.net
+<div class="hljs code-wrapper"><pre><code>  1 ; &lt;&lt;&gt;&gt; DiG 9.5.0b2 &lt;&lt;&gt;&gt; +bufsize=1200 +norec NS . @a.root-servers.net
 
   2 ;; global options:  printcmd
 
@@ -422,7 +410,7 @@
  51 ;; MSG SIZE  rcvd: 615
 
  52 
-</code></pre>
+</code></pre></div>
 <p>  A-M，13台根域名服务器</p>
 <p>  根服务器，主要用来管理互联网的主目录，全世界IPv4根服务器只有13台（这13台IPv4根域名服务器名字分别为“A”至“M”），1个为主根服务器在美国。其余12个均为辅根服务器，其中9个在美国，欧洲2个（英国和瑞典），亚洲1个（日本）。</p>
 <h5 id="var-named-named-localhost"><a href="#var-named-named-localhost" class="headerlink" title="/var/named/named.localhost"></a>/var/named/named.localhost</h5><p>本机默认主机名localhost的正向解析文件：localhost→127.0.0.1</p>
@@ -435,12 +423,12 @@
 <p>wgxy→192.168.112.128</p>
 <p>来自named.localhost模板，将第9行A  127.0.0.1改为A  192.168.112.128</p>
 <h5 id="var-named-test-com-zone"><a href="#var-named-test-com-zone" class="headerlink" title="/var/named/test.com.zone"></a>/var/named/test.com.zone</h5><p>某域名test.com的正向解析文件</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs awk">  dns.test.com→<span class="hljs-number">192.168</span>.<span class="hljs-number">112.128</span>  <span class="hljs-regexp">//</span>DNS服务器<br>  www.test.com→<span class="hljs-number">192.168</span>.<span class="hljs-number">112.128</span>  <span class="hljs-regexp">//</span>Web服务器<br>  ftp.test.com→<span class="hljs-number">192.168</span>.<span class="hljs-number">112.128</span>  <span class="hljs-regexp">//</span>FTP服务器<br> mail.test.com→<span class="hljs-number">192.168</span>.<span class="hljs-number">112.129</span>  <span class="hljs-regexp">//</span>Mail服务器<br>在<span class="hljs-regexp">/etc/</span>named.rfc1912.zones中定义<br></code></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">  dns.test.com→<span class="hljs-number">192.168</span>.<span class="hljs-number">112.128</span>  <span class="hljs-regexp">//</span>DNS服务器<br>  www.test.com→<span class="hljs-number">192.168</span>.<span class="hljs-number">112.128</span>  <span class="hljs-regexp">//</span>Web服务器<br>  ftp.test.com→<span class="hljs-number">192.168</span>.<span class="hljs-number">112.128</span>  <span class="hljs-regexp">//</span>FTP服务器<br> mail.test.com→<span class="hljs-number">192.168</span>.<span class="hljs-number">112.129</span>  <span class="hljs-regexp">//</span>Mail服务器<br>在<span class="hljs-regexp">/etc/</span>named.rfc1912.zones中定义<br></code></pre></div></td></tr></table></figure>
 
 
 
 <h5 id="var-named-192-168-112-arpa"><a href="#var-named-192-168-112-arpa" class="headerlink" title="/var/named/192.168.112.arpa"></a>/var/named/192.168.112.arpa</h5><p>某域名test.com的反向解析文件</p>
-<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs accesslog"><span class="hljs-number">192.168.112.128</span>→dns.test.com<br><span class="hljs-number">192.168.112.128</span>→www.test.com<br><span class="hljs-number">192.168.112.128</span>→ftp.test.com<br><span class="hljs-number">192.168.112.129</span>→mail.test.com<br></code></pre></td></tr></table></figure>
+<figure class="highlight accesslog"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs accesslog"><span class="hljs-number">192.168.112.128</span>→dns.test.com<br><span class="hljs-number">192.168.112.128</span>→www.test.com<br><span class="hljs-number">192.168.112.128</span>→ftp.test.com<br><span class="hljs-number">192.168.112.129</span>→mail.test.com<br></code></pre></div></td></tr></table></figure>
 
 
 
@@ -448,28 +436,28 @@
 <h4 id="配置本机主机名wgxy的正向解析及测试"><a href="#配置本机主机名wgxy的正向解析及测试" class="headerlink" title="配置本机主机名wgxy的正向解析及测试"></a>配置本机主机名wgxy的正向解析及测试</h4><p>正向解析：wgxy→192.168.112.128</p>
 <p>(1)首先，在/etc/named.rfc1912.zones文件中定义该主机名的一个正向域</p>
 <p>vim /etc/named.rfc1912.zones</p>
-<pre><code> 19 zone &quot;localhost&quot; IN &#123;
+<div class="hljs code-wrapper"><pre><code> 19 zone &quot;localhost&quot; IN &#123;
  20         type master;
  21         file &quot;named.localhost&quot;;
  22         allow-update &#123; none; &#125;;
  23 &#125;;
  24 
-</code></pre>
+</code></pre></div>
 <p>复制以上19-24行共6行，并改为：</p>
-<pre><code> 25 zone &quot;wgxy&quot; IN &#123;           //定义该主机名的一个域zone
+<div class="hljs code-wrapper"><pre><code> 25 zone &quot;wgxy&quot; IN &#123;           //定义该主机名的一个域zone
  26         type master;
  27         file &quot;wgxy.zone&quot;;  //指定该主机名的正向解析文件。记住该文件名，一会儿要在/var/named目录中去创建它
  28         allow-update &#123; none; &#125;;
  29 &#125;;
  30 
-</code></pre>
+</code></pre></div>
 <p>(2)然后，进入/var/named目录，复制named.localhost并改名为wgxy.zone</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">cd <span class="hljs-regexp">/var/</span>named<br>cp -p named.localhost wgxy.zone<br></code></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">cd <span class="hljs-regexp">/var/</span>named<br>cp -p named.localhost wgxy.zone<br></code></pre></div></td></tr></table></figure>
 
 
 
 <p>vim wgxy.zone</p>
-<pre><code>  1 $TTL 1D
+<div class="hljs code-wrapper"><pre><code>  1 $TTL 1D
   2 @       IN SOA  @ rname.invalid. (
   3                                         0       ; serial   //版本号
   4                                         1D      ; refresh  //每隔1天刷新纪录
@@ -478,9 +466,9 @@
   7                                         3H )    ; minimum  //DNS记录TTL的最小值为3小时
   8         NS      @
   9         A       192.168.112.128                            //将该行的IP“127.0.0.1”，改为“192.168.112.128”即可！
-</code></pre>
+</code></pre></div>
 <p>(3)重启DNS服务器，并进行主机名“wgxy”的正向解析测试</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">service</span> named restart<br>host wgxy<br>wgxy has address <span class="hljs-number">192.168.112.128</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight nginx"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs nginx"><span class="hljs-attribute">service</span> named restart<br>host wgxy<br>wgxy has address <span class="hljs-number">192.168.112.128</span><br></code></pre></div></td></tr></table></figure>
 
 
 
@@ -489,28 +477,28 @@
 <h4 id="配置本机主机名wgxy的反向解析及测试"><a href="#配置本机主机名wgxy的反向解析及测试" class="headerlink" title="配置本机主机名wgxy的反向解析及测试"></a>配置本机主机名wgxy的反向解析及测试</h4><p>反向解析：192.168.112.128→wgxy</p>
 <p>(1)首先，在/etc/named.rfc1912.zones文件中定义该主机名的一个反向域：</p>
 <p>vim /etc/named.rfc1912.zones</p>
-<pre><code> 37 zone &quot;1.0.0.127.in-addr.arpa&quot; IN &#123;
+<div class="hljs code-wrapper"><pre><code> 37 zone &quot;1.0.0.127.in-addr.arpa&quot; IN &#123;
  38         type master;
  39         file &quot;named.loopback&quot;;
  40         allow-update &#123; none; &#125;;
  41 &#125;;
  42 
-</code></pre>
+</code></pre></div>
 <p>复制以上37-42行共6行，并改为：</p>
-<pre><code> 43 zone &quot;112.168.192.in-addr.arpa&quot; IN &#123;   //注意：反向解析的最大的一个特点就是将IP地址“192.168.112.128”反着写
+<div class="hljs code-wrapper"><pre><code> 43 zone &quot;112.168.192.in-addr.arpa&quot; IN &#123;   //注意：反向解析的最大的一个特点就是将IP地址“192.168.112.128”反着写
  44         type master;
  45         file &quot;192.168.112.arpa&quot;;       //指定该主机名的反向解析文件。记住该文件名，一会儿要在/var/named目录中去创建它
  46         allow-update &#123; none; &#125;;
  47 &#125;;
  48 
-</code></pre>
+</code></pre></div>
 <p>(2)然后，进入/var/named目录，复制named.loopback并改名为192.168.112.arpa</p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">cd</span> /var/named<br><span class="hljs-attribute">cp</span> -p named.loopback <span class="hljs-number">192</span>.<span class="hljs-number">168</span>.<span class="hljs-number">112</span>.arpa<br></code></pre></td></tr></table></figure>
+<figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">cd</span> /var/named<br><span class="hljs-attribute">cp</span> -p named.loopback <span class="hljs-number">192</span>.<span class="hljs-number">168</span>.<span class="hljs-number">112</span>.arpa<br></code></pre></div></td></tr></table></figure>
 
 
 
 <p>vim 192.168.112.arpa</p>
-<pre><code>  1 $TTL 1D
+<div class="hljs code-wrapper"><pre><code>  1 $TTL 1D
   2 @       IN SOA  @ rname.invalid. (
   3                                         0       ; serial
   4                                         1D      ; refresh
@@ -521,32 +509,32 @@
   9         A       192.168.112.128 //将该行的IP“127.0.0.1”，改为“192.168.112.128”
  10         AAAA    ::1             //删除该行IPv6的地址
  10 128     PTR     wgxy.           //128，即192.168.112.128；PTR即指向后面的“wgxy.”，注意后面的那个点“.”不能掉，否则配置不成功！
-</code></pre>
+</code></pre></div>
 <p>(3)重启DNS服务器，并进行主机名“wgxy”的反向解析测试</p>
-<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs accesslog">service named restart<br>host <span class="hljs-number">192</span>.<span class="hljs-number">168</span>.<span class="hljs-number">112</span>.<span class="hljs-number">128</span><br><span class="hljs-number">128.112.168.192</span>.in-addr.arpa domain name pointer wgxy.<br></code></pre></td></tr></table></figure>
+<figure class="highlight accesslog"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs accesslog">service named restart<br>host <span class="hljs-number">192</span>.<span class="hljs-number">168</span>.<span class="hljs-number">112</span>.<span class="hljs-number">128</span><br><span class="hljs-number">128.112.168.192</span>.in-addr.arpa domain name pointer wgxy.<br></code></pre></div></td></tr></table></figure>
 
 
 
 <p>能反向解析出IP地址“192.168.112.128”对应的主机名，配置成功！</p>
 <h4 id="配置域名“test-com”的正向解析及测试"><a href="#配置域名“test-com”的正向解析及测试" class="headerlink" title="配置域名“test.com”的正向解析及测试"></a>配置域名“test.com”的正向解析及测试</h4><p>(1)首先，在/etc/named.rfc1912.zones文件中定义“test.com”的正向域</p>
 <p>vim /etc/named.rfc1912.zones</p>
-<pre><code> 25 zone &quot;wgxy&quot; IN &#123;
+<div class="hljs code-wrapper"><pre><code> 25 zone &quot;wgxy&quot; IN &#123;
  26         type master;
  27         file &quot;wgxy.zone&quot;;
  28         allow-update &#123; none; &#125;;
  29 &#125;;
  30 
-</code></pre>
+</code></pre></div>
 <p>复制以上25-30行共6行，并改为：</p>
-<pre><code> 31 zone &quot;test.com&quot; IN &#123;          //定义“test.com”这个域
+<div class="hljs code-wrapper"><pre><code> 31 zone &quot;test.com&quot; IN &#123;          //定义“test.com”这个域
  32         type master;
  33         file &quot;test.com.zone&quot;; //指定该主机名的正向解析文件。记住该文件名，一会儿要在/var/named目录中去创建它
  34         allow-update &#123; none; &#125;;
  35 &#125;;
  36 
-</code></pre>
+</code></pre></div>
 <p>(2)然后，进入/var/named目录，复制named.localhost并改名为test.com.zone</p>
-<pre><code>cd /var/named
+<div class="hljs code-wrapper"><pre><code>cd /var/named
 cp -p named.localhost test.com.zone
 vim test.com.zone
     1 $TTL 1D
@@ -562,9 +550,9 @@ vim test.com.zone
  11 www    A    192.168.112.128    //网页服务器对应的IP地址
  12 ftp    CNAME    www                //FTP服务器是www的别名，即与www服务器使用相同的IP地址
  13 mail    A    192.168.112.129    //邮件服务器对应的IP地址
-</code></pre>
+</code></pre></div>
 <p>(3)重启DNS服务器，并对各种服务器进行正向解析测试</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs stylus">service named restart<br>vim /etc/resolv<span class="hljs-selector-class">.conf</span><br>host dns<span class="hljs-selector-class">.test</span><span class="hljs-selector-class">.com</span><br>dns<span class="hljs-selector-class">.test</span><span class="hljs-selector-class">.com</span> has <span class="hljs-selector-tag">address</span> <span class="hljs-number">192.168</span>.<span class="hljs-number">112.128</span><br>host www<span class="hljs-selector-class">.test</span><span class="hljs-selector-class">.com</span><br>www<span class="hljs-selector-class">.test</span><span class="hljs-selector-class">.com</span> has <span class="hljs-selector-tag">address</span> <span class="hljs-number">192.168</span>.<span class="hljs-number">112.128</span><br>host ftp<span class="hljs-selector-class">.test</span><span class="hljs-selector-class">.com</span><br>ftp<span class="hljs-selector-class">.test</span><span class="hljs-selector-class">.com</span> is an alias <span class="hljs-keyword">for</span> www<span class="hljs-selector-class">.test</span><span class="hljs-selector-class">.com</span>.<br>www<span class="hljs-selector-class">.test</span><span class="hljs-selector-class">.com</span> has <span class="hljs-selector-tag">address</span> <span class="hljs-number">192.168</span>.<span class="hljs-number">112.128</span><br>host mail<span class="hljs-selector-class">.test</span><span class="hljs-selector-class">.com</span><br>mail<span class="hljs-selector-class">.test</span><span class="hljs-selector-class">.com</span> has <span class="hljs-selector-tag">address</span> <span class="hljs-number">192.168</span>.<span class="hljs-number">112.129</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs stylus">service named restart<br>vim /etc/resolv<span class="hljs-selector-class">.conf</span><br>host dns<span class="hljs-selector-class">.test</span><span class="hljs-selector-class">.com</span><br>dns<span class="hljs-selector-class">.test</span><span class="hljs-selector-class">.com</span> has <span class="hljs-selector-tag">address</span> <span class="hljs-number">192.168</span>.<span class="hljs-number">112.128</span><br>host www<span class="hljs-selector-class">.test</span><span class="hljs-selector-class">.com</span><br>www<span class="hljs-selector-class">.test</span><span class="hljs-selector-class">.com</span> has <span class="hljs-selector-tag">address</span> <span class="hljs-number">192.168</span>.<span class="hljs-number">112.128</span><br>host ftp<span class="hljs-selector-class">.test</span><span class="hljs-selector-class">.com</span><br>ftp<span class="hljs-selector-class">.test</span><span class="hljs-selector-class">.com</span> is an alias <span class="hljs-keyword">for</span> www<span class="hljs-selector-class">.test</span><span class="hljs-selector-class">.com</span>.<br>www<span class="hljs-selector-class">.test</span><span class="hljs-selector-class">.com</span> has <span class="hljs-selector-tag">address</span> <span class="hljs-number">192.168</span>.<span class="hljs-number">112.128</span><br>host mail<span class="hljs-selector-class">.test</span><span class="hljs-selector-class">.com</span><br>mail<span class="hljs-selector-class">.test</span><span class="hljs-selector-class">.com</span> has <span class="hljs-selector-tag">address</span> <span class="hljs-number">192.168</span>.<span class="hljs-number">112.129</span><br></code></pre></div></td></tr></table></figure>
 
 
 
@@ -578,21 +566,21 @@ vim test.com.zone
 <p>访问外网也应该能成功？nameserver 8.8.8.8？</p>
 <p>Web服务器、DNS服务器合并操作，配置成功！</p>
 <h4 id="配置域名“test-com”的反向解析及测试"><a href="#配置域名“test-com”的反向解析及测试" class="headerlink" title="配置域名“test.com”的反向解析及测试"></a>配置域名“test.com”的反向解析及测试</h4><p>192.168.112.128  dns.test.com   </p>
-<pre><code>             www.test.com
+<div class="hljs code-wrapper"><pre><code>             www.test.com
 
              ftp.test.com
-</code></pre>
+</code></pre></div>
 <p>192.168.112.129  mail.test.com  </p>
 <p>由于在前面配置本机主机名的反向解析时，</p>
 <p>在/etc/named.rfc1912.zones文件建立过“192.168.112.0/24”这个IP段的反向域及其反向解析文件，</p>
 <p>故在此删除或改用该IP段的反向域及其反向解析文件。</p>
 <p>(1)首先，在/etc/named.rfc1912.zones文件中定义“test.com”的反向域</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">vim <span class="hljs-regexp">/etc/</span>named.rfc1912.zones<br></code></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">vim <span class="hljs-regexp">/etc/</span>named.rfc1912.zones<br></code></pre></div></td></tr></table></figure>
 
 
 
 <p>(2)然后，进入/var/named目录，复制named.loopback并改名为192.168.112.arpa（前面主机名的反向解析已复制、改名）</p>
-<pre><code>vim /var/named/192.168.112.arpa
+<div class="hljs code-wrapper"><pre><code>vim /var/named/192.168.112.arpa
  1    $TTL 1D
  2    @    IN SOA    @ rname.invalid. (
  3                        0    ; serial
@@ -605,11 +593,11 @@ vim test.com.zone
 10 128    PTR    www.test.com.
 11 128    PTR    ftp.test.com.
 12 129    PTR    mail.test.com.
-</code></pre>
+</code></pre></div>
 <p>各个服务器对应IP的最后一个数字，如128，通过PTR指向其对应的域名。</p>
 <p>注意：后面的那个点不能掉，否则配置不成功！</p>
 <p>(3)重启DNS服务器，并对以下各个域名进行反向解析测试</p>
-<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs accesslog">service named restart<br><br>vim /etc/resolv.conf<br><br>host <span class="hljs-number">192</span>.<span class="hljs-number">168</span>.<span class="hljs-number">112</span>.<span class="hljs-number">128</span><br><br><span class="hljs-number">128.112.168.192</span>.in-addr.arpa domain name pointer dns.test.com.<br><br><span class="hljs-number">128.112.168.192</span>.in-addr.arpa domain name pointer ftp.test.com.<br><br><span class="hljs-number">128.112.168.192</span>.in-addr.arpa domain name pointer www.test.com.<br><br>host <span class="hljs-number">192</span>.<span class="hljs-number">168</span>.<span class="hljs-number">112</span>.<span class="hljs-number">129</span><br><br><span class="hljs-number">129.112.168.192</span>.in-addr.arpa domain name pointer mail.test.com.<br></code></pre></td></tr></table></figure>
+<figure class="highlight accesslog"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs accesslog">service named restart<br><br>vim /etc/resolv.conf<br><br>host <span class="hljs-number">192</span>.<span class="hljs-number">168</span>.<span class="hljs-number">112</span>.<span class="hljs-number">128</span><br><br><span class="hljs-number">128.112.168.192</span>.in-addr.arpa domain name pointer dns.test.com.<br><br><span class="hljs-number">128.112.168.192</span>.in-addr.arpa domain name pointer ftp.test.com.<br><br><span class="hljs-number">128.112.168.192</span>.in-addr.arpa domain name pointer www.test.com.<br><br>host <span class="hljs-number">192</span>.<span class="hljs-number">168</span>.<span class="hljs-number">112</span>.<span class="hljs-number">129</span><br><br><span class="hljs-number">129.112.168.192</span>.in-addr.arpa domain name pointer mail.test.com.<br></code></pre></div></td></tr></table></figure>
 
 
 
@@ -632,7 +620,7 @@ vim test.com.zone
 <p>　resolv.conf         //设置域名服务器：修改nameserver 192.168.112.128</p>
 <p>　named.conf          //主配置文件，安全访问控制：修改192.168.112.128，any，//注释掉3行</p>
 <p>●named.rfc1912.zones //主配置文件，增加主机名wgxy和域名test.com的正向解析和反向解析配置</p>
-<pre><code>            正向解析                                |反向解析
+<div class="hljs code-wrapper"><pre><code>            正向解析                                |反向解析
 
     25 zone &quot;wgxy&quot; IN &#123;            |
 
@@ -655,18 +643,18 @@ vim test.com.zone
     34         allow-update &#123; none; &#125;;    |52         allow-update &#123; none; &#125;;
 
     35 &#125;;//域名test.com的正向解析，见④    |53 &#125;;//域名test.com的反向解析，见⑤
-</code></pre>
+</code></pre></div>
 <p>　named.ca            //根域配置文件，不能删，不用修改，因为它能解析整个互联网！</p>
 <p>①named.localhost     //默认主机名localhost的正向解析文件：删掉第10行(不要IPv6地址)：AAAA  ::1</p>
 <p>②named.loopback      //默认主机名localhost的反向解析文件：删掉第10行(不要IPv6地址)：AAAA  ::1</p>
 <p>③wgxy.zone           //主机名wgxy的正向解析文件：来自named.localhost模板，将第9行A  127.0.0.1改为A  192.168.112.128</p>
 <p>④test.com.zone       //域名test.com的正向解析文件：来自named.localhost模板，将</p>
-<pre><code> 8        NS    @
+<div class="hljs code-wrapper"><pre><code> 8        NS    @
 
  9        A    127.0.0.1
-</code></pre>
+</code></pre></div>
 <p>　改为：</p>
-<pre><code> 8        NS    dns.test.com.
+<div class="hljs code-wrapper"><pre><code> 8        NS    dns.test.com.
 
  9        MX 5    mail.test.com.
 
@@ -677,16 +665,16 @@ vim test.com.zone
 12 ftp    CNAME    www
 
 13 mail    A    192.168.112.129
-</code></pre>
+</code></pre></div>
 <p>⑤192.168.112.arpa    //域名test.com的反向解析文件：来自named.loopback模板，将</p>
-<pre><code> 8        NS    @
+<div class="hljs code-wrapper"><pre><code> 8        NS    @
 
  9        A    127.0.0.1
 
 10    PTR    localhost.
-</code></pre>
+</code></pre></div>
 <p>　改为：</p>
-<pre><code> 8        NS    dns.test.com.
+<div class="hljs code-wrapper"><pre><code> 8        NS    dns.test.com.
 
  9    128    PTR    dns.test.com.
 
@@ -695,7 +683,7 @@ vim test.com.zone
 11 128    PTR    ftp.test.com.
 
 12 129    PTR    mail.test.com.
-</code></pre>
+</code></pre></div>
 
             </div>
             <hr>
@@ -849,6 +837,16 @@ vim test.com.zone
   
 
   
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        鄂ICP备2021017549号
+      </a>
+    </span>
+    
+  </div>
+
 
   
 <div>
@@ -989,12 +987,6 @@ vim test.com.zone
 
 
 
-
-
-  
-<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/DynamicRibbon.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/Cherry.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/gradient.css.js"></script>
 
 
 

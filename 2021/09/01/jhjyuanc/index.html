@@ -77,7 +77,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/">&nbsp;<strong>🏷️小胖博客</strong>&nbsp;</a>
+       href="/">&nbsp;<strong>JANKINLIU</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -133,18 +133,6 @@
               <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/links/">
-                <i class="iconfont icon-link-fill"></i>
-                友链
               </a>
             </li>
           
@@ -254,16 +242,16 @@
 <p>SW(Config-If-Vlan1)#no shutdown<br>​SW(Config-If-Vlan1)#exit<br>​SW(Config)#ssh-service enable                                                           //启用SSH<br>​SW(Config)#username LJQ password 0 LJQ                                 //配置用户和密码<br>​SW(Config)#radius-server authentication host 192.168.221.199             //配置计费主机<br>SW(config)#aaa enable                                                                                     //启用AAA认证</p>
 <p>Telnet</p>
 <p>二层交换机默认开启Telnet</p>
-<pre><code>启动：
+<div class="hljs code-wrapper"><pre><code>启动：
     SW(Config)#telnet-server enable                                  //启动Telnet
     SW(Config)#username LJQ password 0 LJQ                        
     
 关闭：SW(Config)#no telnet-server enable
-</code></pre>
+</code></pre></div>
 <h1 id="路由器恢复出厂设置"><a href="#路由器恢复出厂设置" class="headerlink" title="路由器恢复出厂设置"></a>路由器恢复出厂设置</h1><p>delete startup-config<br>reboot</p>
 <h1 id="PVLAN-私有vlan"><a href="#PVLAN-私有vlan" class="headerlink" title="PVLAN(私有vlan)"></a>PVLAN(私有vlan)</h1><p>Vlan 100<br>    Private-vlan primary                                     //设置主vlan<br>Vlan 200<br>    Private-vlan community                              //设置群体vlan<br>Vlan 300<br>    Private-vlan isolated                                    //设置隔离vlan<br>    Vlan 100<br>    Private-vlan association 200,300</p>
 <p>注：<br>    群体vlan代表在群体vlan中的主机都可以进行相互通讯，且通过vlan100 出去<br>    隔离vlan代表在隔离vlan中的主机无法进行相互之间的通讯，同时各个主机也通过vlan100出去</p>
-<h1 id="port-group（端口聚合）"><a href="#port-group（端口聚合）" class="headerlink" title="port-group（端口聚合）"></a>port-group（端口聚合）</h1><figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs vhdl">```<br><br>\#<span class="hljs-keyword">port</span>-<span class="hljs-keyword">group</span> <span class="hljs-number">1</span>                       //创建聚合序列<br><br>进入端口<br><br>\#interface e1/<span class="hljs-number">0</span>/<span class="hljs-number">1</span><br><br>\#<span class="hljs-keyword">port</span>-<span class="hljs-keyword">group</span> <span class="hljs-number">1</span> mode <span class="hljs-keyword">on</span>           //把e1/<span class="hljs-number">0</span>/<span class="hljs-number">1</span>端口划分到<span class="hljs-keyword">port</span>-<span class="hljs-keyword">group</span> <span class="hljs-number">1</span>中并以<span class="hljs-keyword">on</span>（协商模式）还有另两种方式（**采用****LACP****方式配置****<span class="hljs-keyword">port</span>-channel**）<br><br></code></pre></td></tr></table></figure>
+<h1 id="port-group（端口聚合）"><a href="#port-group（端口聚合）" class="headerlink" title="port-group（端口聚合）"></a>port-group（端口聚合）</h1><figure class="highlight vhdl"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs vhdl">```<br><br>\#<span class="hljs-keyword">port</span>-<span class="hljs-keyword">group</span> <span class="hljs-number">1</span>                       //创建聚合序列<br><br>进入端口<br><br>\#interface e1/<span class="hljs-number">0</span>/<span class="hljs-number">1</span><br><br>\#<span class="hljs-keyword">port</span>-<span class="hljs-keyword">group</span> <span class="hljs-number">1</span> mode <span class="hljs-keyword">on</span>           //把e1/<span class="hljs-number">0</span>/<span class="hljs-number">1</span>端口划分到<span class="hljs-keyword">port</span>-<span class="hljs-keyword">group</span> <span class="hljs-number">1</span>中并以<span class="hljs-keyword">on</span>（协商模式）还有另两种方式（**采用****LACP****方式配置****<span class="hljs-keyword">port</span>-channel**）<br><br></code></pre></div></td></tr></table></figure>
 
             </div>
             <hr>
@@ -425,6 +413,16 @@
   
 
   
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        鄂ICP备2021017549号
+      </a>
+    </span>
+    
+  </div>
+
 
   
 <div>
@@ -565,12 +563,6 @@
 
 
 
-
-
-  
-<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/DynamicRibbon.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/Cherry.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/gradient.css.js"></script>
 
 
 

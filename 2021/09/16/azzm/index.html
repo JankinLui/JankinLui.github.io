@@ -77,7 +77,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/">&nbsp;<strong>🏷️小胖博客</strong>&nbsp;</a>
+       href="/">&nbsp;<strong>JANKINLIU</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -133,18 +133,6 @@
               <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/links/">
-                <i class="iconfont icon-link-fill"></i>
-                友链
               </a>
             </li>
           
@@ -249,22 +237,22 @@
             <h1 style="display: none">命令行安装图形界面&amp;&amp;win远程桌面&amp;&amp;终端分屏</h1>
             
             <div class="markdown-body">
-              <h1 id="命令行安装图形界面"><a href="#命令行安装图形界面" class="headerlink" title="命令行安装图形界面"></a>命令行安装图形界面</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">yum groupinstall <span class="hljs-string">&quot;X Window System&quot;</span>       //首先安装X(X Window System)<br>yum grouplist       //检查一下我们已经安装的软件以及可以安装的软件<br>yum groupinstall <span class="hljs-string">&quot;GNOME Desktop&quot;</span> <span class="hljs-string">&quot;Graphical Administration Tools&quot;</span><br>startx <br></code></pre></td></tr></table></figure>
+              <h1 id="命令行安装图形界面"><a href="#命令行安装图形界面" class="headerlink" title="命令行安装图形界面"></a>命令行安装图形界面</h1><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">yum groupinstall <span class="hljs-string">&quot;X Window System&quot;</span>       //首先安装X(X Window System)<br>yum grouplist       //检查一下我们已经安装的软件以及可以安装的软件<br>yum groupinstall <span class="hljs-string">&quot;GNOME Desktop&quot;</span> <span class="hljs-string">&quot;Graphical Administration Tools&quot;</span><br>startx <br></code></pre></div></td></tr></table></figure>
 
 
 
 <p>输入“systemctl get-default”可查看当前启动界面，本例中显示“graphical.target”（图形界面）<br>输入“systemctl set-default multi-user.target”并按回车键即可设置为默认以文本界面启动</p>
 <h1 id="win远程桌面Linux"><a href="#win远程桌面Linux" class="headerlink" title="win远程桌面Linux"></a>win远程桌面Linux</h1><p>1.保证Linux是有桌面界面的版本<br>2.安装xrdp,xrdp在 EPEL仓库可以使用，所以配置 EPEL仓库： </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm<br></code></pre></div></td></tr></table></figure>
 
 <p>或者 yum -y install epel-release<br>3.安装插件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">yum -y install xrdp<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">yum -y install xrdp<br></code></pre></div></td></tr></table></figure>
 
 <p>4.安装插件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">yum -y install tigervnc-server<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">yum -y install tigervnc-server<br></code></pre></div></td></tr></table></figure>
 
 <p>5.启动服务</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">systemctl start xrdp<br>Systemctl stop NetworkManager<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">systemctl start xrdp<br>Systemctl stop NetworkManager<br></code></pre></div></td></tr></table></figure>
 
 
 
@@ -272,7 +260,7 @@
 <h1 id="终端分屏"><a href="#终端分屏" class="headerlink" title="终端分屏"></a>终端分屏</h1><p>使用tmux分屏（既可以左右分屏，也可以上下分屏）、</p>
 <p>（1）安装工具</p>
 <p>在ubuntu系统中使用</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt-get install tmux<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">sudo apt-get install tmux<br></code></pre></div></td></tr></table></figure>
 
 
 
@@ -449,6 +437,16 @@
   
 
   
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        鄂ICP备2021017549号
+      </a>
+    </span>
+    
+  </div>
+
 
   
 <div>
@@ -589,12 +587,6 @@
 
 
 
-
-
-  
-<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/DynamicRibbon.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/Cherry.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/gradient.css.js"></script>
 
 
 

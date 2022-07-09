@@ -77,7 +77,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/">&nbsp;<strong>🏷️小胖博客</strong>&nbsp;</a>
+       href="/">&nbsp;<strong>JANKINLIU</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -133,18 +133,6 @@
               <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/links/">
-                <i class="iconfont icon-link-fill"></i>
-                友链
               </a>
             </li>
           
@@ -250,12 +238,12 @@
             
             <div class="markdown-body">
               <h1 id="1-安装deepin-wine环境"><a href="#1-安装deepin-wine环境" class="headerlink" title="1.安装deepin-wine环境"></a>1.安装deepin-wine环境</h1><p>依次执行以下命令，git目录名可自己设置</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">mkdir ~/git<br><span class="hljs-built_in">cd</span> ~/git<br>git <span class="hljs-built_in">clone</span> https://gitee.com/wszqkzqk/deepin-wine-for-ubuntu.git<br><span class="hljs-built_in">cd</span> deepin-wine-for-ubuntu<br>./install.sh<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">mkdir ~/git<br><span class="hljs-built_in">cd</span> ~/git<br>git <span class="hljs-built_in">clone</span> https://gitee.com/wszqkzqk/deepin-wine-for-ubuntu.git<br><span class="hljs-built_in">cd</span> deepin-wine-for-ubuntu<br>./install.sh<br></code></pre></div></td></tr></table></figure>
 
 
 
 <h1 id="2-下载deepin-wine容器"><a href="#2-下载deepin-wine容器" class="headerlink" title="2.下载deepin-wine容器"></a>2.下载deepin-wine容器</h1><p>下载微信的deb包（建议选择最新的版本）：<a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/deepin/pool/non-free/d/deepin.com.wechat/">https://mirrors.aliyun.com/deepin/pool/non-free/d/deepin.com.wechat/</a></p>
-<h2 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-comment">#!/bin/bash</span><br>mkdir ./deepintemp<br>cd ./deepintemp<br>wget http:<span class="hljs-regexp">//mi</span>rrors.aliyun.com<span class="hljs-regexp">/deepin/</span>pool<span class="hljs-regexp">/non-free/</span>d<span class="hljs-regexp">/deepin-wine/</span>deepin-wine_2.<span class="hljs-number">18</span>-<span class="hljs-number">22</span>~rc0_all.deb<br>wget http:<span class="hljs-regexp">//mi</span>rrors.aliyun.com<span class="hljs-regexp">/deepin/</span>pool<span class="hljs-regexp">/non-free/</span>d<span class="hljs-regexp">/deepin-wine/</span>deepin-wine32_2.<span class="hljs-number">18</span>-<span class="hljs-number">22</span>~rc0_i386.deb<br>wget http:<span class="hljs-regexp">//mi</span>rrors.aliyun.com<span class="hljs-regexp">/deepin/</span>pool<span class="hljs-regexp">/non-free/</span>d<span class="hljs-regexp">/deepin-wine/</span>deepin-wine32-preloader_2.<span class="hljs-number">18</span>-<span class="hljs-number">22</span>~rc0_i386.deb<br>wget http:<span class="hljs-regexp">//mi</span>rrors.aliyun.com<span class="hljs-regexp">/deepin/</span>pool<span class="hljs-regexp">/non-free/</span>d<span class="hljs-regexp">/deepin-wine-helper/</span>deepin-wine-helper_1.<span class="hljs-number">2</span>deepin8_i386.deb<br>wget http:<span class="hljs-regexp">//mi</span>rrors.aliyun.com<span class="hljs-regexp">/deepin/</span>pool<span class="hljs-regexp">/non-free/</span>d<span class="hljs-regexp">/deepin-wine-plugin/</span>deepin-wine-plugin_1.<span class="hljs-number">0</span>deepin2_amd64.deb<br>wget http:<span class="hljs-regexp">//mi</span>rrors.aliyun.com<span class="hljs-regexp">/deepin/</span>pool<span class="hljs-regexp">/non-free/</span>d<span class="hljs-regexp">/deepin-wine-plugin-virtual/</span>deepin-wine-plugin-virtual_1.<span class="hljs-number">0</span>deepin3_all.deb<br>wget http:<span class="hljs-regexp">//mi</span>rrors.aliyun.com<span class="hljs-regexp">/deepin/</span>pool<span class="hljs-regexp">/non-free/</span>d<span class="hljs-regexp">/deepin-wine-uninstaller/</span>deepin-wine-uninstaller_0.<span class="hljs-number">1</span>deepin2_i386.deb<br>wget http:<span class="hljs-regexp">//mi</span>rrors.aliyun.com<span class="hljs-regexp">/deepin/</span>pool<span class="hljs-regexp">/non-free/u</span><span class="hljs-regexp">/udis86/u</span>dis86_1.<span class="hljs-number">72</span>-<span class="hljs-number">2</span>_i386.deb<br>wget http:<span class="hljs-regexp">//mi</span>rrors.aliyun.com<span class="hljs-regexp">/deepin/</span>pool<span class="hljs-regexp">/non-free/</span>d<span class="hljs-regexp">/deepin-wine/</span>deepin-fonts-wine_2.<span class="hljs-number">18</span>-<span class="hljs-number">22</span>~rc0_all.deb<br>wget http:<span class="hljs-regexp">//mi</span>rrors.aliyun.com<span class="hljs-regexp">/deepin/</span>pool<span class="hljs-regexp">/non-free/</span>d<span class="hljs-regexp">/deepin-wine/</span>deepin-libwine_2.<span class="hljs-number">18</span>-<span class="hljs-number">22</span>~rc0_i386.deb<br>wget https:<span class="hljs-regexp">//mi</span>rrors.aliyun.com<span class="hljs-regexp">/deepin/</span>pool<span class="hljs-regexp">/main/</span>libj<span class="hljs-regexp">/libjpeg-turbo/</span>libjpeg62-turbo_1.<span class="hljs-number">5.1</span>-<span class="hljs-number">2</span>_amd64.deb --no-check-certificate<br>wget https:<span class="hljs-regexp">//mi</span>rrors.aliyun.com<span class="hljs-regexp">/deepin/</span>pool<span class="hljs-regexp">/main/</span>libj<span class="hljs-regexp">/libjpeg-turbo/</span>libjpeg62-turbo_1.<span class="hljs-number">5.1</span>-<span class="hljs-number">2</span>_i386.deb --no-check-certificate<br><br>echo <span class="hljs-string">&#x27;准备添加32位支持&#x27;</span><br>sudo dpkg --add-architecture i386<br>echo <span class="hljs-string">&#x27;添加成功，准备刷新apt缓存信息...&#x27;</span><br>sudo apt update<br>echo <span class="hljs-string">&#x27;即将开始安装...&#x27;</span><br>sudo dpkg -i *.deb<br>echo <span class="hljs-string">&#x27;安装完成，正在自动安装依赖...&#x27;</span><br>sudo apt install -fy<br><br>rm -vfr ./deepintemp<br></code></pre></td></tr></table></figure>
+<h2 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h2><figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk"><span class="hljs-comment">#!/bin/bash</span><br>mkdir ./deepintemp<br>cd ./deepintemp<br>wget http:<span class="hljs-regexp">//mi</span>rrors.aliyun.com<span class="hljs-regexp">/deepin/</span>pool<span class="hljs-regexp">/non-free/</span>d<span class="hljs-regexp">/deepin-wine/</span>deepin-wine_2.<span class="hljs-number">18</span>-<span class="hljs-number">22</span>~rc0_all.deb<br>wget http:<span class="hljs-regexp">//mi</span>rrors.aliyun.com<span class="hljs-regexp">/deepin/</span>pool<span class="hljs-regexp">/non-free/</span>d<span class="hljs-regexp">/deepin-wine/</span>deepin-wine32_2.<span class="hljs-number">18</span>-<span class="hljs-number">22</span>~rc0_i386.deb<br>wget http:<span class="hljs-regexp">//mi</span>rrors.aliyun.com<span class="hljs-regexp">/deepin/</span>pool<span class="hljs-regexp">/non-free/</span>d<span class="hljs-regexp">/deepin-wine/</span>deepin-wine32-preloader_2.<span class="hljs-number">18</span>-<span class="hljs-number">22</span>~rc0_i386.deb<br>wget http:<span class="hljs-regexp">//mi</span>rrors.aliyun.com<span class="hljs-regexp">/deepin/</span>pool<span class="hljs-regexp">/non-free/</span>d<span class="hljs-regexp">/deepin-wine-helper/</span>deepin-wine-helper_1.<span class="hljs-number">2</span>deepin8_i386.deb<br>wget http:<span class="hljs-regexp">//mi</span>rrors.aliyun.com<span class="hljs-regexp">/deepin/</span>pool<span class="hljs-regexp">/non-free/</span>d<span class="hljs-regexp">/deepin-wine-plugin/</span>deepin-wine-plugin_1.<span class="hljs-number">0</span>deepin2_amd64.deb<br>wget http:<span class="hljs-regexp">//mi</span>rrors.aliyun.com<span class="hljs-regexp">/deepin/</span>pool<span class="hljs-regexp">/non-free/</span>d<span class="hljs-regexp">/deepin-wine-plugin-virtual/</span>deepin-wine-plugin-virtual_1.<span class="hljs-number">0</span>deepin3_all.deb<br>wget http:<span class="hljs-regexp">//mi</span>rrors.aliyun.com<span class="hljs-regexp">/deepin/</span>pool<span class="hljs-regexp">/non-free/</span>d<span class="hljs-regexp">/deepin-wine-uninstaller/</span>deepin-wine-uninstaller_0.<span class="hljs-number">1</span>deepin2_i386.deb<br>wget http:<span class="hljs-regexp">//mi</span>rrors.aliyun.com<span class="hljs-regexp">/deepin/</span>pool<span class="hljs-regexp">/non-free/u</span><span class="hljs-regexp">/udis86/u</span>dis86_1.<span class="hljs-number">72</span>-<span class="hljs-number">2</span>_i386.deb<br>wget http:<span class="hljs-regexp">//mi</span>rrors.aliyun.com<span class="hljs-regexp">/deepin/</span>pool<span class="hljs-regexp">/non-free/</span>d<span class="hljs-regexp">/deepin-wine/</span>deepin-fonts-wine_2.<span class="hljs-number">18</span>-<span class="hljs-number">22</span>~rc0_all.deb<br>wget http:<span class="hljs-regexp">//mi</span>rrors.aliyun.com<span class="hljs-regexp">/deepin/</span>pool<span class="hljs-regexp">/non-free/</span>d<span class="hljs-regexp">/deepin-wine/</span>deepin-libwine_2.<span class="hljs-number">18</span>-<span class="hljs-number">22</span>~rc0_i386.deb<br>wget https:<span class="hljs-regexp">//mi</span>rrors.aliyun.com<span class="hljs-regexp">/deepin/</span>pool<span class="hljs-regexp">/main/</span>libj<span class="hljs-regexp">/libjpeg-turbo/</span>libjpeg62-turbo_1.<span class="hljs-number">5.1</span>-<span class="hljs-number">2</span>_amd64.deb --no-check-certificate<br>wget https:<span class="hljs-regexp">//mi</span>rrors.aliyun.com<span class="hljs-regexp">/deepin/</span>pool<span class="hljs-regexp">/main/</span>libj<span class="hljs-regexp">/libjpeg-turbo/</span>libjpeg62-turbo_1.<span class="hljs-number">5.1</span>-<span class="hljs-number">2</span>_i386.deb --no-check-certificate<br><br>echo <span class="hljs-string">&#x27;准备添加32位支持&#x27;</span><br>sudo dpkg --add-architecture i386<br>echo <span class="hljs-string">&#x27;添加成功，准备刷新apt缓存信息...&#x27;</span><br>sudo apt update<br>echo <span class="hljs-string">&#x27;即将开始安装...&#x27;</span><br>sudo dpkg -i *.deb<br>echo <span class="hljs-string">&#x27;安装完成，正在自动安装依赖...&#x27;</span><br>sudo apt install -fy<br><br>rm -vfr ./deepintemp<br></code></pre></div></td></tr></table></figure>
 
 
 
@@ -428,6 +416,16 @@
   
 
   
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        鄂ICP备2021017549号
+      </a>
+    </span>
+    
+  </div>
+
 
   
 <div>
@@ -568,12 +566,6 @@
 
 
 
-
-
-  
-<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/DynamicRibbon.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/Cherry.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/gradient.css.js"></script>
 
 
 
