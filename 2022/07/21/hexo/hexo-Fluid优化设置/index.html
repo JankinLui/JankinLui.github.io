@@ -1,0 +1,933 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/llqtb.png">
+  <link rel="icon" href="/img/llqtb.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="对于hexo-fluid主题的优化美化操作">
+  <meta name="author" content="L小胖">
+  <meta name="keywords" content="">
+  
+  <title>hexo-Fluid优化设置 - L刘俊卿的Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"blog.cndis.cn","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+
+
+<!--浏览器搞笑标题-->
+<script type="text/javascript" src="\js\FunnyTitle.js"></script>
+
+
+
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>JANKINLIU</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="hexo-Fluid优化设置">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-07-21 15:53" pubdate>
+        2022年7月21日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      6.2k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      76
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">hexo-Fluid优化设置</h1>
+            
+            <div class="markdown-body">
+              <h1 id="全局"><a href="#全局" class="headerlink" title="全局"></a>全局</h1><h2 id="覆盖配置"><a href="#覆盖配置" class="headerlink" title="覆盖配置"></a>覆盖配置</h2><blockquote>
+<p>TIP</p>
+<p>覆盖配置可以使<strong>主题配置</strong>放置在 fluid 目录之外，避免在更新主题时丢失自定义的配置。</p>
+<p>通过 Npm 安装主题的用户可忽略，其他用户建议学习使用</p>
+</blockquote>
+<p>Hexo 5.0.0 版本以上的用户，在博客目录下创建 <code>_config.fluid.yml</code> 文件，将主题的 <a target="_blank" rel="noopener" href="https://github.com/fluid-dev/hexo-theme-fluid/blob/master/_config.yml">_config.yml (opens new window)</a>全部配置（或部分配置）复制过去。</p>
+<p>以后如果修改任何主题配置，都只需修改 <code>_config.fluid.yml</code> 的配置即可。</p>
+<p>注意：</p>
+<ul>
+<li>只要存在于 <code>_config.fluid.yml</code> 的配置都是高优先级，修改原 <code>_config.yml</code> 是无效的。</li>
+<li>每次更新主题可能存在配置变更，请注意更新说明，可能需要手动对 <code>_config.fluid.yml</code> 同步修改。</li>
+<li>想查看覆盖配置有没有生效，可以通过 <code>hexo g --debug</code> 查看命令行输出。</li>
+<li>如果想将某些配置覆盖为空，注意不要把主键删掉，不然是无法覆盖的，比如：</li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">about:</span><br>  <span class="hljs-attr">icons:</span>  <span class="hljs-comment"># 不要把 icon 注释掉，否则无法覆盖配置</span><br>    <span class="hljs-comment"># - &#123; class: &#x27;iconfont icon-github-fill&#x27;, link: &#x27;https://github.com&#x27; &#125;</span><br>    <span class="hljs-comment"># - &#123; class: &#x27;iconfont icon-wechat-fill&#x27;, qrcode: &#x27;/img/favicon.png&#x27; &#125;</span><br></code></pre></div></td></tr></table></figure>
+
+<details open style="user-select: auto !important; color: rgb(44, 62, 80); font-family: -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, Cantarell, &quot;Fira Sans&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, sans-serif; font-size: 15px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;"><p style="line-height: 1.7; user-select: auto !important;">必须确保 Hexo 版本不低于 3.0.0，使用方式：</p><ol style="padding-left: 1.2em; line-height: 1.7; user-select: auto !important;"><li style="user-select: auto !important;">进入博客目录的<span>&nbsp;</span><code style="font-family: source-code-pro, Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; user-select: auto !important; color: rgb(71, 101, 130); padding: 0.25rem 0.5rem; margin: 0px; font-size: 0.85em; background-color: rgba(27, 31, 35, 0.05); border-radius: 3px;">source/_data</code><span>&nbsp;</span>目录（如不存在则创建）；</li><li style="user-select: auto !important;">在<span>&nbsp;</span><code style="font-family: source-code-pro, Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; user-select: auto !important; color: rgb(71, 101, 130); padding: 0.25rem 0.5rem; margin: 0px; font-size: 0.85em; background-color: rgba(27, 31, 35, 0.05); border-radius: 3px;">_data</code><span>&nbsp;</span>文件夹下创建<span>&nbsp;</span><code style="font-family: source-code-pro, Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; user-select: auto !important; color: rgb(71, 101, 130); padding: 0.25rem 0.5rem; margin: 0px; font-size: 0.85em; background-color: rgba(27, 31, 35, 0.05); border-radius: 3px;">fluid_config.yml</code><span>&nbsp;</span>文件，将主题的<span>&nbsp;</span><a href="https://github.com/fluid-dev/hexo-theme-fluid/blob/master/_config.yml" target="_blank" rel="noopener noreferrer" style="font-weight: 500; text-decoration: none; color: rgb(62, 175, 124); user-select: auto !important;">_config.yml<span style="user-select: auto !important;"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"/><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"/></svg><span>&nbsp;</span><span class="sr-only" style="user-select: auto !important; position: absolute; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; border-width: 0px;">(opens new window)</span></span></a>全部配置（或部分配置）复制到<span>&nbsp;</span><code style="font-family: source-code-pro, Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; user-select: auto !important; color: rgb(71, 101, 130); padding: 0.25rem 0.5rem; margin: 0px; font-size: 0.85em; background-color: rgba(27, 31, 35, 0.05); border-radius: 3px;">fluid_config.yml</code><span>&nbsp;</span>中；</li><li style="user-select: auto !important;">以后配置都在<span>&nbsp;</span><code style="font-family: source-code-pro, Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; user-select: auto !important; color: rgb(71, 101, 130); padding: 0.25rem 0.5rem; margin: 0px; font-size: 0.85em; background-color: rgba(27, 31, 35, 0.05); border-radius: 3px;">fluid_config.yml</code><span>&nbsp;</span>中修改，配置会在<span>&nbsp;</span><code style="font-family: source-code-pro, Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; user-select: auto !important; color: rgb(71, 101, 130); padding: 0.25rem 0.5rem; margin: 0px; font-size: 0.85em; background-color: rgba(27, 31, 35, 0.05); border-radius: 3px;">hexo g</code><span>&nbsp;</span>时自动覆盖。</li></ol></details>
+
+<h2 id="静态资源"><a href="#静态资源" class="headerlink" title="静态资源"></a>静态资源</h2><p>所有静态资源文件的 Url 可以通过<strong>主题配置</strong>中的 <code>static_prefix</code> 配置项修改。</p>
+<p>比如需要指定公共 CDN 的 JQuery 库，只需将原配置改为：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">static_prefix:</span><br>  <span class="hljs-comment"># ...</span><br>  <span class="hljs-attr">jquery:</span> <span class="hljs-string">https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/</span><br></code></pre></div></td></tr></table></figure>
+
+<h2 id="本地搜索"><a href="#本地搜索" class="headerlink" title="本地搜索"></a>本地搜索</h2><ul>
+<li>已集成 hexo-generator-search 插件，若已安装其他搜索插件请关闭，以避免生成多余的索引文件。</li>
+<li>默认在根目录生成并使用 <code>local-search.xml</code>。</li>
+</ul>
+<h2 id="页面顶部大图"><a href="#页面顶部大图" class="headerlink" title="页面顶部大图"></a>页面顶部大图</h2><h3 id="图片来源"><a href="#图片来源" class="headerlink" title="图片来源"></a>图片来源</h3><p>主题配置中，每个页面都有名为 <code>banner_img</code> 的属性，可以使用本地图片的相对路径，也可以为外站链接，比如：</p>
+<p>指向本地图片：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">banner_img:</span> <span class="hljs-string">/img/bg/example.jpg</span>   <span class="hljs-comment"># 对应存放在 /source/img/bg/example.jpg</span><br></code></pre></div></td></tr></table></figure>
+
+<p>指向外站链接：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">banner_img:</span> <span class="hljs-string">https://static.zkqiang.cn/example.jpg</span><br></code></pre></div></td></tr></table></figure>
+
+<p>TIP</p>
+<p>如果是本地图片，目录文件夹可自定义，但必须在 source 目录下，博客与主题的 source 目录最终会合并，因此优先选择博客的 source。</p>
+<p>图片大小建议压缩到 1MB 以内，否则会严重拖慢页面加载。</p>
+<h3 id="高度"><a href="#高度" class="headerlink" title="高度"></a>高度</h3><p>鉴于每个人的喜好不同，开放对页面 <code>banner_img</code> 高度的控制。</p>
+<p><strong>主题配置</strong>中，每个页面对应的 <code>banner_img_height</code> 属性，有效值为 0 - 100。100 即为全屏，个人建议 70 以上。</p>
+<h3 id="蒙版透明度"><a href="#蒙版透明度" class="headerlink" title="蒙版透明度"></a>蒙版透明度</h3><p><strong>主题配置</strong>中，每个页面对应的 <code>banner_mask_alpha</code> 属性，有效值为 0 - 1.0， 0 是完全透明（无蒙版），1 是完全不透明</p>
+<blockquote>
+<p>TIP</p>
+<p>每篇文章可单独设置 Banner，具体见文章页设置</p>
+<p>本主题不支持固定背景（fixed），原因：</p>
+<ol>
+<li>与目前代码结构有较大冲突，需要大量修改</li>
+<li><code>fixed</code> 在移动端兼容性很差</li>
+</ol>
+</blockquote>
+<h2 id="博客标题"><a href="#博客标题" class="headerlink" title="博客标题"></a>博客标题</h2><p>页面左上角的博客标题，默认使用<strong>博客配置</strong>中的 <code>title</code>，这个配置同时控制着网页在浏览器标签中的标题。</p>
+<p>如需单独区别设置，可在<strong>主题配置</strong>中设置：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">navbar:</span><br>  <span class="hljs-attr">blog_title:</span> <span class="hljs-string">博客标题</span><br></code></pre></div></td></tr></table></figure>
+
+<h2 id="导航菜单"><a href="#导航菜单" class="headerlink" title="导航菜单"></a>导航菜单</h2><figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">navbar:</span><br>  <span class="hljs-attr">menu:</span><br>    <span class="hljs-bullet">-</span> &#123; <span class="hljs-attr">key:</span> <span class="hljs-string">&#x27;home&#x27;</span>, <span class="hljs-attr">link:</span> <span class="hljs-string">&#x27;/&#x27;</span>, <span class="hljs-attr">icon:</span> <span class="hljs-string">&#x27;iconfont icon-home-fill&#x27;</span> &#125;<br>    <span class="hljs-bullet">-</span> &#123; <span class="hljs-attr">key:</span> <span class="hljs-string">&#x27;tag&#x27;</span>, <span class="hljs-attr">link:</span> <span class="hljs-string">&#x27;/tags/&#x27;</span>, <span class="hljs-attr">icon:</span> <span class="hljs-string">&#x27;iconfont icon-tags-fill&#x27;</span> &#125;<br>    <span class="hljs-bullet">-</span> &#123; <span class="hljs-attr">key:</span> <span class="hljs-string">&#x27;about&#x27;</span>, <span class="hljs-attr">link:</span> <span class="hljs-string">&#x27;/about/&#x27;</span>, <span class="hljs-attr">icon:</span> <span class="hljs-string">&#x27;iconfont icon-user-fill&#x27;</span>, <span class="hljs-attr">name:</span> <span class="hljs-string">&#x27;联系我&#x27;</span> &#125;<br></code></pre></div></td></tr></table></figure>
+
+<ul>
+<li><code>key</code>: 用于关联有<a target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/guide/#%E8%AF%AD%E8%A8%80%E9%85%8D%E7%BD%AE">语言配置</a>，如不存在关联则显示 key 本身的值</li>
+<li><code>link</code>: 跳转链接</li>
+<li><code>icon</code>: 图标的 css class，可以省略（即没有图标），主题内置图标详见<a target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/icon/">这里</a></li>
+<li><code>name</code>: 强制使用此名称显示（不再按语言配置显示），可省略</li>
+</ul>
+<p>另外支持二级菜单（下拉菜单），配置写法如下：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">menu:</span><br>  <span class="hljs-bullet">-</span> &#123;<br>      <span class="hljs-attr">key:</span> <span class="hljs-string">&#x27;文档&#x27;</span>,<br>      <span class="hljs-attr">icon:</span> <span class="hljs-string">&#x27;iconfont icon-books&#x27;</span>,<br>      <span class="hljs-attr">submenu:</span> [<br>        &#123; <span class="hljs-attr">key:</span> <span class="hljs-string">&#x27;主题博客&#x27;</span>, <span class="hljs-attr">link:</span> <span class="hljs-string">&#x27;https://hexo.fluid-dev.com/&#x27;</span> &#125;,<br>        &#123; <span class="hljs-attr">key:</span> <span class="hljs-string">&#x27;配置指南&#x27;</span>, <span class="hljs-attr">link:</span> <span class="hljs-string">&#x27;https://hexo.fluid-dev.com/docs/guide/&#x27;</span> &#125;,<br>        &#123; <span class="hljs-attr">key:</span> <span class="hljs-string">&#x27;图标用法&#x27;</span>, <span class="hljs-attr">link:</span> <span class="hljs-string">&#x27;https://hexo.fluid-dev.com/docs/icon/&#x27;</span> &#125;<br>      ]<br>  &#125;<br></code></pre></div></td></tr></table></figure>
+
+<h2 id="懒加载"><a href="#懒加载" class="headerlink" title="懒加载"></a>懒加载</h2><p>懒加载又称延迟加载。开启后，当图片或评论插件滚动到可见范围内才会加载，可以大幅提高打开网页的速度。</p>
+<p>该功能默认开启，可以在<strong>主题配置</strong>中修改参数：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">lazyload:</span><br>  <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span><br>  <span class="hljs-attr">loading_img:</span> <span class="hljs-string">/img/loading.gif</span><br>  <span class="hljs-attr">onlypost:</span> <span class="hljs-literal">false</span><br>  <span class="hljs-attr">offset_factor:</span> <span class="hljs-number">2</span><br></code></pre></div></td></tr></table></figure>
+
+<p><code>loading_img</code>: 指定加载时的占位图片</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs coffeescript">onlypost`<span class="javascript">: 为 <span class="hljs-literal">true</span> 时，懒加载仅在文章页生效，如果自定义页面需要使用，可以在 [Front-matter (opens <span class="hljs-keyword">new</span> <span class="hljs-built_in">window</span>)](https:<span class="hljs-comment">//hexo.io/zh-cn/docs/front-matter)里指定 </span></span>`lazyload: <span class="hljs-literal">true</span><br></code></pre></div></td></tr></table></figure>
+
+<p><code>offset_factor</code>: 触发加载的偏移倍数，基数是视窗高度（即提前 N 屏高度触发加载），可根据部署环境的请求速度调节</p>
+<h2 id="全局字体"><a href="#全局字体" class="headerlink" title="全局字体"></a>全局字体</h2><p>所有页面统一字体的字号和字族可以通过<strong>主题配置</strong>中的下列配置项设置：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">font:</span>  <span class="hljs-comment"># 主题字体配置</span><br>  <span class="hljs-attr">font_size:</span> <span class="hljs-string">16px</span>        <span class="hljs-comment"># 全局字号</span><br>  <span class="hljs-attr">font_family:</span>           <span class="hljs-comment"># 全局字体族</span><br>  <span class="hljs-attr">code_font_size:</span> <span class="hljs-number">85</span><span class="hljs-string">%</span>    <span class="hljs-comment"># 代码的字号</span><br></code></pre></div></td></tr></table></figure>
+
+<p>关于字体族（<code>font-family</code>）如果不了解可以看<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/font-family">这篇文章 (opens new window)</a>先了解一下。</p>
+<p>需要注意：</p>
+<ul>
+<li>最好使用系统自带的字体，否则需要通过<a target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/guide/#%E8%87%AA%E5%AE%9A%E4%B9%89-js-css-html">自定义功能</a>额外引入 <code>@font-face</code>，字体一般较大，不建议引入；</li>
+<li>应当至少添加一个通用的字体族名（如 serif，具体见上方链接文章）。</li>
+</ul>
+<p>如果想设置单独的页面，可以直接在 markdown 里通过 style 标签实现：</p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html">---<br>title: example<br>---<br><br><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css"></span><br><span class="css">  <span class="hljs-comment">/* 设置整个页面的字体 */</span></span><br><span class="css">  <span class="hljs-selector-tag">html</span>, <span class="hljs-selector-tag">body</span>, <span class="hljs-selector-class">.markdown-body</span> &#123;</span><br><span class="css">    <span class="hljs-attribute">font-family</span>: KaiTi,<span class="hljs-string">&quot;Microsoft YaHei&quot;</span>,Georgia, sans, serif;</span><br><span class="css">    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">15px</span>;</span><br><span class="css">  &#125;</span><br><span class="css"></span><br><span class="css">  <span class="hljs-comment">/* 只设置 markdown 字体 */</span></span><br><span class="css">  <span class="hljs-selector-class">.markdown-body</span> &#123;</span><br><span class="css">    <span class="hljs-attribute">font-family</span>: KaiTi,<span class="hljs-string">&quot;Microsoft YaHei&quot;</span>,Georgia, sans, serif;</span><br><span class="css">    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">15px</span>;</span><br><span class="css">  &#125;</span><br><span class="css"></span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+
+<h2 id="网页统计"><a href="#网页统计" class="headerlink" title="网页统计"></a>网页统计</h2><p>目前支持多种统计网站，开启后按需填入 Key 或 ID 即可。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">web_analytics:</span>  <span class="hljs-comment"># 网页访问统计</span><br>  <span class="hljs-attr">enable:</span> <span class="hljs-literal">false</span> <span class="hljs-comment"># 默认为false，启用网页统计改为true即可</span><br>  <span class="hljs-attr">baidu:</span>  <span class="hljs-comment"># 百度统计的Key，参见 https://tongji.baidu.com/sc-web/10000033910/home/site/getjs?siteId=13751376 代码获取中 hm.js? 后边的字符串</span><br>  <span class="hljs-attr">google:</span>  <span class="hljs-comment"># Google统计的Tracking ID，参见 https://analytics.google.com/analytics/web/</span><br>  <span class="hljs-attr">tencent:</span>  <span class="hljs-comment"># 腾讯统计的H5 App id，参见 https://mta.qq.com/h5/manage/ctr_app_manage (开启高级功能才有cid)</span><br>    <span class="hljs-attr">sid:</span><br>    <span class="hljs-attr">cid:</span><br>  <span class="hljs-attr">woyaola:</span>  <span class="hljs-comment"># 51.la站点统计ID，参见 https://www.51.la/user/site/index</span><br>  <span class="hljs-attr">cnzz:</span>  <span class="hljs-comment"># 友盟/cnzz站点统计web_id，参见 https://web.umeng.com/main.php?c=site&amp;a=show</span><br>  <span class="hljs-attr">leancloud:</span>  <span class="hljs-comment"># LeanCloud 计数统计，可用于 PV UV 展示，如果 web_analytics.enable 没有开启，PV UV 展示只会查询，不会增加</span><br>    <span class="hljs-attr">app_id:</span><br>    <span class="hljs-attr">app_key:</span><br>    <span class="hljs-attr">server_url:</span>  <span class="hljs-comment"># REST API 服务器地址，国际版不填</span><br></code></pre></div></td></tr></table></figure>
+
+<h2 id="展示PV与UV统计"><a href="#展示PV与UV统计" class="headerlink" title="展示PV与UV统计"></a>展示PV与UV统计</h2><p>页脚可以展示 PV 与 UV 统计数据，目前支持两种数据来源：<a target="_blank" rel="noopener" href="https://www.leancloud.cn/">LeanCloud (opens new window)</a>与 <a target="_blank" rel="noopener" href="http://busuanzi.ibruce.info/">不蒜子 (opens new window)</a>。</p>
+<p>相关<strong>主题配置</strong>如下：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">footer:</span><br>  <span class="hljs-attr">statistics:</span><br>    <span class="hljs-attr">enable:</span> <span class="hljs-literal">false</span><br>    <span class="hljs-attr">source:</span> <span class="hljs-string">&quot;busuanzi&quot;</span>  <span class="hljs-comment"># 可选 leancloud | busuanzi  根据自己需求选择</span><br>    <span class="hljs-attr">pv_format:</span> <span class="hljs-string">&quot;总访问量 &#123;&#125; 次&quot;</span>  <span class="hljs-comment"># 显示的文本，&#123;&#125;是数字的占位符（必须包含)，下同</span><br>    <span class="hljs-attr">uv_format:</span> <span class="hljs-string">&quot;总访客数 &#123;&#125; 人&quot;</span><br></code></pre></div></td></tr></table></figure>
+
+<blockquote>
+<p>TIP</p>
+<p>不蒜子不需要申请账号，直接开启即可，但有时候会响应缓慢拖慢整个页面加载。</p>
+<p>不蒜子在 localhost 域名下显示的不是真正的数据，因此无需在意。</p>
+<p>LeanCloud 使用前需要申请账号（国内需要身份认证），然后在 <code>web_analytics</code> 配置项中将 <code>leancloud</code> API 相关参数填上才能生效。</p>
+<p>LeanCloud 在 localhost 域名下不会增加数据。</p>
+<p>如果参数填写错误或者接口异常，不会显示数据，请在浏览器控制台排查具体原因</p>
+</blockquote>
+<h2 id="语言配置"><a href="#语言配置" class="headerlink" title="语言配置"></a>语言配置</h2><p>不同语言会影响一些主题自带的文字。</p>
+<p>设置语言是在<strong>博客配置</strong>中，需要对应 <code>fluid/languages/</code> 目录内的配置文件名:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">language:</span> <span class="hljs-string">zh-CN</span><br></code></pre></div></td></tr></table></figure>
+
+<p>你可以在主题 <a target="_blank" rel="noopener" href="https://github.com/fluid-dev/hexo-theme-fluid/tree/master/languages">languages (opens new window)</a>目录里查看支持哪些语言，只要上面的配置的值和文件名相同即可。</p>
+<p>你也可以使用类似于覆盖配置的方式去自定义语言，可按如下操作：</p>
+<ol>
+<li>进入博客目录的 <code>source/_data</code> 目录（如不存在则创建），创建 <code>languages</code> 文件夹；</li>
+<li>在 <code>source/_data/languages</code> 文件夹下创建 <code>xxx.yml</code> 文件（<code>xxx</code> 替换为对应语言的代码，例如 <code>zh-CN</code>）</li>
+<li>将 <a target="_blank" rel="noopener" href="https://github.com/fluid-dev/hexo-theme-fluid/tree/master/languages">fluid/languages (opens new window)</a>目录下对应语言的配置内容复制到 <code>xxx.yml</code> 中；</li>
+<li>以后配置都在 <code>xxx.yml</code> 中修改，配置会在 <code>hexo g</code> 时自动覆盖。</li>
+</ol>
+<p>当然你可以按这个方法创建一份其他语言的配置</p>
+<h2 id="强制全局HTTPS"><a href="#强制全局HTTPS" class="headerlink" title="强制全局HTTPS"></a>强制全局HTTPS</h2><p>当你的域名升级到 HTTPS 后，可能之前存在部分图片等资源使用的是 HTTP，这时混用出现网页报错，造成图片无法显示。</p>
+<p>控制台里也会出现报错：<code>Mixed Content: The page at &#39;https://xxx&#39; was loaded over HTTPS</code>。</p>
+<p>这种情况可以在<strong>主题配置</strong>中开启此配置：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">force_https:</span> <span class="hljs-literal">true</span><br></code></pre></div></td></tr></table></figure>
+
+<p>即可将所有请求强制升级为 HTTPS（如是外部资源，需要本身支持 HTTPS）</p>
+<h2 id="二级站点路径"><a href="#二级站点路径" class="headerlink" title="二级站点路径"></a>二级站点路径</h2><p>如果你的博客部署在二级路径（如: xxx.com/blog/），需要修改<strong>博客配置</strong>中：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">url:</span> <span class="hljs-string">http://xxx.com/blog</span><br><span class="hljs-attr">root:</span> <span class="hljs-string">/blog/</span><br></code></pre></div></td></tr></table></figure>
+
+<h2 id="自定义JS-CSS-HTML"><a href="#自定义JS-CSS-HTML" class="headerlink" title="自定义JS/CSS/HTML"></a>自定义JS/CSS/HTML</h2><p>如果你想引入外部的 JS、CSS（比如 IconFont）或 HTML，可以通过以下<strong>主题配置</strong>，具体见注释：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-comment"># 指定自定义 js 文件路径，路径是相对 source 目录</span><br><span class="hljs-attr">custom_js:</span> <span class="hljs-string">/js/custom.js</span><br><br><span class="hljs-comment"># 指定自定义 css 文件路径，路径是相对 source 目录</span><br><span class="hljs-attr">custom_css:</span> <span class="hljs-string">/css/custom.css</span><br><br><span class="hljs-comment"># 自定义 &lt;head&gt; 节点中的 HTML 内容</span><br><span class="hljs-attr">custom_head:</span> <span class="hljs-string">&#x27;&lt;meta name=&quot;key&quot; content=&quot;value&quot;&gt;&#x27;</span><br><br><span class="hljs-comment"># 自定义底部 HTML 内容（位于 footer 上方），也可用于外部引入 js css 这些操作，注意不要和 post.custom 配置冲突</span><br><span class="hljs-attr">custom_html:</span> <span class="hljs-string">&#x27;&lt;link rel=&quot;stylesheet&quot; href=&quot;//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css&quot;&gt;&#x27;</span><br></code></pre></div></td></tr></table></figure>
+
+<p>另外 <code>custom_js</code> 和 <code>custom_css</code> 都可以指定多个路径：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">custom_css:</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">/css/custom.css</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">//at.alicdn.com/t/font_1736178_ijqayz9ro8k.css</span><br></code></pre></div></td></tr></table></figure>
+
+<h2 id="暗色模式"><a href="#暗色模式" class="headerlink" title="暗色模式"></a>暗色模式</h2><p>主题暗色模式，开启后菜单中会出现切换按钮</p>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">dark_mode:</span><br>  <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span><br>  <span class="hljs-attr">default:</span> <span class="hljs-string">auto</span><br></code></pre></div></td></tr></table></figure>
+
+<p><code>default</code> 是暗色默认的模式，可选参数：auto / light / dark</p>
+<p>选择 auto 时优先遵循 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/@media/prefers-color-scheme">prefers-color-scheme (opens new window)</a>，如果不支持则按用户本地时间 18 点到次日 6 点之间进入暗色模式。</p>
+<p>无论选择任何模式，当用户手动切换后会在用户本地保存选项，该用户不再按照默认模式</p>
+<h2 id="OpenGraph"><a href="#OpenGraph" class="headerlink" title="OpenGraph"></a>OpenGraph</h2><p><a target="_blank" rel="noopener" href="https://ogp.me/">OpenGraph (opens new window)</a>是 Facebook 发布的一套网页元信息标记协议，可以让任何页面成为社交平台中的富媒体标签。</p>
+<p>本主题基于 <a target="_blank" rel="noopener" href="https://hexo.io/docs/helpers.html#open-graph">Hexo 内置方法 (opens new window)</a>实现了该功能，并且默认开启，但如果想在 Facebook 等平台更好地使用，需要在<strong>主题配置</strong>完善如下配置项：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">open_graph:</span><br>  <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span><br>  <span class="hljs-attr">twitter_card:</span> <span class="hljs-string">summary_large_image</span><br>  <span class="hljs-attr">twitter_id:</span><br>  <span class="hljs-attr">twitter_site:</span><br>  <span class="hljs-attr">google_plus:</span><br>  <span class="hljs-attr">fb_admins:</span><br>  <span class="hljs-attr">fb_app_id:</span><br></code></pre></div></td></tr></table></figure>
+
+<p>另外你可以在 <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/front-matter">Front-matter (opens new window)</a>设置字段来指定单个页面的 OpenGraph 属性：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-meta">---</span><br><span class="hljs-attr">og_img:</span> <span class="hljs-string">/img/og.png</span><br><span class="hljs-meta">---</span><br></code></pre></div></td></tr></table></figure>
+
+<h1 id="首页"><a href="#首页" class="headerlink" title="首页"></a>首页</h1><h2 id="Slogan-打字机"><a href="#Slogan-打字机" class="headerlink" title="Slogan(打字机)"></a>Slogan(打字机)</h2><p>首页大图中的标题文字，可在<strong>主题配置</strong>中设定是否开启：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">index:</span><br>  <span class="hljs-attr">slogan:</span><br>    <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span><br>    <span class="hljs-attr">text:</span> <span class="hljs-string">这是一条</span> <span class="hljs-string">Slogan</span><br>    <span class="hljs-attr">api:</span><br>      <span class="hljs-attr">enable:</span> <span class="hljs-literal">false</span><br>      <span class="hljs-attr">url:</span> <span class="hljs-string">&quot;https://v1.hitokoto.cn/&quot;</span><br>      <span class="hljs-attr">method:</span> <span class="hljs-string">&quot;GET&quot;</span><br>      <span class="hljs-attr">headers:</span> &#123;&#125;<br>      <span class="hljs-attr">keys:</span> [<span class="hljs-string">&quot;hitokoto&quot;</span>]<br></code></pre></div></td></tr></table></figure>
+
+<p>如果 <code>text</code> 为空则按<strong>博客配置</strong>的 <code>subtitle</code> 显示。</p>
+<p>另外支持通过 API 接口获取内容，如果请求失败则按 text 字段显示：</p>
+<p><code>url</code>: API 地址，必须返回的是一个 JSON 格式</p>
+<figure class="highlight oxygene"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs oxygene"><span class="hljs-function"><span class="hljs-keyword">method</span>`:</span> 请求方法，可选 `GET`、`POST`、`PUT<br></code></pre></div></td></tr></table></figure>
+
+<p><code>headers</code>: 请求头，如果接口需要传一些验证的头部信息，在这里设置</p>
+<p><code>keys</code>: 从请求结果获取字符串的取值字段，程序会根据列表中的字段依次取值，最终需要获得到一个字符串</p>
+<p>例如 API 返回的内容为：</p>
+<figure class="highlight json"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs json">[<br>    &#123;<br>        <span class="hljs-attr">&quot;data&quot;</span>: &#123;<br>            <span class="hljs-attr">&quot;author&quot;</span>: <span class="hljs-string">&quot;Fluid&quot;</span>,<br>            <span class="hljs-attr">&quot;content&quot;</span>: <span class="hljs-string">&quot;An elegant theme&quot;</span><br>        &#125;<br>    &#125;,<br>    &#123;<br>        <span class="hljs-attr">&quot;data&quot;</span>: &#123;<br>            <span class="hljs-attr">&quot;author&quot;</span>: <span class="hljs-string">&quot;Test&quot;</span>,<br>            <span class="hljs-attr">&quot;content&quot;</span>: <span class="hljs-string">&quot;Test content&quot;</span><br>        &#125;<br>    &#125;<br>]<br></code></pre></div></td></tr></table></figure>
+
+<p>设置 <code>keys: [&quot;data&quot;, &quot;content&quot;]</code>，程序会如下执行：</p>
+<ol>
+<li>由于返回体是列表，程序会首先获取第一个元素（不是列表则跳过此步骤）</li>
+<li>通过第一个 key <code>data</code> 获取值，发现不是一个字符串，继续执行</li>
+<li>通过第二个 key <code>content</code> 获取值，发现是一个字符串，返回内容；如果不是字符串则获取失败，使用 text 值</li>
+</ol>
+<blockquote>
+<p>WARNING</p>
+<p>如果 API 没有请求成功，请打开浏览器的控制台（console）检查是否报错，其中如果有包含 <code>No Access-Control-Allow-Origin header</code> 的报错，说明该 API 有跨域限制，这必须从 API 后端服务来解决。</p>
+</blockquote>
+<p>标题文字默认开启了打字机动效，相关配置如下：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">fun_features:</span><br>  <span class="hljs-attr">typing:</span> <span class="hljs-comment"># 为 subtitle 添加打字机效果</span><br>    <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span><br>    <span class="hljs-attr">typeSpeed:</span> <span class="hljs-number">70</span> <span class="hljs-comment"># 打印速度</span><br>    <span class="hljs-attr">cursorChar:</span> <span class="hljs-string">&quot;_&quot;</span> <span class="hljs-comment"># 游标字符</span><br>    <span class="hljs-attr">loop:</span> <span class="hljs-literal">false</span> <span class="hljs-comment"># 是否循环播放效果</span><br></code></pre></div></td></tr></table></figure>
+
+<blockquote>
+<p>TIP</p>
+<p>请求 API 的功能必须同时开启打字机动效才能生效</p>
+</blockquote>
+<h2 id="文章摘要"><a href="#文章摘要" class="headerlink" title="文章摘要"></a>文章摘要</h2><p>开关自动摘要（默认开启）：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">index:</span><br>  <span class="hljs-attr">auto_excerpt:</span><br>    <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span><br></code></pre></div></td></tr></table></figure>
+
+<p>若要手动指定摘要，使用 <code>&lt;!-- more --&gt;</code> MD文档里划分，如：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs markdown">正文的一部分作为摘要<br>&lt;!-- more --&gt;<br>余下的正文<br></code></pre></div></td></tr></table></figure>
+
+<p>或者在 <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/front-matter">Front-matter (opens new window)</a>里设置 <code>excerpt</code> 字段，如：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-meta">---</span><br><span class="hljs-attr">title:</span> <span class="hljs-string">这是标题</span><br><span class="hljs-attr">excerpt:</span> <span class="hljs-string">这是摘要</span><br><span class="hljs-meta">---</span><br></code></pre></div></td></tr></table></figure>
+
+<blockquote>
+<p>TIP</p>
+<p>优先级: 手动摘要 &gt; 自动摘要</p>
+<p>如果关闭自动摘要，并且没有设置手动摘要，摘要区域空白</p>
+<p>无论哪种摘要都最多显示 3 行，当屏幕宽度不足时会隐藏部分摘要。</p>
+</blockquote>
+<h2 id="文章跳转方式"><a href="#文章跳转方式" class="headerlink" title="文章跳转方式"></a>文章跳转方式</h2><figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">index:</span><br>  <span class="hljs-attr">post_url_target:</span> <span class="hljs-string">_self</span><br></code></pre></div></td></tr></table></figure>
+
+<p>可选值：</p>
+<ol>
+<li>_blank：新标签页打开</li>
+<li>_self：当前标签页打开</li>
+</ol>
+<h2 id="文章信息"><a href="#文章信息" class="headerlink" title="文章信息"></a>文章信息</h2><p>可配置隐藏包括发布时间、分类、标签。</p>
+<p>经过测试，如果首页的文章列表中没有略缩图和摘要，标题+文章信息的显示方式会使页面过于拥挤，所以给出此项配置供喜欢首页只显示文章标题的同学使用。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">index:</span><br>  <span class="hljs-attr">post_meta:</span><br>    <span class="hljs-attr">date:</span> <span class="hljs-literal">true</span><br>    <span class="hljs-attr">category:</span> <span class="hljs-literal">true</span><br>    <span class="hljs-attr">tag:</span> <span class="hljs-literal">true</span><br></code></pre></div></td></tr></table></figure>
+
+<h2 id="隐藏文章"><a href="#隐藏文章" class="headerlink" title="隐藏文章"></a>隐藏文章</h2><p>如果想把某些文章隐藏起来，不在首页和其他分类里展示，可以在文章开头 <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/front-matter">Front-matter (opens new window)</a>中配置 <code>hide: true</code> 属性。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-meta">---</span><br><span class="hljs-attr">title:</span> <span class="hljs-string">文章标题</span><br><span class="hljs-attr">index_img:</span> <span class="hljs-string">/img/example.jpg</span><br><span class="hljs-attr">date:</span> <span class="hljs-number">2019-10-10 10:00:00</span><br><span class="hljs-attr">hide:</span> <span class="hljs-literal">true</span><br><span class="hljs-meta">---</span><br><span class="hljs-string">以下是文章内容</span><br></code></pre></div></td></tr></table></figure>
+
+<blockquote>
+<p>TIP</p>
+<p>隐藏会使文章在分类和标签类里都不显示</p>
+<p>隐藏后依然可以通过文章链接访问</p>
+</blockquote>
+<h2 id="文章排序"><a href="#文章排序" class="headerlink" title="文章排序"></a>文章排序</h2><p>如果想手动将某些文章固定在首页靠前的位置，可以在安装 <code>hexo-generator-index</code> &gt;= 2.0.0 版本的情况下，在文章开头 <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/front-matter">Front-matter (opens new window)</a>中配置 <code>sticky</code> 属性：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-meta">---</span><br><span class="hljs-attr">title:</span> <span class="hljs-string">文章标题</span><br><span class="hljs-attr">index_img:</span> <span class="hljs-string">/img/example.jpg</span><br><span class="hljs-attr">date:</span> <span class="hljs-number">2019-10-10 10:00:00</span><br><span class="hljs-attr">sticky:</span> <span class="hljs-number">100</span><br><span class="hljs-meta">---</span><br><span class="hljs-string">以下是文章内容</span><br></code></pre></div></td></tr></table></figure>
+
+<p><code>sticky</code> 数值越大，该文章越靠前，达到类似于置顶的效果，其他未设置的文章依然按默认排序。</p>
+<p>当文章设置了 <code>sticky</code> 后，主题会默认在首页文章标题前增加一个图标，来标识这是一个置顶文章，你可以通过<strong>主题配置</strong>去关闭或修改这个功能：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">index:</span><br>  <span class="hljs-attr">post_sticky:</span><br>    <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span><br>    <span class="hljs-attr">icon:</span> <span class="hljs-string">&#x27;iconfont icon-top&#x27;</span><br></code></pre></div></td></tr></table></figure>
+
+<p><code>icon</code> 可以通过<a target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/icon/">自定义图标</a>修改为其他图标。</p>
+<h1 id="文章页"><a href="#文章页" class="headerlink" title="文章页"></a>文章页</h1><h2 id="文章在首页的封面图"><a href="#文章在首页的封面图" class="headerlink" title="文章在首页的封面图"></a>文章在首页的封面图</h2><p>对于单篇文章，在文章开头 <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/front-matter">Front-matter (opens new window)</a>中配置 <code>index_img</code> 属性。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-meta">---</span><br><span class="hljs-attr">title:</span> <span class="hljs-string">文章标题</span><br><span class="hljs-attr">tags:</span> [<span class="hljs-string">Hexo</span>, <span class="hljs-string">Fluid</span>]<br><span class="hljs-attr">index_img:</span> <span class="hljs-string">/img/example.jpg</span><br><span class="hljs-attr">date:</span> <span class="hljs-number">2019-10-10 10:00:00</span><br><span class="hljs-meta">---</span><br><span class="hljs-string">以下是文章内容</span><br></code></pre></div></td></tr></table></figure>
+
+<p>和 Banner 配置相同，<code>/img/example.jpg</code> 对应的是存放在 <code>/source/img/example.jpg</code> 目录下的图片（目录也可自定义，但必须在 source 目录下）。</p>
+<p>也可以使用外链 Url 的绝对路径。</p>
+<p>如果想统一给文章设置一个默认图片（文章不设置 <code>index_img</code> 则默认使用这张图片），可在<strong>主题配置</strong>中设置：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">post:</span><br>  <span class="hljs-attr">default_index_img:</span> <span class="hljs-string">/img/example.jpg</span><br></code></pre></div></td></tr></table></figure>
+
+<p>当 <code>default_index_img</code> 和 <code>index_img</code> 都为空时，该文章在首页将不显示图片</p>
+<h2 id="文章页顶部大图"><a href="#文章页顶部大图" class="headerlink" title="文章页顶部大图"></a>文章页顶部大图</h2><p>默认显示<strong>主题配置</strong>中的 <code>post.banner_img</code>，如需要设置单个文章的 Banner，在 <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/front-matter">Front-matter (opens new window)</a>中指定 <code>banner_img</code> 属性。</p>
+<p>本地图片存放位置同上。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-meta">---</span><br><span class="hljs-attr">title:</span> <span class="hljs-string">文章标题</span><br><span class="hljs-attr">tags:</span> [<span class="hljs-string">Hexo</span>, <span class="hljs-string">Fluid</span>]<br><span class="hljs-attr">index_img:</span> <span class="hljs-string">/img/example.jpg</span><br><span class="hljs-attr">banner_img:</span> <span class="hljs-string">/img/post_banner.jpg</span><br><span class="hljs-attr">date:</span> <span class="hljs-number">2019-10-10 10:00:00</span><br><span class="hljs-meta">---</span><br><span class="hljs-string">以下是文章内容</span><br></code></pre></div></td></tr></table></figure>
+
+<h2 id="文章内容图片"><a href="#文章内容图片" class="headerlink" title="文章内容图片"></a>文章内容图片</h2><p>本地图片存放位置同上。</p>
+<figure class="highlight markdown"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs markdown">![](/img/example.jpg)<br></code></pre></div></td></tr></table></figure>
+
+<h2 id="日期-字数-阅读时长-阅读数"><a href="#日期-字数-阅读时长-阅读数" class="headerlink" title="日期/字数/阅读时长/阅读数"></a>日期/字数/阅读时长/阅读数</h2><p>显示在文章页大标题下的文章信息，除了作者和阅读次数，其他功能都是默认开启的。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">post:</span><br>  <span class="hljs-attr">meta:</span><br>    <span class="hljs-attr">author:</span>  <span class="hljs-comment"># 作者，优先根据 front-matter 里 author 字段，其次是 hexo 配置中 author 值</span><br>      <span class="hljs-attr">enable:</span> <span class="hljs-literal">false</span><br>    <span class="hljs-attr">date:</span>  <span class="hljs-comment"># 文章日期，优先根据 front-matter 里 date 字段，其次是 md 文件日期</span><br>      <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span><br>      <span class="hljs-attr">format:</span> <span class="hljs-string">&quot;dddd, MMMM Do YYYY, h:mm a&quot;</span>  <span class="hljs-comment"># 格式参照 ISO-8601 日期格式化</span><br>    <span class="hljs-attr">wordcount:</span>  <span class="hljs-comment"># 字数统计</span><br>      <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span><br>      <span class="hljs-attr">format:</span> <span class="hljs-string">&quot;&#123;&#125; 字&quot;</span>  <span class="hljs-comment"># 显示的文本，&#123;&#125;是数字的占位符（必须包含)，下同</span><br>    <span class="hljs-attr">min2read:</span>  <span class="hljs-comment"># 阅读时间</span><br>      <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span><br>      <span class="hljs-attr">format:</span> <span class="hljs-string">&quot;&#123;&#125; 分钟&quot;</span><br>    <span class="hljs-attr">views:</span>  <span class="hljs-comment"># 阅读次数</span><br>      <span class="hljs-attr">enable:</span> <span class="hljs-literal">false</span><br>      <span class="hljs-attr">source:</span> <span class="hljs-string">&quot;leancloud&quot;</span>  <span class="hljs-comment"># 统计数据来源，可选：leancloud | busuanzi   注意不蒜子会间歇抽风</span><br>      <span class="hljs-attr">format:</span> <span class="hljs-string">&quot;&#123;&#125; 次&quot;</span><br></code></pre></div></td></tr></table></figure>
+
+<blockquote>
+<p>TIP</p>
+<p>日期格式必须遵循 ISO-8601 规范，否则无法正常显示；</p>
+<p>其他格式必须包括 <code>&#123;&#125;</code> 符号代替数字，文字可自由设置。</p>
+</blockquote>
+<h2 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h2><figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">code:</span><br>  <span class="hljs-attr">copy_btn:</span> <span class="hljs-literal">true</span><br>  <span class="hljs-attr">highlight:</span><br>    <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span><br>    <span class="hljs-attr">line_number:</span> <span class="hljs-literal">true</span><br>    <span class="hljs-attr">lib:</span> <span class="hljs-string">&quot;highlightjs&quot;</span><br>    <span class="hljs-attr">highlightjs:</span><br>      <span class="hljs-attr">style:</span> <span class="hljs-string">&#x27;Github Gist&#x27;</span><br>      <span class="hljs-attr">bg_color:</span> <span class="hljs-literal">false</span><br>    <span class="hljs-attr">prismjs:</span><br>      <span class="hljs-attr">style:</span> <span class="hljs-string">&quot;default&quot;</span><br>      <span class="hljs-attr">preprocess:</span> <span class="hljs-literal">true</span><br></code></pre></div></td></tr></table></figure>
+
+<p><code>copy_btn</code>: 是否开启复制代码的按钮</p>
+<p><code>line_number</code>: 是否开启行号</p>
+<p><code>highlight</code>: 是否开启代码高亮</p>
+<p><code>lib</code>: 选择生成高亮的库，可选项: highlightjs、prismjs，对应下面两组配置，高亮的配置说明具体见<strong>主题配置</strong>中的注释</p>
+<h2 id="评论"><a href="#评论" class="headerlink" title="评论"></a>评论</h2><p>开启评论需要在<strong>主题配置</strong>中开启并指定评论模块：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">post:</span><br>  <span class="hljs-attr">comments:</span><br>    <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span><br>    <span class="hljs-attr">type:</span> <span class="hljs-string">disqus</span><br></code></pre></div></td></tr></table></figure>
+
+<p>然后在下方还要设置对应评论模块的参数，比如 disqus 对应设置：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">disqus:</span><br>  <span class="hljs-attr">shortname:</span> <span class="hljs-string">fluid</span><br></code></pre></div></td></tr></table></figure>
+
+<p>当前支持的评论插件如下：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://valine.js.org/configuration.html">Valine (opens new window)</a>:基于 LeanCloud</li>
+<li><a target="_blank" rel="noopener" href="https://waline.js.org/">Waline (opens new window)</a>: 从 Valine 衍生而来，额外增加了服务端和多种功能</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/gitalk/gitalk">Gitalk (opens new window)</a>: 基于 GitHub Issues</li>
+<li><a target="_blank" rel="noopener" href="https://utteranc.es/">Utterances (opens new window)</a>: 基于 GitHub Issues</li>
+<li><a target="_blank" rel="noopener" href="https://disqus.com/">Disqus (opens new window)</a>: 基于第三方的服务</li>
+<li><a target="_blank" rel="noopener" href="http://changyan.kuaizhan.com/">畅言 (opens new window)</a>: 基于第三方的服务</li>
+<li><a target="_blank" rel="noopener" href="https://www.livere.com/">来必力(Livere) (opens new window)</a>: 基于第三方的服务</li>
+<li><a target="_blank" rel="noopener" href="https://remark42.com/">Remark42 (opens new window)</a>: 需要自托管服务端</li>
+<li><a target="_blank" rel="noopener" href="https://twikoo.js.org/">Twikoo (opens new window)</a>: 基于腾讯云开发</li>
+<li><a target="_blank" rel="noopener" href="https://cusdis.com/">Cusdis (opens new window)</a>: 基于第三方服务或自托管服务</li>
+</ul>
+<p>使用方式和参数设置请点击上面链接查看各自的文档。</p>
+<p>若想自己添加新的评论插件，可通过<a target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/guide/#%E8%87%AA%E5%AE%9A%E4%B9%89-js-css-html">自定义功能</a>加入 <code>&lt;script&gt;</code>，并判断是否存在 <code>#comments</code> 元素进行挂载。</p>
+<blockquote>
+<p>TIP</p>
+<p>国内用户推荐使用 Valine、Waline 或者 twikoo</p>
+<p>如果设置后评论模块没有显示，说明配置没有完成，或者配置有误出现报错（请在浏览器控制台查看具体报错）</p>
+</blockquote>
+<p>如果想在某个文章页关闭评论，或者想在某个自定义页面开启评论，可以通过在 <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/front-matter">Front-matter (opens new window)</a>设置 <code>comment: bool</code> 来控制评论开关，或者通过 <code>comment: &#39;type&#39;</code> 来开启指定的评论插件。</p>
+<p>例如在关于页开启并指定评论插件：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-meta">---</span><br><span class="hljs-attr">title:</span> <span class="hljs-string">关于页</span><br><span class="hljs-attr">layout:</span> <span class="hljs-string">about</span><br><span class="hljs-attr">index_img:</span> <span class="hljs-string">/img/example.jpg</span><br><span class="hljs-attr">date:</span> <span class="hljs-number">2019-10-10 10:00:00</span><br><span class="hljs-attr">comment:</span> <span class="hljs-string">&#x27;valine&#x27;</span><br><span class="hljs-meta">---</span><br><span class="hljs-string">以下是正文内容</span><br></code></pre></div></td></tr></table></figure>
+
+<h2 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h2><p>主题内置了脚注语法支持，可以在文章末尾自动生成带有锚点的脚注，该功能在<strong>主题配置</strong>中默认开启：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">post:</span><br>  <span class="hljs-attr">footnote:</span><br>    <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span><br>    <span class="hljs-attr">header:</span> <span class="hljs-string">&#x27;&#x27;</span><br></code></pre></div></td></tr></table></figure>
+
+<p>脚注语法如下：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs markdown">这是一句话[^1]<br>[<span class="hljs-symbol">^1</span>]: <span class="hljs-link">这是对应的脚注</span><br></code></pre></div></td></tr></table></figure>
+
+<p>更优雅的使用方式，是将脚注写在文末，比如：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs markdown">正文<br><br><span class="hljs-section">## 参考</span><br>[<span class="hljs-symbol">^1</span>]: <span class="hljs-link">参考资料1</span><br>[<span class="hljs-symbol">^2</span>]: <span class="hljs-link">参考资料2</span><br></code></pre></div></td></tr></table></figure>
+
+<p>当然你也可以通过修改上方配置项 <code>header</code> 来自动加入节标题，如下所示：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">post:</span><br>  <span class="hljs-attr">footnote:</span><br>    <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span><br>    <span class="hljs-attr">header:</span> <span class="hljs-string">&#x27;&lt;h2&gt;参考&lt;/h2&gt;&#x27;</span>  <span class="hljs-comment"># 等同于手动写 `## 参考`</span><br></code></pre></div></td></tr></table></figure>
+
+<h1 id="关于页"><a href="#关于页" class="headerlink" title="关于页"></a>关于页</h1><h2 id="创建关于页"><a href="#创建关于页" class="headerlink" title="创建关于页"></a>创建关于页</h2><p>首次使用主题的「关于页」需要手动创建：</p>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ hexo new page about<br></code></pre></div></td></tr></table></figure>
+
+<p>创建成功后修改 <code>/source/about/index.md</code>，添加 <code>layout</code> 属性。</p>
+<p>修改后的文件示例如下：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-meta">---</span><br><span class="hljs-attr">title:</span> <span class="hljs-string">标题</span><br><span class="hljs-attr">layout:</span> <span class="hljs-string">about</span><br><span class="hljs-meta">---</span><br><span class="hljs-meta"></span><br><span class="hljs-string">这里可以写正文，支持</span> <span class="hljs-string">Markdown,</span> <span class="hljs-string">HTML</span><br></code></pre></div></td></tr></table></figure>
+
+<blockquote>
+<p>WARNING</p>
+<p><code>layout: about</code> 必须存在，并且不能修改成其他值，否则不会显示头像等样式。</p>
+</blockquote>
+<h2 id="关于信息"><a href="#关于信息" class="headerlink" title="关于信息"></a>关于信息</h2><p>在关于页介绍自己的基础信息，可以在<strong>主题配置</strong>中设置：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">about:</span><br>  <span class="hljs-attr">avatar:</span> <span class="hljs-string">/img/avatar.png</span><br>  <span class="hljs-attr">name:</span> <span class="hljs-string">&quot;Fluid&quot;</span><br>  <span class="hljs-attr">intro:</span> <span class="hljs-string">&quot;An elegant theme for Hexo&quot;</span><br></code></pre></div></td></tr></table></figure>
+
+<h2 id="社交页图标"><a href="#社交页图标" class="headerlink" title="社交页图标"></a>社交页图标</h2><p>在<strong>主题配置</strong>中设置：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">about:</span><br>  <span class="hljs-attr">icons:</span><br>    <span class="hljs-bullet">-</span> &#123; <span class="hljs-attr">class:</span> <span class="hljs-string">&#x27;iconfont icon-github-fill&#x27;</span>, <span class="hljs-attr">link:</span> <span class="hljs-string">&#x27;https://github.com&#x27;</span>, <span class="hljs-attr">tip:</span> <span class="hljs-string">&#x27;GitHub&#x27;</span> &#125;<br>    <span class="hljs-bullet">-</span> &#123; <span class="hljs-attr">class:</span> <span class="hljs-string">&#x27;iconfont icon-douban-fill&#x27;</span>, <span class="hljs-attr">link:</span> <span class="hljs-string">&#x27;https://douban.com&#x27;</span>, <span class="hljs-attr">tip:</span> <span class="hljs-string">&#x27;豆瓣&#x27;</span> &#125;<br>    <span class="hljs-bullet">-</span> &#123; <span class="hljs-attr">class:</span> <span class="hljs-string">&#x27;iconfont icon-wechat-fill&#x27;</span>, <span class="hljs-attr">qrcode:</span> <span class="hljs-string">&#x27;/img/favicon.png&#x27;</span> &#125;<br></code></pre></div></td></tr></table></figure>
+
+<ul>
+<li><code>class</code>: 图标的 css class，主题内置图标详见<a target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/icon/">这里</a></li>
+<li><code>link</code>: 跳转链接</li>
+<li><code>tip</code>: 鼠标悬浮在图标上显示的提示文字</li>
+<li><code>qrcode</code>: 二维码图片，当使用此字段后，点击不再跳转，而是悬浮二维码</li>
+</ul>
+<blockquote>
+<p>TIP</p>
+<p>关闭 icons 时注意不要把 <code>icons</code> 这个 key 也一起注释，否则会被<a target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/guide/#%E8%A6%86%E7%9B%96%E9%85%8D%E7%BD%AE">覆盖配置</a>填充上默认值，请按照如下设置：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs about:">  icons:<br>    # - &#123; class: &#x27;iconfont icon-github-fill&#x27;, link: &#x27;https://github.com&#x27;, tip: &#x27;GitHub&#x27; &#125;<br>    # - &#123; class: &#x27;iconfont icon-douban-fill&#x27;, link: &#x27;https://douban.com&#x27;, tip: &#x27;豆瓣&#x27; &#125;<br>    # - &#123; class: &#x27;iconfont icon-wechat-fill&#x27;, qrcode: &#x27;/img/favicon.png&#x27; &#125;```<br><br>## 评论<br><br>开启评论的方式是通过在 [Front-matter (opens new window)](https://hexo.io/zh-cn/docs/front-matter)设置 `comment: bool` 来控制评论开关，或者通过 `comment: &#x27;type&#x27;` 来开启指定的评论插件。<br><br>```yaml<br>---<br>title: 标题<br>layout: about<br>comment: &#x27;valine&#x27;<br>---<br></code></pre></div></td></tr></table></figure>
+</blockquote>
+<h1 id="友情链接页"><a href="#友情链接页" class="headerlink" title="友情链接页"></a>友情链接页</h1><p>友情链接页用于展示好友的博客入口，默认关闭，开启需要先在 <code>navbar</code> 项中将 <code>links</code> 的注释(#号)删掉：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">navbar:</span><br>  <span class="hljs-attr">menu:</span><br>    <span class="hljs-bullet">-</span> &#123; <span class="hljs-attr">key:</span> <span class="hljs-string">&#x27;links&#x27;</span>, <span class="hljs-attr">link:</span> <span class="hljs-string">&#x27;/links/&#x27;</span>, <span class="hljs-attr">icon:</span> <span class="hljs-string">&#x27;iconfont icon-link-fill&#x27;</span> &#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>然后找到 <code>links</code> 的配置项，对页面内容进行配置：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">links:</span><br>  <span class="hljs-attr">items:</span><br>    <span class="hljs-bullet">-</span> &#123;<br>      <span class="hljs-attr">title:</span> <span class="hljs-string">&#x27;Fluid Docs&#x27;</span>,<br>      <span class="hljs-attr">intro:</span> <span class="hljs-string">&#x27;主题使用指南&#x27;</span>,<br>      <span class="hljs-attr">link:</span> <span class="hljs-string">&#x27;https://hexo.fluid-dev.com/docs/&#x27;</span>,<br>      <span class="hljs-attr">avatar:</span> <span class="hljs-string">&#x27;/img/favicon.png&#x27;</span><br>    &#125;<br>  <span class="hljs-attr">default_avatar:</span> <span class="hljs-string">/img/avatar.png</span><br></code></pre></div></td></tr></table></figure>
+
+<ul>
+<li><code>title</code>: 友链站的标题</li>
+<li><code>intro</code>: 站点或博主的简介，可省略</li>
+<li><code>link</code>: 跳转链接</li>
+<li><code>avatar</code>: 头像图片，可省略</li>
+<li><code>default_avatar</code>: 成员的默认头像（仅在指定了头像并且加载失败时生效）</li>
+</ul>
+<p>友链页也可以使用自定义区域和评论，使用方式类似于文章页，具体见配置项与相关注释</p>
+<h1 id="自定义页面"><a href="#自定义页面" class="headerlink" title="自定义页面"></a>自定义页面</h1><h2 id="创建页面"><a href="#创建页面" class="headerlink" title="创建页面"></a>创建页面</h2><p>如果想单独生成一个页面，步骤和创建「关于页」类似。</p>
+<ol>
+<li>首先用命令行创建页面：</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sh">$ hexo new page example<br></code></pre></div></td></tr></table></figure>
+
+<ol>
+<li>创建成功后编辑博客目录下 <code>/source/example/index.md</code>：</li>
+</ol>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-meta">---</span><br><span class="hljs-attr">title:</span> <span class="hljs-string">example</span><br><span class="hljs-attr">subtitle:</span> <span class="hljs-string">若不填默认是</span> <span class="hljs-string">title</span><br><span class="hljs-meta">---</span><br><span class="hljs-meta"></span><br><span class="hljs-string">这里写正文，支持</span> <span class="hljs-string">Markdown,</span> <span class="hljs-string">HTML</span><br></code></pre></div></td></tr></table></figure>
+
+<p>正文默认没有 Markdown 样式，如果希望和文章相同的样式，可以加上：</p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;markdown-body&quot;</span>&gt;</span><br>正文<br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>页面的参数配置可以在<strong>主题配置</strong>中统一设置：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">page:</span><br>  <span class="hljs-attr">banner_img:</span> <span class="hljs-string">/img/default.png</span><br>  <span class="hljs-attr">banner_img_height:</span> <span class="hljs-number">70</span><br>  <span class="hljs-attr">banner_mask_alpha:</span> <span class="hljs-number">0.3</span><br></code></pre></div></td></tr></table></figure>
+
+<p>也可以直接在 <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/front-matter">Front-matter (opens new window)</a>里单独设置：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-meta">---</span><br><span class="hljs-attr">title:</span> <span class="hljs-string">example</span><br><span class="hljs-attr">banner_img:</span> <span class="hljs-string">/img/default.png</span><br><span class="hljs-attr">banner_img_height:</span> <span class="hljs-number">60</span><br><span class="hljs-attr">banner_mask_alpha:</span> <span class="hljs-number">0.5</span><br><span class="hljs-meta">---</span><br><span class="hljs-meta"></span><br><span class="hljs-string">这里可以写正文</span><br></code></pre></div></td></tr></table></figure>
+
+<h2 id="评论-1"><a href="#评论-1" class="headerlink" title="评论"></a>评论</h2><p>自定义页面也可以开启评论插件，和关于页的方式相同，通过在 <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/front-matter">Front-matter (opens new window)</a>设置 <code>comment: bool</code> 来控制评论开关，或者通过 <code>comment: &#39;type&#39;</code> 来开启指定的评论插件：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-meta">---</span><br><span class="hljs-attr">title:</span> <span class="hljs-string">example</span><br><span class="hljs-attr">comment:</span> <span class="hljs-string">&#x27;valine&#x27;</span><br><span class="hljs-meta">---</span><br></code></pre></div></td></tr></table></figure>
+
+<h1 id="404-页"><a href="#404-页" class="headerlink" title="404 页"></a>404 页</h1><p>404 页是在访问不存在的博客链接时，出现的错误提示页面。</p>
+<p>开启此页面需要在博客的部署环境上配置：</p>
+<ul>
+<li>如果博客部署在云服务器，需要 Nginx 配置文件设置 <code>error_page 404 = /404.html</code>；</li>
+<li>如果部署在 GitHub Pages 上，不需要额外配置，但必须绑定顶级域名才生效；</li>
+<li>其他 OSS 等平台，请参考各平台关于 404 页的配置文档，但并不是所有平台都支持跳转 Html。</li>
+</ul>
+<p>主题包含默认的404页面，你也可以将自定义的 <code>404.html</code> 放置在博客的 <code>source</code> 目录下。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">个人博客</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">个人博客</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Hexo/">Hexo</a>
+                    
+                      <a class="hover-with-bg" href="/tags/fluid/">fluid</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/07/21/hexo/Hexo+Github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
+                        <span class="hidden-mobile">Hexo+Github搭建个人博客</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'JankinLui/blog-commenty');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'utterances');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+  <div class="col-lg-7 mx-auto nopadding-x-md">
+    <div class="container custom post-custom mx-auto">
+      <img src="https://octodex.github.com/images/jetpacktocat.png" srcset="/img/loading.gif" lazyload class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
+    </div>
+  </div>
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> <div id="binft"></div>
+
+  </div>
+  
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        鄂ICP备2021017549号
+      </a>
+    </span>
+    
+  </div>
+
+
+  
+<div>
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+</div>
+
+</footer>
+
+
+
+
+<div id="binft"></div>
+  <script>
+    var binft = function (r) {
+      function t() {
+        return b[Math.floor(Math.random() * b.length)]
+      }  
+      function e() {
+        return String.fromCharCode(94 * Math.random() + 33)
+      }
+      function n(r) {
+        for (var n = document.createDocumentFragment(), i = 0; r > i; i++) {
+          var l = document.createElement("span");
+          l.textContent = e(), l.style.color = t(), n.appendChild(l)
+        }
+        return n
+      }
+      function i() {
+        var t = o[c.skillI];
+        c.step ? c.step-- : (c.step = g, c.prefixP < l.length ? (c.prefixP >= 0 && (c.text += l[c.prefixP]), c.prefixP++) : "forward" === c.direction ? c.skillP < t.length ? (c.text += t[c.skillP], c.skillP++) : c.delay ? c.delay-- : (c.direction = "backward", c.delay = a) : c.skillP > 0 ? (c.text = c.text.slice(0, -1), c.skillP--) : (c.skillI = (c.skillI + 1) % o.length, c.direction = "forward")), r.textContent = c.text, r.appendChild(n(c.prefixP < l.length ? Math.min(s, s + c.prefixP) : Math.min(s, t.length - c.skillP))), setTimeout(i, d)
+      }
+      var l = "",
+      o = ["青青陵上柏，磊磊涧中石", "人生天地间，忽如远行客","斗酒相娱乐，聊厚不为薄", "驱车策驽马，游戏宛与洛","洛中何郁郁，冠带自相索","长衢罗夹巷，王侯多第宅","两宫遥相望，双阙百余尺","极宴娱心意，戚戚何所迫？"].map(function (r) {
+      return r + ""
+      }),
+      a = 2,
+      g = 1,
+      s = 5,
+      d = 75,
+      b = ["rgb(110,64,170)", "rgb(150,61,179)", "rgb(191,60,175)", "rgb(228,65,157)", "rgb(254,75,131)", "rgb(255,94,99)", "rgb(255,120,71)", "rgb(251,150,51)", "rgb(226,183,47)", "rgb(198,214,60)", "rgb(175,240,91)", "rgb(127,246,88)", "rgb(82,246,103)", "rgb(48,239,130)", "rgb(29,223,163)", "rgb(26,199,194)", "rgb(35,171,216)", "rgb(54,140,225)", "rgb(76,110,219)", "rgb(96,84,200)"],
+      c = {
+        text: "",
+        prefixP: -s,
+        skillI: 0,
+        skillP: 0,
+        direction: "forward",
+        delay: a,
+        step: g
+      };
+      i()
+      };
+      binft(document.getElementById('binft'));
+  </script>
+
+
+
+
+
+
+
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+</html>
