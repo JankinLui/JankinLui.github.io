@@ -14,13 +14,29 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="">
+  <meta name="description" content="针对hexo-fluid环境，新增评论功能">
   <meta name="author" content="L小胖">
   <meta name="keywords" content="">
   
-  <title>分类 - 个人博客 - L刘俊卿的Blog</title>
+  <title>hexo-fluid添加utterances评论功能 - L刘俊卿的Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
 
 
 
@@ -57,7 +73,7 @@
 
 
 <body>
-  <header style="height: 60vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -168,9 +184,54 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="分类 - 个人博客">
+            <span class="h2" id="subtitle" title="hexo-fluid添加utterances评论功能">
               
             </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-07-21 17:32" pubdate>
+        2022年7月21日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      355 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      3
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
 
             
           </div>
@@ -183,58 +244,161 @@
 
   <main>
     
-      <div class="container nopadding-x-md">
-        <div class="py-5" id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">共计 4 篇文章</p>
-  <hr>
-  
-  
-    
       
-      <p class="h5">2022</p>
-    
-    <a href="/2022/07/21/hexo/hexo-yilia%E6%B7%BB%E5%8A%A0live2d%E7%9C%8B%E6%9D%BF%E5%A8%98/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">hexo+yilia添加live2d看板娘</span>
-      <time style="float: right;">07-21</time>
-    </a>
-  
-    
-    <a href="/2022/07/21/hexo/hexo-fluid%E6%B7%BB%E5%8A%A0utterances%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">hexo-fluid添加utterances评论功能</span>
-      <time style="float: right;">07-21</time>
-    </a>
-  
-    
-    <a href="/2022/07/21/hexo/hexo-Fluid%E4%BC%98%E5%8C%96%E8%AE%BE%E7%BD%AE/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">hexo-Fluid优化设置</span>
-      <time style="float: right;">07-21</time>
-    </a>
-  
-    
-    <a href="/2022/07/21/hexo/Hexo+Github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Hexo+Github搭建个人博客</span>
-      <time style="float: right;">07-21</time>
-    </a>
-  
-</div>
 
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">hexo-fluid添加utterances评论功能</h1>
+            
+            <div class="markdown-body">
+              <h1 id="新建一个github仓库"><a href="#新建一个github仓库" class="headerlink" title="新建一个github仓库"></a>新建一个github仓库</h1><p>首先创建一个公开的<a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=https://github.com">github</a>仓库，按下图填完信息后Create repository创建</p>
+<p><img src="/2022/07/21/hexo/hexo-fluid%E6%B7%BB%E5%8A%A0utterances%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/%E6%96%B0%E5%A2%9Egithub%E4%BB%93%E5%BA%93.png" srcset="/img/loading.gif" lazyload alt="新增GitHub仓库"></p>
+<h1 id="安装utterances"><a href="#安装utterances" class="headerlink" title="安装utterances"></a>安装utterances</h1><p>安装<a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=https://github.com/apps/utterances">utterances app</a>(点击前往安装)，install(安装)按钮未登陆github时不会显示，已安装则显示的是configure。(为了写这文笔者还特地卸载重装了一遍)</p>
+<p><img src="/2022/07/21/hexo/hexo-fluid%E6%B7%BB%E5%8A%A0utterances%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/%E5%AE%89%E8%A3%85utterances%E7%95%8C%E9%9D%A2.png" srcset="/img/loading.gif" lazyload alt="安装utterances界面"></p>
+<p>选择刚刚建好的github仓库，然后点击安装</p>
+<p><img src="/2022/07/21/hexo/hexo-fluid%E6%B7%BB%E5%8A%A0utterances%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/%E5%AE%89%E8%A3%85%E7%95%8C%E9%9D%A2.png" srcset="/img/loading.gif" lazyload alt="utterances安装界面"></p>
+<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><p><img src="/2022/07/21/hexo/hexo-fluid%E6%B7%BB%E5%8A%A0utterances%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/%E9%85%8D%E7%BD%AE%E6%8F%92%E4%BB%B6.png" srcset="/img/loading.gif" lazyload alt="配置插件"></p>
+<p>建议选择第一个</p>
+<p><img src="/2022/07/21/hexo/hexo-fluid%E6%B7%BB%E5%8A%A0utterances%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/%E9%80%89%E6%8B%A9.png" srcset="/img/loading.gif" lazyload></p>
+<p>【可选项】根据个人需求选择是否为issue打上标签(label)。作为小白的我就暂时不设置了(留空)<br><img src="/2022/07/21/hexo/hexo-fluid%E6%B7%BB%E5%8A%A0utterances%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/%E7%95%99%E7%A9%BA%E9%80%89%E9%A1%B9.png" srcset="/img/loading.gif" lazyload></p>
+<p>然后是主题，根据个人喜好选择吧</p>
+<p><img src="/2022/07/21/hexo/hexo-fluid%E6%B7%BB%E5%8A%A0utterances%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/%E9%80%89%E6%8B%A9%E4%B8%BB%E9%A2%98.png" srcset="/img/loading.gif" lazyload></p>
+<p>上述步骤填写完成后，最后一栏会根据你前面的操作自动生成配置信息(后面会用到)</p>
+<p><img src="/2022/07/21/hexo/hexo-fluid%E6%B7%BB%E5%8A%A0utterances%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/%E7%94%9F%E6%88%90%E7%9A%84%E9%85%8D%E7%BD%AE.png" srcset="/img/loading.gif" lazyload></p>
+<p>到此，对utterances的配置就完成了，接下来把它应用到我们的Hexo-Fluid,注意copy一下</p>
+<h1 id="添加到Hexo-Fluid"><a href="#添加到Hexo-Fluid" class="headerlink" title="添加到Hexo-Fluid"></a>添加到Hexo-Fluid</h1><p>打开配置文件(hexo/themes/fluid/_config.yml)，将enable设置为true以开启评论</p>
+<p><img src="/2022/07/21/hexo/hexo-fluid%E6%B7%BB%E5%8A%A0utterances%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6.png" srcset="/img/loading.gif" lazyload></p>
+<p>然后在后面找到comments的具体配置</p>
+<p><img src="/2022/07/21/hexo/hexo-fluid%E6%B7%BB%E5%8A%A0utterances%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/%E4%BF%AE%E6%94%B9%E8%AF%84%E8%AE%BA%E9%85%8D%E7%BD%AE.png" srcset="/img/loading.gif" lazyload></p>
+<p>修改后保存文件，重启hexo， 就可以看到文章下多了评论区啦！</p>
+<p><img src="/2022/07/21/hexo/hexo-fluid%E6%B7%BB%E5%8A%A0utterances%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/%E6%88%90%E6%9E%9C.png" srcset="/img/loading.gif" lazyload></p>
+<p>如果发现有评论区但无法评论，可能是没有授权github(右下角有提示授权的地方)。如果还是没有评论区的话，可以打开浏览器控制台看看错误提示。也欢迎在评论区提出你的问题！</p>
 
-
-
-
-              </div>
             </div>
-          </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">个人博客</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">个人博客</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Hexo/">Hexo</a>
+                    
+                      <a class="hover-with-bg" href="/tags/fluid/">fluid</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/07/21/hexo/hexo-yilia%E6%B7%BB%E5%8A%A0live2d%E7%9C%8B%E6%9D%BF%E5%A8%98/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">hexo+yilia添加live2d看板娘</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/07/21/hexo/hexo-Fluid%E4%BC%98%E5%8C%96%E8%AE%BE%E7%BD%AE/">
+                        <span class="hidden-mobile">hexo-Fluid优化设置</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'JankinLui/blog-commenty');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'utterances');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+  <div class="col-lg-7 mx-auto nopadding-x-md">
+    <div class="container custom post-custom mx-auto">
+      <img src="https://octodex.github.com/images/jetpacktocat.png" srcset="/img/loading.gif" lazyload class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
+    </div>
+  </div>
+
+
     
 
     
@@ -383,9 +547,15 @@
 
 
 
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
 
 
 
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
 
 
 
