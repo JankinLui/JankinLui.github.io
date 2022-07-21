@@ -206,7 +206,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      664 字
+      660 字
     </span>
   
 
@@ -257,18 +257,46 @@
             <h1 style="display: none">Ubuntu下配置samba实现文件夹共享</h1>
             
             <div class="markdown-body">
-              <h1 id="samba的安装"><a href="#samba的安装" class="headerlink" title="samba的安装:"></a>samba的安装:</h1><p>   sudo apt-get install samba<br>   sudo apt-get install smbfs<br>   sudo apt-get install cifs-utils<br>执行第二命令时出现了如下的错误<br>正在读取软件包列表… 完成<br>正在分析软件包的依赖关系树<br>正在读取状态信息… 完成<br>现在没有可用的软件包 smbfs，但是它被其它的软件包引用了。<br>这可能意味着这个缺失的软件包可能已被废弃，<br>或者只能在其他发布源中找到<br>可是下列软件包取代了它：<br>  cifs-utils<br>E: 软件包 smbfs 没有可供安装的候选者<br>然后我果断用cifs-utils代替smbfs，就成功了</p>
-<h1 id="创建共享目录"><a href="#创建共享目录" class="headerlink" title="创建共享目录:"></a>创建共享目录:</h1><p>​    mkdir /home/linux/share<br>​    sudo chmod 777 /home/linux/share</p>
-<h1 id="创建Samba配置文件"><a href="#创建Samba配置文件" class="headerlink" title="创建Samba配置文件:"></a>创建Samba配置文件:</h1><h2 id="保存现有的配置文件"><a href="#保存现有的配置文件" class="headerlink" title="保存现有的配置文件"></a>保存现有的配置文件</h2><p>sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.bak</p>
-<h2 id="修改现配置文件"><a href="#修改现配置文件" class="headerlink" title="修改现配置文件"></a>修改现配置文件</h2><p>sudo vim /etc/samba/smb.conf<br>这里分为两种方式:<br>(1) share模式就是，所有的用户都可以直接访问不需要用户名和密码，无需samba用户就可以访问服务器<br>[Global]<br>设置security = share<br>在smb.conf最后添加<br>[share]<br>  path = /home/linux/share<br>  available = yes<br>  browseable = yes<br>  public = yes<br>  writable = yes<br>(2) user级别的samba则需以samba用户和密码才能访问<br>找到 security = share 将它改成 security = user<br>在smb.conf最后添加<br>[share]<br>  path = /home/linux/share<br>  available = yes<br>  browseable = yes<br>  public = no<br>  writable = yes</p>
-<h1 id="创建samba帐户"><a href="#创建samba帐户" class="headerlink" title="创建samba帐户"></a>创建samba帐户</h1><p> sudo touch /etc/samba/smbpasswd<br>  sudo smbpasswd -a linux<br>然后会要求你输入samba帐户的密码<br> ［如果没有第四步，当你登录时会提示 session setup failed: NT_STATUS_LOGON_FAILURE］</p>
-<h1 id="重启samba服务器"><a href="#重启samba服务器" class="headerlink" title="重启samba服务器"></a>重启samba服务器</h1><p>sudo /etc/init.d/smbd restart</p>
-<h1 id="创建盘符"><a href="#创建盘符" class="headerlink" title="创建盘符"></a>创建盘符</h1><p> 最后window我的电脑-&gt;右键-&gt;映射网络驱动器，在Folder处输入共享目录的路径，例如\192.168.174.130\share，点击完成，此时在就会在我的电脑里多出一个盘符。<br> (1)user级别的samba则需以samba用户和密码才能访问，会出现<br> samba不允许一个用户使用一个以上用户名与一个服务器或共享资源的多重连接</p>
-<h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法:"></a>解决方法:</h1><p>在windows客户端<br>打开cmd<br>输入 net use * /del /y</p>
-<h1 id="附加问题1"><a href="#附加问题1" class="headerlink" title="附加问题1"></a>附加问题1</h1><p>使用 samba 以读写方式共享的文件夹，为什么从其他计算机访问时所创建的文件属于 nobody / nogroup？如何更改默认属主和组？<br>sudo vim /etc/samba/smb.conf</p>
-<p>修改配置文件如下:<br>在 [global] 放入以下内容<br>force user = 帐号<br>force group = 群组<br>create mask = 0664<br>directory mask = 0775</p>
-<p>存档，重启smbd<br>sudo service smbd restart<br><a target="_blank" rel="noopener" href="http://blog.csdn.net/niepangu/article/details/49644827">http://blog.csdn.net/niepangu/article/details/49644827</a> </p>
-<h1 id="samba的相关操作命令"><a href="#samba的相关操作命令" class="headerlink" title="samba的相关操作命令"></a>samba的相关操作命令</h1><p>(1)  查看用户<br>sudo pdbedit -L<br>(2) 修改密码<br>sudo smbpasswd user<br>(3) 删除用户<br>sudo smbpasswd -x user</p>
+              <h1 id="samba的安装"><a href="#samba的安装" class="headerlink" title="samba的安装:"></a>samba的安装:</h1><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo apt-get install samba<br>sudo apt-get install smbfs<br>sudo apt-get install cifs-utils<br></code></pre></div></td></tr></table></figure>
+
+<p>执行第二命令时出现了如下的错误<br>正在读取软件包列表… 完成<br>正在分析软件包的依赖关系树<br>正在读取状态信息… 完成<br>现在没有可用的软件包 smbfs，但是它被其它的软件包引用了。<br>这可能意味着这个缺失的软件包可能已被废弃，<br>或者只能在其他发布源中找到<br>可是下列软件包取代了它：<br>  cifs-utils<br>E: 软件包 smbfs 没有可供安装的候选者<br>然后我果断用cifs-utils代替smbfs，就成功了</p>
+<h1 id="创建共享目录"><a href="#创建共享目录" class="headerlink" title="创建共享目录:"></a>创建共享目录:</h1><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">mkdir /home/linux/share<br>sudo chmod 777 /home/linux/share<br></code></pre></div></td></tr></table></figure>
+
+<h1 id="创建Samba配置文件"><a href="#创建Samba配置文件" class="headerlink" title="创建Samba配置文件:"></a>创建Samba配置文件:</h1><h2 id="保存现有的配置文件"><a href="#保存现有的配置文件" class="headerlink" title="保存现有的配置文件"></a>保存现有的配置文件</h2><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.bak<br></code></pre></div></td></tr></table></figure>
+
+<h2 id="修改现配置文件"><a href="#修改现配置文件" class="headerlink" title="修改现配置文件"></a>修改现配置文件</h2><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo vim /etc/samba/smb.conf<br></code></pre></div></td></tr></table></figure>
+
+<p>这里分为两种方式:<br>(1) share模式就是，所有的用户都可以直接访问不需要用户名和密码，无需samba用户就可以访问服务器</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs pgsql">[<span class="hljs-keyword">Global</span>]<br>设置<span class="hljs-keyword">security</span> = <span class="hljs-keyword">share</span> <br>在smb.conf最后添加<br>[<span class="hljs-keyword">share</span>]<br>  <span class="hljs-type">path</span> = /home/linux/<span class="hljs-keyword">share</span><br>  available = yes<br>  browseable = yes<br>  <span class="hljs-built_in">public</span> = yes<br>  writable = yes<br></code></pre></div></td></tr></table></figure>
+
+<p>(2) user级别的samba则需以samba用户和密码才能访问<br>找到 security = share 将它改成 security = user<br>在smb.conf最后添加</p>
+<figure class="highlight ini"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs ini"><span class="hljs-section">[share]</span><br>  <span class="hljs-attr">path</span> = /home/linux/share<br>  <span class="hljs-attr">available</span> = <span class="hljs-literal">yes</span><br>  <span class="hljs-attr">browseable</span> = <span class="hljs-literal">yes</span><br>  <span class="hljs-attr">public</span> = <span class="hljs-literal">no</span><br>  <span class="hljs-attr">writable</span> = <span class="hljs-literal">yes</span><br></code></pre></div></td></tr></table></figure>
+
+<h1 id="创建samba帐户"><a href="#创建samba帐户" class="headerlink" title="创建samba帐户"></a>创建samba帐户</h1><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo touch /etc/samba/smbpasswd<br>sudo smbpasswd -a linux<br></code></pre></div></td></tr></table></figure>
+
+<p>然后会要求你输入samba帐户的密码［如果没有第四步，当你登录时会提示 session setup failed: NT_STATUS_LOGON_FAILURE］</p>
+<h1 id="重启samba服务器"><a href="#重启samba服务器" class="headerlink" title="重启samba服务器"></a>重启samba服务器</h1><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo /etc/init.d/smbd restart<br></code></pre></div></td></tr></table></figure>
+
+<h1 id="创建盘符问题"><a href="#创建盘符问题" class="headerlink" title="创建盘符问题"></a>创建盘符问题</h1><p> 最后window我的电脑-&gt;右键-&gt;映射网络驱动器，在Folder处输入共享目录的路径，例如\192.168.174.130\share，点击完成，此时在就会在我的电脑里多出一个盘符。<br> (1)user级别的samba则需以samba用户和密码才能访问，会出现<br> samba不允许一个用户使用一个以上用户名与一个服务器或共享资源的多重连接</p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法:"></a>解决方法:</h2><p>在windows客户端<br>打开cmd<br>输入 net use * /del /y</p>
+<h1 id="附加问题1"><a href="#附加问题1" class="headerlink" title="附加问题1"></a>附加问题1</h1><p>使用 samba 以读写方式共享的文件夹，为什么从其他计算机访问时所创建的文件属于 nobody / nogroup？如何更改默认属主和组？</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo vim /etc/samba/smb.conf<br></code></pre></div></td></tr></table></figure>
+
+<p>修改配置文件如下:</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs crmsh">在 [global] 放入以下内容<br>force <span class="hljs-keyword">user</span> <span class="hljs-title">= 帐号</span><br><span class="hljs-title">force</span> <span class="hljs-keyword">group</span> <span class="hljs-title">= 群组</span><br><span class="hljs-title">create</span> mask = <span class="hljs-number">0664</span><br>directory mask = <span class="hljs-number">0775</span><br></code></pre></div></td></tr></table></figure>
+
+<p>存档，重启smbd</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo service smbd restart<br></code></pre></div></td></tr></table></figure>
+
+<h1 id="samba的相关操作命令"><a href="#samba的相关操作命令" class="headerlink" title="samba的相关操作命令"></a>samba的相关操作命令</h1><p>(1)  查看用户</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo pdbedit -L<br></code></pre></div></td></tr></table></figure>
+
+<p>(2) 修改密码</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo smbpasswd user<br></code></pre></div></td></tr></table></figure>
+
+<p>(3) 删除用户</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo smbpasswd -x user<br></code></pre></div></td></tr></table></figure>
+
 
             </div>
             <hr>

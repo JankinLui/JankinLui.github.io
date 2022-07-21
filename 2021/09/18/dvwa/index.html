@@ -206,7 +206,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      535 字
+      555 字
     </span>
   
 
@@ -216,7 +216,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      7
+      8
        分钟
     </span>
   
@@ -257,22 +257,69 @@
             <h1 style="display: none">DVWA搭建</h1>
             
             <div class="markdown-body">
-              <h1 id="DVWA安装"><a href="#DVWA安装" class="headerlink" title="DVWA安装"></a>DVWA安装</h1><p>Wget <a target="_blank" rel="noopener" href="https://github.com/ethicalhack3r/DVWA/archive/master.zip">https://github.com/ethicalhack3r/DVWA/archive/master.zip</a> 下载dvwa压缩包</p>
-<h2 id="安装所需环境"><a href="#安装所需环境" class="headerlink" title="安装所需环境"></a>安装所需环境</h2><p>[root@wgxy63 ~]# p-gd yum install -y httpd mysql-server mysql php php-mysql ph<br>注：php-gd 库：gd 库是 php 处理图形的扩展库，gd 库提供了一系列用来处理图片的 API，使用 GD 库可以处理图片，或者生成图片。 在网站上 GD 库通常用来生成缩略图或者用来对图片加水印或者对网站数据生成报表及验证码</p>
+              <h1 id="DVWA安装"><a href="#DVWA安装" class="headerlink" title="DVWA安装"></a>DVWA安装</h1><p>下载dvwa压缩包</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">Wget https://github.com/ethicalhack3r/DVWA/archive/master.zip <br></code></pre></div></td></tr></table></figure>
+
+<h2 id="安装所需环境"><a href="#安装所需环境" class="headerlink" title="安装所需环境"></a>安装所需环境</h2><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo yum install -y httpd mysql-server mysql php php-mysql ph<br></code></pre></div></td></tr></table></figure>
+
+<p>注：php-gd 库：gd 库是 php 处理图形的扩展库，gd 库提供了一系列用来处理图片的 API，使用 GD 库可以处理图片，或者生成图片。 在网站上 GD 库通常用来生成缩略图或者用来对图片加水印或者对网站数据生成报表及验证码</p>
 <p>全部设置开机启动，然后启动服务</p>
-<h2 id="测试-LAMP-环境"><a href="#测试-LAMP-环境" class="headerlink" title="测试 LAMP 环境:"></a>测试 LAMP 环境:</h2><p>[root@wgxy63 ~]# vim /var/www/html/test.php<br><?php         phpinfo(); 
-?><br>访问 <a target="_blank" rel="noopener" href="http://192.168.10.9/test.php">http://192.168.10.9/test.php</a> 正常，说明 LAMP 环境支持 PHP 解析没有问题 </p>
+<h2 id="测试-LAMP-环境"><a href="#测试-LAMP-环境" class="headerlink" title="测试 LAMP 环境:"></a>测试 LAMP 环境:</h2><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">vim /var/www/html/test.php<br></code></pre></div></td></tr></table></figure>
+
+
+
+<figure class="highlight vim"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs vim">&lt;?php         phpinfo(); <br>?&gt; <br></code></pre></div></td></tr></table></figure>
+
+
+<p>访问 <a target="_blank" rel="noopener" href="http://192.168.10.9/test.php">http://192.168.10.9/test.php</a> 正常，说明 LAMP 环境支持 PHP 解析没有问题 </p>
 <p><img src="/2021/09/18/dvwa/1.png" srcset="/img/loading.gif" lazyload alt="DVWA"></p>
-<h2 id="配置-mysql-数据-root-用户密码："><a href="#配置-mysql-数据-root-用户密码：" class="headerlink" title="配置 mysql 数据 root 用户密码："></a>配置 mysql 数据 root 用户密码：</h2><p>[root@wgxy63 ~]# mysqladmin -u root password “123456”<br>注：若已经设置 mysql 数据 root 用户密码，则更改：<br>[root@wgxy63 ~]# mysql -u root –p687145<br>mysql&gt; set password=password(‘123456’);<br>mysql&gt; quit </p>
-<p>[root@wgxy63 ~]# mysql -u root -p123456<br>mysql&gt; show databases; </p>
-<p>将下载的 dvwa 渗透系统代码上传到 Linux 上，并解压到网站根目录下<br>[root@wgxy63 ~]# unzip -d /var/www/html/  DVWA-1.9.zip<br>[root@wgxy63 ~]# ls /var/www/html/<br>DVWA-1.9  test.php<br>[root@wgxy63 ~]# chown apache:apache /var/www/html/DVWA-1.9/ -R</p>
-<p>编辑/dvwa/config/config.inc.php,配置数据库信息，user和password是MySQL的用户名和密码。<br>[root@wgxy63 ~]# vim /var/www/html/DVWA-1.9/config/config.inc.php  修改的地方如下：<br>1 $_DVWA[ ‘db_server’ ]   = ‘127.0.0.1’;<br>2 $_DVWA[ ‘db_database’ ] = ‘dvwa’;<br>3 $_DVWA[ ‘db_user’ ]     = ‘root’;<br>$_DVWA[ ‘db_password’ ] = ‘123456’;     #只需要修改成你的 mysql 的 root 用户密码</p>
+<h2 id="配置-mysql-数据-root-用户密码："><a href="#配置-mysql-数据-root-用户密码：" class="headerlink" title="配置 mysql 数据 root 用户密码："></a>配置 mysql 数据 root 用户密码：</h2><figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">mysqladmin -u root password &quot;123456&quot; <br></code></pre></div></td></tr></table></figure>
+
+<p>注：若已经设置 mysql 数据 root 用户密码，则更改： </p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">mysql -u root –p687145 <br></code></pre></div></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">mysql&gt; set password=password(‘123456’); <br>mysql&gt; quit <br></code></pre></div></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">mysql -u root -p123456 <br></code></pre></div></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">mysql&gt; show databases; <br></code></pre></div></td></tr></table></figure>
+
+<p>将下载的 dvwa 渗透系统代码上传到 Linux 上，并解压到网站根目录下 </p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">unzip -d /var/www/html/  DVWA-1.9.zip <br>ls /var/www/html/ <br><span class="hljs-meta">#</span><span class="bash">DVWA-1.9  test.php</span> <br>chown apache:apache /var/www/html/DVWA-1.9/ -R<br></code></pre></div></td></tr></table></figure>
+
+<p>编辑/dvwa/config/config.inc.php,配置数据库信息，user和password是MySQL的用户名和密码。 </p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">vim /var/www/html/DVWA-1.9/config/config.inc.php  #修改的地方如下:<br></code></pre></div></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs test">1 $_DVWA[ &#x27;db_server&#x27; ]   = &#x27;127.0.0.1&#x27;; <br>2 $_DVWA[ &#x27;db_database&#x27; ] = &#x27;dvwa&#x27;; <br>3 $_DVWA[ &#x27;db_user&#x27; ]     = &#x27;root&#x27;; <br>$_DVWA[ &#x27;db_password&#x27; ] = &#x27;123456&#x27;;     #只需要修改成你的 mysql 的 root 用户密码<br></code></pre></div></td></tr></table></figure>
+
+
+
 <h2 id="部署-DVWA-网站系统"><a href="#部署-DVWA-网站系统" class="headerlink" title="部署 DVWA 网站系统"></a>部署 DVWA 网站系统</h2><p>在浏览器中输入：<a target="_blank" rel="noopener" href="http://192.168.112.63/DVWA-1.9/setup.php">http://192.168.112.63/DVWA-1.9/setup.php</a></p>
 <p><img src="/2021/09/18/dvwa/2.png" srcset="/img/loading.gif" lazyload alt="DVWA"></p>
-<h1 id="解决报错信息："><a href="#解决报错信息：" class="headerlink" title="解决报错信息："></a>解决报错信息：</h1><p>[root@wgxy63 ~]# vim /etc/php.ini 改：815行 allow_url_include = Off  为： allow_url_include = On<br>[root@wgxy63 ~]# service httpd restart </p>
-<h2 id="解决："><a href="#解决：" class="headerlink" title="解决："></a>解决：</h2><p>[root@wgxy63 ~]# vim /var/www/html/DVWA-1.9/config/config.inc.php 改：<br>4 $_DVWA[ ‘recaptcha_public_key’ ]  = ‘’;<br>5 $_DVWA[ ‘recaptcha_private_key’ ] = ‘’;<br>为：<br>29行 $_DVWA[ ‘recaptcha_public_key’ ]  = ‘6LdK7xITAAzzAAJQTfL7fu6I-0aPl8KHHieAT_yJg’;<br>$_DVWA[ ‘recaptcha_private_key’ ] = ‘6LdK7xITAzzAAL_uw9YXVUOPoIHPZLfw2K1n5NVQ’; </p>
-<p>顺手把 dvwa 默认的难度给调整一下：<br>32 $_DVWA[ ‘default_security_level’ ] = ‘low’;</p>
-<p>chmod 777 /var/www/html/DVWA-master/hackable/uploads<br>chmod 777 /var/www/html/DVWA-master/external/phpids/0.6/lib/IDS/tmp/phpids_log.txt</p>
+<h1 id="解决报错信息："><a href="#解决报错信息：" class="headerlink" title="解决报错信息："></a>解决报错信息：</h1><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">vim /etc/php.ini <br></code></pre></div></td></tr></table></figure>
+
+<p>改：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs test">815行 allow_url_include = Off  为： allow_url_include = On<br></code></pre></div></td></tr></table></figure>
+
+
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">service httpd restart <br></code></pre></div></td></tr></table></figure>
+
+<h2 id="解决："><a href="#解决：" class="headerlink" title="解决："></a>解决：</h2><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">vim /var/www/html/DVWA-1.9/config/config.inc.php <br></code></pre></div></td></tr></table></figure>
+
+<p>改： </p>
+<figure class="highlight autoit"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs autoit"><span class="hljs-number">4</span> $_DVWA[ <span class="hljs-string">&#x27;recaptcha_public_key&#x27;</span> ]  = <span class="hljs-string">&#x27;&#x27;</span><span class="hljs-comment">; </span><br><span class="hljs-number">5</span> $_DVWA[ <span class="hljs-string">&#x27;recaptcha_private_key&#x27;</span> ] = <span class="hljs-string">&#x27;&#x27;</span><span class="hljs-comment">; </span><br>为： <br><span class="hljs-number">29</span>行 $_DVWA[ <span class="hljs-string">&#x27;recaptcha_public_key&#x27;</span> ]  = <span class="hljs-string">&#x27;6LdK7xITAAzzAAJQTfL7fu6I-0aPl8KHHieAT_yJg&#x27;</span><span class="hljs-comment">; </span><br>$_DVWA[ <span class="hljs-string">&#x27;recaptcha_private_key&#x27;</span> ] = <span class="hljs-string">&#x27;6LdK7xITAzzAAL_uw9YXVUOPoIHPZLfw2K1n5NVQ&#x27;</span><span class="hljs-comment">; </span><br></code></pre></div></td></tr></table></figure>
+
+
+
+<p>顺手把 dvwa 默认的难度给调整一下： </p>
+<figure class="highlight basic"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs basic"><span class="hljs-symbol">32 </span>$_DVWA[ <span class="hljs-comment">&#x27;default_security_level&#x27; ] = &#x27;low&#x27;;</span><br></code></pre></div></td></tr></table></figure>
+
+
+
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">chmod 777 /var/www/html/DVWA-master/hackable/uploads<br>chmod 777 /var/www/html/DVWA-master/external/phpids/0.6/lib/IDS/tmp/phpids_log.txt<br></code></pre></div></td></tr></table></figure>
+
+
+
 <p><img src="/2021/09/18/dvwa/3.png" srcset="/img/loading.gif" lazyload alt="DVWA"></p>
 <p>dvwa 的登录界面的默认用户名和密码为 admin 和 password<br>点 Create / Reset Database 后，等 2 秒，它会自动跳转后台管理登录页</p>
 
