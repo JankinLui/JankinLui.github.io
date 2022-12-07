@@ -1,0 +1,669 @@
+<script type="text/javascript" src="/js/crash_cheat.js"></script><!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>配置DNS服务 | 失控</title><meta name="author" content="JankinLui"><meta name="copyright" content="JankinLui"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="学习配置DNS服务以及正反向解析">
+<meta property="og:type" content="article">
+<meta property="og:title" content="配置DNS服务">
+<meta property="og:url" content="http://blog.cndis.cn/post/fb155ad5.html">
+<meta property="og:site_name" content="失控">
+<meta property="og:description" content="学习配置DNS服务以及正反向解析">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://blog.cndis.cn/word-img/%E9%85%8D%E7%BD%AEDNS%E6%9C%8D%E5%8A%A1.png">
+<meta property="article:published_time" content="2021-09-17T11:17:26.000Z">
+<meta property="article:modified_time" content="2022-12-07T07:26:25.108Z">
+<meta property="article:author" content="JankinLui">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.cndis.cn/word-img/%E9%85%8D%E7%BD%AEDNS%E6%9C%8D%E5%8A%A1.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://blog.cndis.cn/post/fb155ad5"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/node-snackbar/0.1.16/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":500,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"top-right"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '配置DNS服务',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-12-07 15:26:25'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/universe.css"><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="/css/modify.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/zyoushuo/Blog@latest/hexo/css/loading_style_1.css" ><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="失控" type="application/atom+xml">
+</head><body>
+<div id='loader'>
+    
+    <div class="loading-left-bg"></div>
+    <div class="loading-right-bg"></div>
+    <div class="spinner-box">
+        <div class="configure-border-1">
+            <div class="configure-core"></div>
+        </div>
+        <div class="configure-border-2">
+            <div class="configure-core"></div>
+        </div>
+        <div class="loading-word">加载中...</div>
+    </div>
+  
+</div>
+
+<script>
+  var endLoading = function () {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loader').classList.add("loading");
+  }
+  window.addEventListener('load',endLoading);
+</script>
+<div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/tx.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">39</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">85</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 便捷</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-sitemap"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/word-img/%E9%85%8D%E7%BD%AEDNS%E6%9C%8D%E5%8A%A1.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">失控</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 便捷</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-sitemap"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">配置DNS服务</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-09-17T11:17:26.000Z" title="发表于 2021-09-17 19:17:26">2021-09-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-12-07T07:26:25.108Z" title="更新于 2022-12-07 15:26:25">2022-12-07</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Linux/">Linux</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">4.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>21分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="配置DNS服务"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="第一章-配置单个DNS"><a href="#第一章-配置单个DNS" class="headerlink" title="第一章 配置单个DNS"></a>第一章 配置单个DNS</h1><h2 id="1-1-安装DNS"><a href="#1-1-安装DNS" class="headerlink" title="1.1 安装DNS"></a>1.1 安装DNS</h2><p>获取DNS所有的软件包</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum install <span class="built_in">bind</span>*</span><br><span class="line">或</span><br><span class="line">yum install -y <span class="built_in">bind</span> bind-chroot bind-utils</span><br></pre></td></tr></table></figure>
+
+<h2 id="1-2-配置DNS文件"><a href="#1-2-配置DNS文件" class="headerlink" title="1.2 配置DNS文件"></a>1.2 配置DNS文件</h2><h3 id="1-2-1-修改DNS主配置文件"><a href="#1-2-1-修改DNS主配置文件" class="headerlink" title="1.2.1 修改DNS主配置文件"></a>1.2.1 修改DNS主配置文件</h3><figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"><span class="keyword">vi</span> /etc/named.<span class="keyword">conf</span> </span><br><span class="line">	修改：</span><br><span class="line">		listen-<span class="keyword">on</span> port <span class="number">53</span> &#123; any; &#125;;</span><br><span class="line">		allow-query     &#123; any; &#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-2-2-修改、反向解析配置文件"><a href="#1-2-2-修改、反向解析配置文件" class="headerlink" title="1.2.2 修改、反向解析配置文件"></a>1.2.2 修改、反向解析配置文件</h3><figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"><span class="keyword">vi</span> /etc/named.rfc1912.zones</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#添加：</span><br><span class="line">zone &quot;ljq.com&quot; IN &#123;    #域名根据自己的需求变化</span><br><span class="line">		type master;</span><br><span class="line">		file &quot;ljq.com.zone&quot;;</span><br><span class="line">		allow-update &#123; none; &#125;;</span><br><span class="line">&#125;;</span><br><span class="line">zone &quot;221.168.192.in-addr.arpa&quot; IN &#123;     #ip根据自己的需求变化</span><br><span class="line">		type master;</span><br><span class="line">		file &quot;221.168.192.rev&quot;;</span><br><span class="line">		allow-update &#123; none; &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd /var/name</span><br><span class="line">cp -p named.localhost ljq.com.zone</span><br><span class="line">cp -p named.loopback 221.168.192.rev</span><br><span class="line">vi ljq.com.zone</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#修改：</span><br><span class="line">		$TTL 1D</span><br><span class="line">		@       IN SOA  @ root.ljq.com. (</span><br><span class="line">		                                        0       ; serial</span><br><span class="line">		                                        1D      ; refresh</span><br><span class="line">		                                        1H      ; retry</span><br><span class="line">		                                        1W      ; expire</span><br><span class="line">		                                        3H )    ; minimum</span><br><span class="line">		              NS      dns.ljq.com.</span><br><span class="line">		www     A       192.168.221.7</span><br><span class="line">		ftp         A       192.168.221.7</span><br><span class="line">		dns        A       192.168.221.7</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim 221.168.192.rev</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#修改：</span><br><span class="line">		$TTL 1D</span><br><span class="line">		@       IN SOA  @ root.ljq.com. (</span><br><span class="line">		                                        0       ; serial</span><br><span class="line">		                                        1D      ; refresh</span><br><span class="line">		                                        1H      ; retry</span><br><span class="line">		                                        1W      ; expire</span><br><span class="line">		                                        3H )    ; minimum</span><br><span class="line">		        NS      dns.ljq.com.</span><br><span class="line">		7       PTR     www.ljq.com</span><br><span class="line">		7       PTR     ftp.ljq.com</span><br><span class="line">		7       PTR     dns.ljq.com</span><br></pre></td></tr></table></figure>
+
+<h2 id="1-3-启动服务"><a href="#1-3-启动服务" class="headerlink" title="1.3 启动服务"></a>1.3 启动服务</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl start named.service            //启动dns服务</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> named.service          //开机自动启动dns服务</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="第二章-扩展"><a href="#第二章-扩展" class="headerlink" title="第二章 扩展"></a>第二章 扩展</h1><h2 id="2-1-查看是否已经安装DNS包"><a href="#2-1-查看是否已经安装DNS包" class="headerlink" title="2.1 查看是否已经安装DNS包"></a>2.1 查看是否已经安装DNS包</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rpm -qa | grep <span class="built_in">bind</span></span><br></pre></td></tr></table></figure>
+
+<p>bind-9.7.0-5.P2.el6.i686.rpm        &#x2F;&#x2F;默认没有安装</p>
+<p>bind-libs-9.7.0-5.P2.el6.i686       &#x2F;&#x2F;默认已安装bind-libs包</p>
+<p>bind-utils-9.7.0-5.P2.el6.i686      &#x2F;&#x2F;默认已安装bind-utils包，有nslookup命令</p>
+<p>bind-chroot-9.7.0-5.P2.el6.i686.rpm &#x2F;&#x2F;默认没有安装</p>
+<h2 id="2-2-安装-基于本地安装"><a href="#2-2-安装-基于本地安装" class="headerlink" title="2.2 安装(基于本地安装)"></a>2.2 安装(基于本地安装)</h2><h3 id="2-2-1-挂载光驱"><a href="#2-2-1-挂载光驱" class="headerlink" title="2.2.1 挂载光驱"></a>2.2.1 挂载光驱</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mount /dev/cdrom /media</span><br><span class="line">cd /media/Packages</span><br><span class="line">ls bind*</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-2-安装DNS包"><a href="#2-2-2-安装DNS包" class="headerlink" title="2.2.2 安装DNS包"></a>2.2.2 安装DNS包</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rpm -ivh bind-9.7.0-5.P2.el6.i686.rpm</span><br><span class="line">rpm -ivh bind-chroot-9.7.0-5.P2.el6.i686.rpm</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-3-启动服务"><a href="#2-2-3-启动服务" class="headerlink" title="2.2.3 启动服务"></a>2.2.3 启动服务</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">service named start</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-4-关闭防火墙"><a href="#2-2-4-关闭防火墙" class="headerlink" title="2.2.4 关闭防火墙"></a>2.2.4 关闭防火墙</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">service iptables stop          //临时关闭防火墙</span><br><span class="line">chkconfig iptables off         //设置开机关闭防火墙</span><br><span class="line">chkconfig --list | grep iptables  //检查开机状态</span><br><span class="line"><span class="meta">#</span><span class="bash">iptables       	0:关闭	1:关闭	2:关闭	3:关闭	4:关闭	5:关闭	6:关闭</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-5-关闭SELinux"><a href="#2-2-5-关闭SELinux" class="headerlink" title="2.2.5 关闭SELinux"></a>2.2.5 关闭SELinux</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">setenforce 0                   #设置SELinux为Permissive</span><br><span class="line">getenforce                     #查看状态</span><br><span class="line"><span class="meta">	#</span><span class="bash">Permissive                       <span class="comment">#宽容模式</span></span></span><br><span class="line">vim /etc/selinux/config        #设置开机SELinux为Permissive</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#更改配置为如下参数</span><br><span class="line">SELINUX=Permissive</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-2-6-开机自动启动"><a href="#2-2-6-开机自动启动" class="headerlink" title="2.2.6 开机自动启动"></a>2.2.6 开机自动启动</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">chkconfig named on             //设置开机自动启动</span><br><span class="line">chkconfig --list | grep named  //查看运行状态</span><br><span class="line"><span class="meta">#</span><span class="bash">named      	0:关闭	1:关闭	2:启用	3:启用	4:启用	5:启用	6:关闭</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-7-DNS默认功能测试及众多配置文件的作用"><a href="#2-2-7-DNS默认功能测试及众多配置文件的作用" class="headerlink" title="2.2.7 DNS默认功能测试及众多配置文件的作用"></a>2.2.7 DNS默认功能测试及众多配置文件的作用</h3><h4 id="2-2-7-1-默认可以对主机名localhost进行正向解析和反向解析"><a href="#2-2-7-1-默认可以对主机名localhost进行正向解析和反向解析" class="headerlink" title="2.2.7.1 默认可以对主机名localhost进行正向解析和反向解析"></a>2.2.7.1 默认可以对主机名localhost进行正向解析和反向解析</h4><p>在测试默认的功能之前，必须先将Linux系统中的DNS设置为本机的IP：192.168.112.128，即将本机作为Linux系统上网的DNS服务器</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim /etc/resolv.conf</span><br><span class="line">nameserver 192.168.112.128</span><br></pre></td></tr></table></figure>
+
+<p>修改配置文件&#x2F;etc&#x2F;named.conf中关于DNS的安全访问控制</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim /etc/named.conf</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">options &#123;</span><br><span class="line">  listen-on port 53 &#123; 192.168.112.128; &#125;;    #127.0.0.1改为192.168.112.128</span><br><span class="line">  listen-on-v6 port 53 &#123; ::1; &#125;;</span><br><span class="line">  directory       &quot;/var/named&quot;;</span><br><span class="line">  dump-file       &quot;/var/named/data/cache_dump.db&quot;;</span><br><span class="line">  statistics-file &quot;/var/named/data/named_stats.txt&quot;;</span><br><span class="line">  memstatistics-file &quot;/var/named/data/named_mem_stats.txt&quot;;</span><br><span class="line">  allow-query     &#123; any; &#125;;    //localhost改为any</span><br><span class="line">  recursion yes;</span><br><span class="line">  #dnssec-enable yes;                         //注释掉</span><br><span class="line">  #dnssec-validation yes;                     //注释掉</span><br><span class="line">  #dnssec-lookaside auto;                     //注释掉</span><br><span class="line">  /* Path to ISC DLV key */</span><br><span class="line">  bindkeys-file &quot;/etc/named.iscdlv.key&quot;;</span><br><span class="line">&#125;;</span><br><span class="line">logging &#123;</span><br><span class="line">  channel default_debug &#123;</span><br><span class="line">  file &quot;data/named.run&quot;;</span><br><span class="line">  severity dynamic;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br><span class="line">zone &quot;.&quot; IN &#123;</span><br><span class="line">  type hint;</span><br><span class="line">  file &quot;named.ca&quot;;</span><br><span class="line">&#125;;                 #第35-38行不能删，因为它能解析整个互联网</span><br><span class="line">include &quot;/etc/named.rfc1912.zones&quot;;                //主配置文件/etc/named.rfc1912.zones，用于增加主机名和域名的正向解析和反向解析配置</span><br></pre></td></tr></table></figure>
+
+<p>①第11行127.0.0.1改为192.168.112.128</p>
+<p>②第17行localhost改为any</p>
+<p>③第20-22行注释掉：&#x2F;&#x2F;注释掉3行</p>
+<p>重新启动DNS服务器</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">service named restart</span><br><span class="line">cat /etc/resolv.conf</span><br><span class="line"><span class="meta">#</span><span class="bash">nameserver 192.168.112.128</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-2-7-2-默认可以对主机名localhost进行正向解析"><a href="#2-2-7-2-默认可以对主机名localhost进行正向解析" class="headerlink" title="2.2.7.2 默认可以对主机名localhost进行正向解析"></a>2.2.7.2 默认可以对主机名localhost进行正向解析</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">host localhost  #正向解析</span><br><span class="line">localhost has address 127.0.0.1</span><br><span class="line">localhost has IPv6 address ::1</span><br><span class="line"><span class="meta">#</span><span class="bash">正向解析成功！</span></span><br></pre></td></tr></table></figure>
+
+<p>E：去掉localhost has IPv6 address ::1提示的方法</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vim /var/named/named.localhost</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$TTL 1D</span><br><span class="line">@       IN SOA  @ rname.invalid. (</span><br><span class="line">                                         0       ; serial</span><br><span class="line">                                         1D      ; refresh</span><br><span class="line">                                         1H      ; retry</span><br><span class="line">                                         1W      ; expire</span><br><span class="line">                                        3H )    ; minimum</span><br><span class="line">         NS      @</span><br><span class="line">         A       127.0.0.1</span><br><span class="line">         AAAA    ::1                //删掉第10行</span><br></pre></td></tr></table></figure>
+
+
+
+<p>验证：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">service named restart</span><br><span class="line">host localhost</span><br><span class="line">localhost has address 127.0.0.1</span><br><span class="line">正向解析成功！</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-2-7-3-默认可以对主机名localhost进行反向解析"><a href="#2-2-7-3-默认可以对主机名localhost进行反向解析" class="headerlink" title="2.2.7.3 默认可以对主机名localhost进行反向解析"></a>2.2.7.3 默认可以对主机名localhost进行反向解析</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vim /var/named/named.loopback</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$TTL 1D</span><br><span class="line">@       IN SOA  @ rname.invalid. (</span><br><span class="line">                                         0       ; serial</span><br><span class="line">                                         1D      ; refresh</span><br><span class="line">                                         1H      ; retry</span><br><span class="line">                                         1W      ; expire</span><br><span class="line">                                         3H )    ; minimum</span><br><span class="line">         NS      @</span><br><span class="line">         A       127.0.0.1</span><br><span class="line">         AAAA    ::1                //删掉第10行</span><br><span class="line">         PTR     localhost.</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">host 127.0.0.1  //反向解析</span><br><span class="line">1.0.0.127.in-addr.arpa domain name pointer localhost.</span><br><span class="line">反向解析成功！</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-2-7-4-默认可以解析整个互联网"><a href="#2-2-7-4-默认可以解析整个互联网" class="headerlink" title="2.2.7.4 默认可以解析整个互联网"></a>2.2.7.4 默认可以解析整个互联网</h4><p>做此测试操作的前提是，Linux本身能够正常上网（即能够正常打开网页）。</p>
+<p>只是将原来的DNS设置成我们自己的DNS服务器，以此来测试我们自己的DNS服务器的功能。</p>
+<p>先用Linux中的命令host来进行测试，如下所示：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">host www.baidu.com</span><br><span class="line">host www.sohu.com</span><br></pre></td></tr></table></figure>
+
+<p>再将Windows作为客户端，在图形界面下测试DNS是否能够解析整个互联网（即是否能够通过自己的DNS服务器来打开网页）。</p>
+<p>前提条件是要保证Windows与Linux能够Ping通。（在虚拟机里准备或安装一个Win7 NAT方式来进行测试）</p>
+<h4 id="2-2-7-5-DNS服务器各个配置文件的作用"><a href="#2-2-7-5-DNS服务器各个配置文件的作用" class="headerlink" title="2.2.7.5 DNS服务器各个配置文件的作用"></a>2.2.7.5 DNS服务器各个配置文件的作用</h4><p>以主机名wgxy和域名test.com为例</p>
+<h5 id="2-2-7-5-1-x2F-etc-x2F-resolv-conf"><a href="#2-2-7-5-1-x2F-etc-x2F-resolv-conf" class="headerlink" title="2.2.7.5.1&#x2F;etc&#x2F;resolv.conf"></a>2.2.7.5.1&#x2F;etc&#x2F;resolv.conf</h5><p>设置域名服务器：修改nameserver 192.168.112.128</p>
+<h5 id="2-2-7-5-2-x2F-etc-x2F-named-conf"><a href="#2-2-7-5-2-x2F-etc-x2F-named-conf" class="headerlink" title="2.2.7.5.2 &#x2F;etc&#x2F;named.conf"></a>2.2.7.5.2 &#x2F;etc&#x2F;named.conf</h5><p>主配置文件，安全访问控制：修改192.168.112.128，any，&#x2F;&#x2F;注释掉3行</p>
+<h5 id="2-2-7-5-3-x2F-etc-x2F-named-rfc1912-zones"><a href="#2-2-7-5-3-x2F-etc-x2F-named-rfc1912-zones" class="headerlink" title="2.2.7.5.3 &#x2F;etc&#x2F;named.rfc1912.zones"></a>2.2.7.5.3 &#x2F;etc&#x2F;named.rfc1912.zones</h5><p>主配置文件，需要增加主机名wgxy和域名test.com的正向解析和反向解析配置</p>
+<h5 id="2-2-7-5-4-x2F-var-x2F-named-x2F-named-ca"><a href="#2-2-7-5-4-x2F-var-x2F-named-x2F-named-ca" class="headerlink" title="2.2.7.5.4 &#x2F;var&#x2F;named&#x2F;named.ca"></a>2.2.7.5.4 &#x2F;var&#x2F;named&#x2F;named.ca</h5><p>根域配置文件，不能删，不用修改，因为它能解析整个互联网！</p>
+<pre><code>; &lt;&lt;&gt;&gt; DiG 9.5.0b2 &lt;&lt;&gt;&gt; +bufsize=1200 +norec NS . @a.root-servers.net
+
+;; global options:  printcmd
+
+;; Got answer:
+
+;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 34420
+
+;; flags: qr aa; QUERY: 1, ANSWER: 13, AUTHORITY: 0, ADDITIONAL: 20
+ ;; OPT PSEUDOSECTION:
+ ; EDNS: version: 0, flags:; udp: 4096
+;; QUESTION SECTION:
+ ;.                              IN      NS
+;; ANSWER SECTION:
+ .                       518400  IN      NS      M.ROOT-SERVERS.NET.
+.                       518400  IN      NS      A.ROOT-SERVERS.NET.
+ .                       518400  IN      NS      B.ROOT-SERVERS.NET.
+ .                       518400  IN      NS      C.ROOT-SERVERS.NET.
+ .                       518400  IN      NS      D.ROOT-SERVERS.NET.
+ .                       518400  IN      NS      E.ROOT-SERVERS.NET.
+.                       518400  IN      NS      F.ROOT-SERVERS.NET.
+ .                       518400  IN      NS      G.ROOT-SERVERS.NET.
+ .                       518400  IN      NS      H.ROOT-SERVERS.NET.
+ .                       518400  IN      NS      I.ROOT-SERVERS.NET.
+ .                       518400  IN      NS      J.ROOT-SERVERS.NET.
+ .                       518400  IN      NS      K.ROOT-SERVERS.NET.
+ .                       518400  IN      NS      L.ROOT-SERVERS.NET.
+;; ADDITIONAL SECTION:
+ A.ROOT-SERVERS.NET.     3600000 IN      A       198.41.0.4
+ A.ROOT-SERVERS.NET.     3600000 IN      AAAA    2001:503:ba3e::2:30
+ B.ROOT-SERVERS.NET.     3600000 IN      A       192.228.79.201
+ C.ROOT-SERVERS.NET.     3600000 IN      A       192.33.4.12
+ D.ROOT-SERVERS.NET.     3600000 IN      A       128.8.10.90
+ E.ROOT-SERVERS.NET.     3600000 IN      A       192.203.230.10
+ F.ROOT-SERVERS.NET.     3600000 IN      A       192.5.5.241
+ F.ROOT-SERVERS.NET.     3600000 IN      AAAA    2001:500:2f::f
+ G.ROOT-SERVERS.NET.     3600000 IN      A       192.112.36.4
+H.ROOT-SERVERS.NET.     3600000 IN      A       128.63.2.53
+ H.ROOT-SERVERS.NET.     3600000 IN      AAAA    2001:500:1::803f:235
+ I.ROOT-SERVERS.NET.     3600000 IN      A       192.36.148.17
+ J.ROOT-SERVERS.NET.     3600000 IN      A       192.58.128.30
+ J.ROOT-SERVERS.NET.     3600000 IN      AAAA    2001:503:c27::2:30
+ K.ROOT-SERVERS.NET.     3600000 IN      A       193.0.14.129
+ K.ROOT-SERVERS.NET.     3600000 IN      AAAA    2001:7fd::1
+ L.ROOT-SERVERS.NET.     3600000 IN      A       199.7.83.42
+ M.ROOT-SERVERS.NET.     3600000 IN      A       202.12.27.33
+ M.ROOT-SERVERS.NET.     3600000 IN      AAAA    2001:dc3::35
+;; Query time: 147 msec
+;; SERVER: 198.41.0.4#53(198.41.0.4)
+;; WHEN: Mon Feb 18 13:29:18 2008
+ ;; MSG SIZE  rcvd: 615
+</code></pre>
+<p>  A-M，13台根域名服务器</p>
+<p>  根服务器，主要用来管理互联网的主目录，全世界IPv4根服务器只有13台（这13台IPv4根域名服务器名字分别为“A”至“M”），1个为主根服务器在美国。其余12个均为辅根服务器，其中9个在美国，欧洲2个（英国和瑞典），亚洲1个（日本）。</p>
+<h5 id="2-2-7-5-5-x2F-var-x2F-named-x2F-named-localhost"><a href="#2-2-7-5-5-x2F-var-x2F-named-x2F-named-localhost" class="headerlink" title="2.2.7.5.5 &#x2F;var&#x2F;named&#x2F;named.localhost"></a>2.2.7.5.5 &#x2F;var&#x2F;named&#x2F;named.localhost</h5><p>本机默认主机名localhost的正向解析文件：localhost→127.0.0.1</p>
+<p>named.localhost和named.loopback文件起着“模板文件”的作用。</p>
+<p>在实际配置DNS的过程中，一般都是将这两个文件改名复制成自定义域名的正向解析文件和反向解析文件，然后再在其基础上进行相应的修改。</p>
+<h5 id="2-2-7-5-6-x2F-var-x2F-named-x2F-named-loopback"><a href="#2-2-7-5-6-x2F-var-x2F-named-x2F-named-loopback" class="headerlink" title="2.2.7.5.6 &#x2F;var&#x2F;named&#x2F;named.loopback"></a>2.2.7.5.6 &#x2F;var&#x2F;named&#x2F;named.loopback</h5><p>本机默认主机名localhost的反向解析文件：127.0.0.1→localhost</p>
+<p>named.localhost和named.loopback文件起着“模板文件”的作用。</p>
+<p>在实际配置DNS的过程中，一般都是将这两个文件改名复制成自定义域名的正向解析文件和反向解析文件，然后再在其基础上进行相应的修改。</p>
+<h5 id="2-2-7-5-7-x2F-var-x2F-named-x2F-wgxy-zone"><a href="#2-2-7-5-7-x2F-var-x2F-named-x2F-wgxy-zone" class="headerlink" title="2.2.7.5.7 &#x2F;var&#x2F;named&#x2F;wgxy.zone"></a>2.2.7.5.7 &#x2F;var&#x2F;named&#x2F;wgxy.zone</h5><p>主机名wgxy的正向解析文件</p>
+<p>wgxy→192.168.112.128</p>
+<p>来自named.localhost模板，将第9行A  127.0.0.1改为A  192.168.112.128</p>
+<h5 id="2-2-7-5-8-x2F-var-x2F-named-x2F-test-com-zone"><a href="#2-2-7-5-8-x2F-var-x2F-named-x2F-test-com-zone" class="headerlink" title="2.2.7.5.8 &#x2F;var&#x2F;named&#x2F;test.com.zone"></a>2.2.7.5.8 &#x2F;var&#x2F;named&#x2F;test.com.zone</h5><p>某域名test.com的正向解析文件</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">dns.test.com→192.168.112.128  //DNS服务器</span><br><span class="line">www.test.com→192.168.112.128  //Web服务器</span><br><span class="line">ftp.test.com→192.168.112.128  //FTP服务器</span><br><span class="line">mail.test.com→192.168.112.129  //Mail服务器</span><br><span class="line">#在/etc/named.rfc1912.zones中定义</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="2-2-7-5-9-x2F-var-x2F-named-x2F-192-168-112-arpa"><a href="#2-2-7-5-9-x2F-var-x2F-named-x2F-192-168-112-arpa" class="headerlink" title="2.2.7.5.9 &#x2F;var&#x2F;named&#x2F;192.168.112.arpa"></a>2.2.7.5.9 &#x2F;var&#x2F;named&#x2F;192.168.112.arpa</h5><p>某域名test.com的反向解析文件</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">192.168.112.128→dns.test.com</span><br><span class="line">192.168.112.128→www.test.com</span><br><span class="line">192.168.112.128→ftp.test.com</span><br><span class="line">192.168.112.129→mail.test.com</span><br></pre></td></tr></table></figure>
+
+<p>在&#x2F;etc&#x2F;named.rfc1912.zones中定义</p>
+<h4 id="2-2-8-配置本机主机名wgxy的正向解析及测试"><a href="#2-2-8-配置本机主机名wgxy的正向解析及测试" class="headerlink" title="2.2.8 配置本机主机名wgxy的正向解析及测试"></a>2.2.8 配置本机主机名wgxy的正向解析及测试</h4><p>正向解析：wgxy→192.168.112.128</p>
+<p>(1)首先，在&#x2F;etc&#x2F;named.rfc1912.zones文件中定义该主机名的一个正向域</p>
+<p>vim &#x2F;etc&#x2F;named.rfc1912.zones</p>
+<pre><code>zone &quot;localhost&quot; IN &#123;
+         type master;
+         file &quot;named.localhost&quot;;
+         allow-update &#123; none; &#125;;
+ &#125;; 
+</code></pre>
+<p>复制以上19-24行共6行，并改为：</p>
+<pre><code>zone &quot;wgxy&quot; IN &#123;           //定义该主机名的一个域zone
+         type master;
+         file &quot;wgxy.zone&quot;;  //指定该主机名的正向解析文件。记住该文件名，一会儿要在/var/named目录中去创建它
+         allow-update &#123; none; &#125;;
+ &#125;; 
+</code></pre>
+<p>(2)然后，进入&#x2F;var&#x2F;named目录，复制named.localhost并改名为wgxy.zone</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd /var/named</span><br><span class="line">cp -p named.localhost wgxy.zone</span><br></pre></td></tr></table></figure>
+
+
+
+<p>vim wgxy.zone</p>
+<pre><code>$TTL 1D
+@       IN SOA  @ rname.invalid. (
+                                         0       ; serial   //版本号
+                                         1D      ; refresh  //每隔1天刷新纪录
+                                         1H      ; retry    //每隔1小时重发请求
+                                         1W      ; expire   //1周无法连接上主域名服务器，DNS记录失效
+                                         3H )    ; minimum  //DNS记录TTL的最小值为3小时
+         NS      @
+         A       192.168.112.128                            //将该行的IP“127.0.0.1”，改为“192.168.112.128”即可！
+</code></pre>
+<p>(3)重启DNS服务器，并进行主机名“wgxy”的正向解析测试</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">service named restart</span><br><span class="line">host wgxy</span><br><span class="line">wgxy has address 192.168.112.128</span><br></pre></td></tr></table></figure>
+
+
+
+<p>能正向解析出主机名“wgxy”对应的IP地址，配置成功！</p>
+<p>注：若显示：Host wgxy not found: 3(NXDOMAIN)，再次修改# vim &#x2F;etc&#x2F;resolv.conf中的nameserver 192.168.112.128</p>
+<h4 id="2-2-9-配置本机主机名wgxy的反向解析及测试"><a href="#2-2-9-配置本机主机名wgxy的反向解析及测试" class="headerlink" title="2.2.9 配置本机主机名wgxy的反向解析及测试"></a>2.2.9 配置本机主机名wgxy的反向解析及测试</h4><p>反向解析：192.168.112.128→wgxy</p>
+<p>(1)首先，在&#x2F;etc&#x2F;named.rfc1912.zones文件中定义该主机名的一个反向域：</p>
+<p>vim &#x2F;etc&#x2F;named.rfc1912.zones</p>
+<pre><code>zone &quot;1.0.0.127.in-addr.arpa&quot; IN &#123;
+        type master;
+        file &quot;named.loopback&quot;;
+        allow-update &#123; none; &#125;;
+&#125;; 
+</code></pre>
+<p>复制以上37-42行共6行，并改为：</p>
+<pre><code>zone &quot;112.168.192.in-addr.arpa&quot; IN &#123;   //注意：反向解析的最大的一个特点就是将IP地址“192.168.112.128”反着写
+        type master;
+         file &quot;192.168.112.arpa&quot;;       //指定该主机名的反向解析文件。记住该文件名，一会儿要在/var/named目录中去创建它
+         allow-update &#123; none; &#125;;
+&#125;;
+</code></pre>
+<p>(2)然后，进入&#x2F;var&#x2F;named目录，复制named.loopback并改名为192.168.112.arpa</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd /var/named</span><br><span class="line">cp -p named.loopback 192.168.112.arpa</span><br></pre></td></tr></table></figure>
+
+
+
+<p>vim 192.168.112.arpa</p>
+<pre><code>$TTL 1D
+@       IN SOA  @ rname.invalid. (
+                                        0       ; serial
+                                         1D      ; refresh
+                                        1H      ; retry
+                                        1W      ; expire
+                                        3H )    ; minimum
+        NS      @
+         A       192.168.112.128 //将该行的IP“127.0.0.1”，改为“192.168.112.128”
+         AAAA    ::1             //删除该行IPv6的地址
+ 128     PTR     wgxy.           //128，即192.168.112.128；PTR即指向后面的“wgxy.”，注意后面的那个点“.”不能掉，否则配置不成功！
+</code></pre>
+<p>(3)重启DNS服务器，并进行主机名“wgxy”的反向解析测试</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">service named restart</span><br><span class="line">host 192.168.112.128</span><br><span class="line">128.112.168.192.in-addr.arpa domain name pointer wgxy.</span><br></pre></td></tr></table></figure>
+
+
+
+<p>能反向解析出IP地址“192.168.112.128”对应的主机名，配置成功！</p>
+<h4 id="2-2-10-配置域名“test-com”的正向解析及测试"><a href="#2-2-10-配置域名“test-com”的正向解析及测试" class="headerlink" title="2.2.10 配置域名“test.com”的正向解析及测试"></a>2.2.10 配置域名“test.com”的正向解析及测试</h4><p>(1)首先，在&#x2F;etc&#x2F;named.rfc1912.zones文件中定义“test.com”的正向域</p>
+<p>vim &#x2F;etc&#x2F;named.rfc1912.zones</p>
+<pre><code>zone &quot;wgxy&quot; IN &#123;
+        type master;
+        file &quot;wgxy.zone&quot;;
+        allow-update &#123; none; &#125;;
+&#125;;
+</code></pre>
+<p>复制以上25-30行共6行，并改为：</p>
+<pre><code>zone &quot;test.com&quot; IN &#123;          //定义“test.com”这个域
+         type master;
+        file &quot;test.com.zone&quot;; //指定该主机名的正向解析文件。记住该文件名，一会儿要在/var/named目录中去创建它
+         allow-update &#123; none; &#125;;
+&#125;;
+</code></pre>
+<p>(2)然后，进入&#x2F;var&#x2F;named目录，复制named.localhost并改名为test.com.zone</p>
+<pre><code>cd /var/named
+cp -p named.localhost test.com.zone
+vim test.com.zone
+</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$TTL 1D</span><br><span class="line">@       IN SOA  @ rname.invalid. (</span><br><span class="line">                                         0       ; serial</span><br><span class="line">                                        1D      ; refresh</span><br><span class="line">                                        1H      ; retry</span><br><span class="line">                                         1W      ; expire</span><br><span class="line">                                        3H )    ; minimum</span><br><span class="line">         NS      dns.test.com.      //“test.com”这个域的DNS服务器，必须有。注意这个点“.”</span><br><span class="line">        MX 5    mail.test.com.     //该域的邮件服务器。注意这个点“.”</span><br><span class="line">dns    A    192.168.112.128    //DNS服务器对应的IP地址</span><br><span class="line">www    A    192.168.112.128    //网页服务器对应的IP地址</span><br><span class="line">ftp    CNAME    www                //FTP服务器是www的别名，即与www服务器使用相同的IP地址</span><br><span class="line">mail    A    192.168.112.129    //邮件服务器对应的IP地址</span><br></pre></td></tr></table></figure>
+
+<p>(3)重启DNS服务器，并对各种服务器进行正向解析测试</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">service named restart</span><br><span class="line">vim /etc/resolv.conf</span><br><span class="line">host dns.test.com</span><br><span class="line">dns.test.com has address 192.168.112.128</span><br><span class="line">host www.test.com</span><br><span class="line">www.test.com has address 192.168.112.128</span><br><span class="line">host ftp.test.com</span><br><span class="line">ftp.test.com is an alias for www.test.com.</span><br><span class="line">www.test.com has address 192.168.112.128</span><br><span class="line">host mail.test.com</span><br><span class="line">mail.test.com has address 192.168.112.129</span><br></pre></td></tr></table></figure>
+
+
+
+<p>能正向解析出各个域名所对应的IP地址，配置成功！</p>
+<p>(4)架设一个Web服务器，并用vi编辑器制作一个简单的网页（已经Xftp上传网站到&#x2F;var&#x2F;www&#x2F;html&#x2F;TestWeb2&#x2F;），</p>
+<p>然后在虚拟机Win7（IP：192.168.112.129）里通过域名<a target="_blank" rel="noopener" href="http://www.test.com访问该网页./">www.test.com访问该网页。</a></p>
+<p>1)在Linux里安装Web服务器，并启动它(自动安装，前述已设置开机自动启动)；</p>
+<p>2)在其网页目录中(&#x2F;etc&#x2F;www&#x2F;html&#x2F;TestWeb2)制作一个简单网页index.html（已经xftp上传网站到&#x2F;var&#x2F;www&#x2F;html&#x2F;TestWeb2&#x2F;）；</p>
+<p>3)更改Windows里的DNS设置，使其指向Linux中的DNS服务器192.168.112.128；</p>
+<p>4)打开Windows中的浏览器，输入域名<a target="_blank" rel="noopener" href="http://www.test.com/TestWeb2/%E8%BF%9B%E8%A1%8C%E6%B5%8F%E8%A7%88%E6%B5%8B%E8%AF%95%E3%80%82">http://www.test.com/TestWeb2/进行浏览测试。</a></p>
+<p>访问外网也应该能成功？nameserver 8.8.8.8？</p>
+<p>Web服务器、DNS服务器合并操作，配置成功！</p>
+<h4 id="2-2-11-配置域名“test-com”的反向解析及测试"><a href="#2-2-11-配置域名“test-com”的反向解析及测试" class="headerlink" title="2.2.11 配置域名“test.com”的反向解析及测试"></a>2.2.11 配置域名“test.com”的反向解析及测试</h4><p>192.168.112.128  dns.test.com   </p>
+<pre><code>             www.test.com
+
+             ftp.test.com
+</code></pre>
+<p>192.168.112.129  mail.test.com  </p>
+<p>由于在前面配置本机主机名的反向解析时，</p>
+<p>在&#x2F;etc&#x2F;named.rfc1912.zones文件建立过“192.168.112.0&#x2F;24”这个IP段的反向域及其反向解析文件，</p>
+<p>故在此删除或改用该IP段的反向域及其反向解析文件。</p>
+<p>(1)首先，在&#x2F;etc&#x2F;named.rfc1912.zones文件中定义“test.com”的反向域</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim /etc/named.rfc1912.zones</span><br></pre></td></tr></table></figure>
+
+
+
+<p>(2)然后，进入&#x2F;var&#x2F;named目录，复制named.loopback并改名为192.168.112.arpa（前面主机名的反向解析已复制、改名）</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vim /var/named/192.168.112.arpa</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$TTL 1D</span><br><span class="line">@	IN SOA	@ rname.invalid. (</span><br><span class="line">						0	; serial</span><br><span class="line">						1D	; refresh</span><br><span class="line">						1H	; retry</span><br><span class="line">					1W	; expire</span><br><span class="line">					3H )	; minimum</span><br><span class="line">		  NS    dns.test.com.</span><br><span class="line">128    PTR    dns.test.com.</span><br><span class="line">128    PTR    www.test.com.</span><br><span class="line">128    PTR    ftp.test.com.</span><br><span class="line">129    PTR    mail.test.com.</span><br></pre></td></tr></table></figure>
+
+<p>各个服务器对应IP的最后一个数字，如128，通过PTR指向其对应的域名。</p>
+<p>注意：后面的那个点不能掉，否则配置不成功！</p>
+<p>(3)重启DNS服务器，并对以下各个域名进行反向解析测试</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">service named restart</span><br><span class="line"></span><br><span class="line">vim /etc/resolv.conf</span><br><span class="line"></span><br><span class="line">host 192.168.112.128</span><br><span class="line"></span><br><span class="line">128.112.168.192.in-addr.arpa domain name pointer dns.test.com.</span><br><span class="line"></span><br><span class="line">128.112.168.192.in-addr.arpa domain name pointer ftp.test.com.</span><br><span class="line"></span><br><span class="line">128.112.168.192.in-addr.arpa domain name pointer www.test.com.</span><br><span class="line"></span><br><span class="line">host 192.168.112.129</span><br><span class="line"></span><br><span class="line">129.112.168.192.in-addr.arpa domain name pointer mail.test.com.</span><br></pre></td></tr></table></figure>
+
+
+
+<p>反向解析成功！</p>
+<h1 id="第三章-总结"><a href="#第三章-总结" class="headerlink" title="第三章 总结"></a>第三章 总结</h1><p>DNS服务器9个配置文件及作用：</p>
+<p>以配置<wgxy>.test.com的dns、www、ftp、mail为例：</wgxy></p>
+<p>主机名wgxy，IP地址192.168.112.128，域名test.com，服务dns、www、ftp、mail</p>
+<p>目录：&#x2F;etc&#x2F;，3个文件</p>
+<p>-rw-r–r–. 1 root root   123  3月 11 12:20 resolv.conf</p>
+<p>-rw-r—–. 1 root named  936  3月 11 12:27 named.conf</p>
+<p>-rw-r—–. 1 root named 1203  3月 11 12:44 named.rfc1912.zones</p>
+<p>目录：&#x2F;var&#x2F;named&#x2F;，6个文件</p>
+<p>-rw-r—–. 1 root  named 1892  2月 18 2008  named.ca</p>
+<p>-rw-r—–. 1 root  named  142  3月 11 12:28 named.localhost</p>
+<p>-rw-r—–. 1 root  named  158  3月 11 12:29 named.loopback</p>
+<p>-rw-r—–. 1 root  named  148  3月 11 12:35 wgxy.zone</p>
+<p>-rw-r—–. 1 root  named  244  3月 11 12:53 test.com.zone</p>
+<p>-rw-r—–. 1 root  named  230  3月 11 12:58 192.168.112.arpa</p>
+<p>9个文件分布在两个目录</p>
+<p>　resolv.conf         &#x2F;&#x2F;设置域名服务器：修改nameserver 192.168.112.128</p>
+<p>　named.conf          &#x2F;&#x2F;主配置文件，安全访问控制：修改192.168.112.128，any，&#x2F;&#x2F;注释掉3行</p>
+<p>●named.rfc1912.zones &#x2F;&#x2F;主配置文件，增加主机名wgxy和域名test.com的正向解析和反向解析配置</p>
+<pre><code>            正向解析                                |反向解析
+
+zone &quot;wgxy&quot; IN &#123;			|
+    type master;			|
+
+    file &quot;wgxy.zone&quot;;	        |
+
+        allow-update &#123; none; &#125;;	|
+
+ &#125;;//主机名wgxy的正向解析，见③	|
+
+                                                |
+
+zone &quot;test.com&quot; IN &#123;			|49 zone &quot;112.168.192.in-addr.arpa&quot; IN &#123;
+
+        type master;			|50         type master;
+
+         file &quot;test.com.zone&quot;;	|51         file &quot;192.168.112.arpa&quot;;	
+
+         allow-update &#123; none; &#125;;	|52         allow-update &#123; none; &#125;;
+
+&#125;;//域名test.com的正向解析，见④	|53 &#125;;//域名test.com的反向解析，见⑤
+</code></pre>
+<p>　named.ca            &#x2F;&#x2F;根域配置文件，不能删，不用修改，因为它能解析整个互联网！</p>
+<p>①named.localhost     &#x2F;&#x2F;默认主机名localhost的正向解析文件：删掉第10行(不要IPv6地址)：AAAA  ::1</p>
+<p>②named.loopback      &#x2F;&#x2F;默认主机名localhost的反向解析文件：删掉第10行(不要IPv6地址)：AAAA  ::1</p>
+<p>③wgxy.zone           &#x2F;&#x2F;主机名wgxy的正向解析文件：来自named.localhost模板，将第9行A  127.0.0.1改为A  192.168.112.128</p>
+<p>④test.com.zone       &#x2F;&#x2F;域名test.com的正向解析文件：来自named.localhost模板，将</p>
+<pre><code>NS	@
+A	127.0.0.1
+</code></pre>
+<p>　改为：</p>
+<pre><code>        NS    dns.test.com.
+
+        MX 5    mail.test.com.
+
+ dns    A    192.168.112.128
+
+ www    A	    192.168.112.128
+
+ ftp    CNAME    www
+
+ mail    A    192.168.112.129
+</code></pre>
+<p>⑤192.168.112.arpa    &#x2F;&#x2F;域名test.com的反向解析文件：来自named.loopback模板，将</p>
+<pre><code>        NS	@
+
+        A	127.0.0.1
+
+    PTR	localhost.
+</code></pre>
+<p>　改为：</p>
+<pre><code>        NS	dns.test.com.
+    128	PTR	dns.test.com.
+ 128	PTR	www.test.com.
+ 128	PTR	ftp.test.com.
+ 129	PTR	mail.test.com.
+</code></pre>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://blog.cndis.cn">JankinLui</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://blog.cndis.cn/post/fb155ad5.html">http://blog.cndis.cn/post/fb155ad5.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://blog.cndis.cn" target="_blank">失控</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Linux/">Linux</a></div><div class="post_share"><div class="social-share" data-image="/word-img/%E9%85%8D%E7%BD%AEDNS%E6%9C%8D%E5%8A%A1.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://lib.baomitu.com/social-share.js/1.0.16/css/share.min.css" media="print" onload="this.media='all'"><script src="https://lib.baomitu.com/social-share.js/1.0.16/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/post/a5470caa.html"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/word-img/Ubuntu%E4%B8%8B%E9%85%8D%E7%BD%AEsamba%E5%AE%9E%E7%8E%B0%E6%96%87%E4%BB%B6%E5%A4%B9%E5%85%B1%E4%BA%AB.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Ubuntu下配置samba实现文件夹共享</div></div></a></div><div class="next-post pull-right"><a href="/post/3e7d7b08.html"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/word-img/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEhttp.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">安装配置http</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/post/35a4188.html" title="linux分辨率or系统语言"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/word-img/linux%E5%88%86%E8%BE%A8%E7%8E%87or%E7%B3%BB%E7%BB%9F%E8%AF%AD%E8%A8%80.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-09-16</div><div class="title">linux分辨率or系统语言</div></div></a></div><div><a href="/post/fead8c15.html" title="telnet&amp;&amp;ssh"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/word-img/telnet&&ssh.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-09-16</div><div class="title">telnet&amp;&amp;ssh</div></div></a></div><div><a href="/post/9155c6a6.html" title="yum&amp;network"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/word-img/yum&network.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-09-16</div><div class="title">yum&amp;network</div></div></a></div><div><a href="/post/9a9bc48a.html" title="命令行安装图形界面&amp;&amp;win远程桌面&amp;&amp;终端分屏"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/word-img/%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%AE%89%E8%A3%85%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2&&win%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2&&%E7%BB%88%E7%AB%AF%E5%88%86%E5%B1%8F.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-09-16</div><div class="title">命令行安装图形界面&amp;&amp;win远程桌面&amp;&amp;终端分屏</div></div></a></div><div><a href="/post/2a5cd213.html" title="堡垒机&amp;跳板机"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/word-img/%E5%A0%A1%E5%9E%92%E6%9C%BA&%E8%B7%B3%E6%9D%BF%E6%9C%BA.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-09-18</div><div class="title">堡垒机&amp;跳板机</div></div></a></div><div><a href="/post/3e7d7b08.html" title="安装配置http"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/word-img/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEhttp.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-09-16</div><div class="title">安装配置http</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/tx.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">JankinLui</div><div class="author-info__description">Hello Word</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">39</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">85</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/JankinLui/"><i class="fab fa-github"></i><span>Follow Me GitHub</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/JankinLui/" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:2044307912@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">Welcome to my homepage!</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E9%85%8D%E7%BD%AE%E5%8D%95%E4%B8%AADNS"><span class="toc-number">1.</span> <span class="toc-text">第一章 配置单个DNS</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E5%AE%89%E8%A3%85DNS"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 安装DNS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-%E9%85%8D%E7%BD%AEDNS%E6%96%87%E4%BB%B6"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 配置DNS文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-1-%E4%BF%AE%E6%94%B9DNS%E4%B8%BB%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.2.1 修改DNS主配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-2-%E4%BF%AE%E6%94%B9%E3%80%81%E5%8F%8D%E5%90%91%E8%A7%A3%E6%9E%90%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">1.2.2.</span> <span class="toc-text">1.2.2 修改、反向解析配置文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-%E5%90%AF%E5%8A%A8%E6%9C%8D%E5%8A%A1"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 启动服务</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E6%89%A9%E5%B1%95"><span class="toc-number">2.</span> <span class="toc-text">第二章 扩展</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E6%9F%A5%E7%9C%8B%E6%98%AF%E5%90%A6%E5%B7%B2%E7%BB%8F%E5%AE%89%E8%A3%85DNS%E5%8C%85"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 查看是否已经安装DNS包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E5%AE%89%E8%A3%85-%E5%9F%BA%E4%BA%8E%E6%9C%AC%E5%9C%B0%E5%AE%89%E8%A3%85"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 安装(基于本地安装)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-1-%E6%8C%82%E8%BD%BD%E5%85%89%E9%A9%B1"><span class="toc-number">2.2.1.</span> <span class="toc-text">2.2.1 挂载光驱</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-2-%E5%AE%89%E8%A3%85DNS%E5%8C%85"><span class="toc-number">2.2.2.</span> <span class="toc-text">2.2.2 安装DNS包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-3-%E5%90%AF%E5%8A%A8%E6%9C%8D%E5%8A%A1"><span class="toc-number">2.2.3.</span> <span class="toc-text">2.2.3 启动服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-4-%E5%85%B3%E9%97%AD%E9%98%B2%E7%81%AB%E5%A2%99"><span class="toc-number">2.2.4.</span> <span class="toc-text">2.2.4 关闭防火墙</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-5-%E5%85%B3%E9%97%ADSELinux"><span class="toc-number">2.2.5.</span> <span class="toc-text">2.2.5 关闭SELinux</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-6-%E5%BC%80%E6%9C%BA%E8%87%AA%E5%8A%A8%E5%90%AF%E5%8A%A8"><span class="toc-number">2.2.6.</span> <span class="toc-text">2.2.6 开机自动启动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-7-DNS%E9%BB%98%E8%AE%A4%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95%E5%8F%8A%E4%BC%97%E5%A4%9A%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-number">2.2.7.</span> <span class="toc-text">2.2.7 DNS默认功能测试及众多配置文件的作用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-7-1-%E9%BB%98%E8%AE%A4%E5%8F%AF%E4%BB%A5%E5%AF%B9%E4%B8%BB%E6%9C%BA%E5%90%8Dlocalhost%E8%BF%9B%E8%A1%8C%E6%AD%A3%E5%90%91%E8%A7%A3%E6%9E%90%E5%92%8C%E5%8F%8D%E5%90%91%E8%A7%A3%E6%9E%90"><span class="toc-number">2.2.7.1.</span> <span class="toc-text">2.2.7.1 默认可以对主机名localhost进行正向解析和反向解析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-7-2-%E9%BB%98%E8%AE%A4%E5%8F%AF%E4%BB%A5%E5%AF%B9%E4%B8%BB%E6%9C%BA%E5%90%8Dlocalhost%E8%BF%9B%E8%A1%8C%E6%AD%A3%E5%90%91%E8%A7%A3%E6%9E%90"><span class="toc-number">2.2.7.2.</span> <span class="toc-text">2.2.7.2 默认可以对主机名localhost进行正向解析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-7-3-%E9%BB%98%E8%AE%A4%E5%8F%AF%E4%BB%A5%E5%AF%B9%E4%B8%BB%E6%9C%BA%E5%90%8Dlocalhost%E8%BF%9B%E8%A1%8C%E5%8F%8D%E5%90%91%E8%A7%A3%E6%9E%90"><span class="toc-number">2.2.7.3.</span> <span class="toc-text">2.2.7.3 默认可以对主机名localhost进行反向解析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-7-4-%E9%BB%98%E8%AE%A4%E5%8F%AF%E4%BB%A5%E8%A7%A3%E6%9E%90%E6%95%B4%E4%B8%AA%E4%BA%92%E8%81%94%E7%BD%91"><span class="toc-number">2.2.7.4.</span> <span class="toc-text">2.2.7.4 默认可以解析整个互联网</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-7-5-DNS%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%90%84%E4%B8%AA%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-number">2.2.7.5.</span> <span class="toc-text">2.2.7.5 DNS服务器各个配置文件的作用</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2-7-5-1-x2F-etc-x2F-resolv-conf"><span class="toc-number">2.2.7.5.1.</span> <span class="toc-text">2.2.7.5.1&#x2F;etc&#x2F;resolv.conf</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2-7-5-2-x2F-etc-x2F-named-conf"><span class="toc-number">2.2.7.5.2.</span> <span class="toc-text">2.2.7.5.2 &#x2F;etc&#x2F;named.conf</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2-7-5-3-x2F-etc-x2F-named-rfc1912-zones"><span class="toc-number">2.2.7.5.3.</span> <span class="toc-text">2.2.7.5.3 &#x2F;etc&#x2F;named.rfc1912.zones</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2-7-5-4-x2F-var-x2F-named-x2F-named-ca"><span class="toc-number">2.2.7.5.4.</span> <span class="toc-text">2.2.7.5.4 &#x2F;var&#x2F;named&#x2F;named.ca</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2-7-5-5-x2F-var-x2F-named-x2F-named-localhost"><span class="toc-number">2.2.7.5.5.</span> <span class="toc-text">2.2.7.5.5 &#x2F;var&#x2F;named&#x2F;named.localhost</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2-7-5-6-x2F-var-x2F-named-x2F-named-loopback"><span class="toc-number">2.2.7.5.6.</span> <span class="toc-text">2.2.7.5.6 &#x2F;var&#x2F;named&#x2F;named.loopback</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2-7-5-7-x2F-var-x2F-named-x2F-wgxy-zone"><span class="toc-number">2.2.7.5.7.</span> <span class="toc-text">2.2.7.5.7 &#x2F;var&#x2F;named&#x2F;wgxy.zone</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2-7-5-8-x2F-var-x2F-named-x2F-test-com-zone"><span class="toc-number">2.2.7.5.8.</span> <span class="toc-text">2.2.7.5.8 &#x2F;var&#x2F;named&#x2F;test.com.zone</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2-7-5-9-x2F-var-x2F-named-x2F-192-168-112-arpa"><span class="toc-number">2.2.7.5.9.</span> <span class="toc-text">2.2.7.5.9 &#x2F;var&#x2F;named&#x2F;192.168.112.arpa</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-8-%E9%85%8D%E7%BD%AE%E6%9C%AC%E6%9C%BA%E4%B8%BB%E6%9C%BA%E5%90%8Dwgxy%E7%9A%84%E6%AD%A3%E5%90%91%E8%A7%A3%E6%9E%90%E5%8F%8A%E6%B5%8B%E8%AF%95"><span class="toc-number">2.2.7.6.</span> <span class="toc-text">2.2.8 配置本机主机名wgxy的正向解析及测试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-9-%E9%85%8D%E7%BD%AE%E6%9C%AC%E6%9C%BA%E4%B8%BB%E6%9C%BA%E5%90%8Dwgxy%E7%9A%84%E5%8F%8D%E5%90%91%E8%A7%A3%E6%9E%90%E5%8F%8A%E6%B5%8B%E8%AF%95"><span class="toc-number">2.2.7.7.</span> <span class="toc-text">2.2.9 配置本机主机名wgxy的反向解析及测试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-10-%E9%85%8D%E7%BD%AE%E5%9F%9F%E5%90%8D%E2%80%9Ctest-com%E2%80%9D%E7%9A%84%E6%AD%A3%E5%90%91%E8%A7%A3%E6%9E%90%E5%8F%8A%E6%B5%8B%E8%AF%95"><span class="toc-number">2.2.7.8.</span> <span class="toc-text">2.2.10 配置域名“test.com”的正向解析及测试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-11-%E9%85%8D%E7%BD%AE%E5%9F%9F%E5%90%8D%E2%80%9Ctest-com%E2%80%9D%E7%9A%84%E5%8F%8D%E5%90%91%E8%A7%A3%E6%9E%90%E5%8F%8A%E6%B5%8B%E8%AF%95"><span class="toc-number">2.2.7.9.</span> <span class="toc-text">2.2.11 配置域名“test.com”的反向解析及测试</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E6%80%BB%E7%BB%93"><span class="toc-number">3.</span> <span class="toc-text">第三章 总结</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/8903dfc3.html" title="Markdown语法及Hexo命令"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/word-img/Markdown%E8%AF%AD%E6%B3%95%E5%8F%8AHexo%E5%91%BD%E4%BB%A4.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Markdown语法及Hexo命令"/></a><div class="content"><a class="title" href="/post/8903dfc3.html" title="Markdown语法及Hexo命令">Markdown语法及Hexo命令</a><time datetime="2022-09-18T06:04:01.000Z" title="发表于 2022-09-18 14:04:01">2022-09-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/3d5aa7d2.html" title="sersync实时同步服务"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/word-img/sersync%E5%AE%9E%E6%97%B6%E5%90%8C%E6%AD%A5%E6%9C%8D%E5%8A%A1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="sersync实时同步服务"/></a><div class="content"><a class="title" href="/post/3d5aa7d2.html" title="sersync实时同步服务">sersync实时同步服务</a><time datetime="2022-08-07T01:33:04.000Z" title="发表于 2022-08-07 09:33:04">2022-08-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/1cf70e68.html" title="安装neofetch"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/word-img/%E5%AE%89%E8%A3%85neofetch.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="安装neofetch"/></a><div class="content"><a class="title" href="/post/1cf70e68.html" title="安装neofetch">安装neofetch</a><time datetime="2022-08-07T01:24:06.000Z" title="发表于 2022-08-07 09:24:06">2022-08-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/ea302d03.html" title="rsync备份服务项目"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/word-img/rsync%E5%A4%87%E4%BB%BD%E6%9C%8D%E5%8A%A1%E9%A1%B9%E7%9B%AE.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="rsync备份服务项目"/></a><div class="content"><a class="title" href="/post/ea302d03.html" title="rsync备份服务项目">rsync备份服务项目</a><time datetime="2022-08-04T12:10:45.000Z" title="发表于 2022-08-04 20:10:45">2022-08-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/49c674ff.html" title="综合架构详解&amp;模板机配置"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/word-img/%E7%BB%BC%E5%90%88%E6%9E%B6%E6%9E%84%E8%AF%A6%E8%A7%A3&amp;%E6%A8%A1%E6%9D%BF%E6%9C%BA%E9%85%8D%E7%BD%AE.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="综合架构详解&amp;模板机配置"/></a><div class="content"><a class="title" href="/post/49c674ff.html" title="综合架构详解&amp;模板机配置">综合架构详解&amp;模板机配置</a><time datetime="2022-08-04T09:22:20.000Z" title="发表于 2022-08-04 17:22:20">2022-08-04</time></div></div></div></div></div></div></main><footer id="footer" style="background: transparent"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2022 By JankinLui</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn1.tianli0.top/npm/js-heo@1.0.6/translate/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/instant.page/5.1.0/instantpage.min.js" type="module"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/vanilla-lazyload/17.3.1/lazyload.iife.min.js"></script><script src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/node-snackbar/0.1.16/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'eojgLaBUPGa7ZfoFdUWmWZot-gzGzoHsz',
+      appKey: '0HeOXz63nqlHMsYDDddmkX2w',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/valine/1.4.16/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><canvas id="universe"></canvas><script defer src="/js/universe.js"></script><script defer src="/js/cursor.js"></script><script defer src="/js/modify.js"></script><div class="aplayer no-destroy" data-id="7797416044" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="true" muted></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="30" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><link rel="stylesheet" href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.js"></script><script src="https://cdn1.tianli0.top/npm/js-heo@1.0.12/metingjs/Meting.min.js"></script><script src="https://lib.baomitu.com/pjax/0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body></html>
