@@ -1,6 +1,3 @@
-'use strict';
-const cheerio = require('cheerio');
-
 /**
  * 在页面插入新顶部图
  * @param {cheerio.Root} $ Root
