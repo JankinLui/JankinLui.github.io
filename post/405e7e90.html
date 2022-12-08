@@ -180,7 +180,7 @@
 <blockquote>
 <p>ps:懒癌患者慎入</p>
 </blockquote>
-<p><img src="/post/405e7e90/1.png" alt="展示"></p>
+<p><img src="/post/405e7e90.htm/1.png" alt="展示"></p>
 <h1 id="第一章-简述"><a href="#第一章-简述" class="headerlink" title="第一章 简述"></a>第一章 简述</h1><p>一般来说大多数教程会教我们把搭建的博客放到Github Pages上面，其实这也是一个不错的选择，但是由于Github服务器毕竟还是在国外，在国内访问的话速度会比较慢，如果追求速度的话，可以把博客放到国内的Coding（码云）上面，也可以放到腾讯云对象存储上面（还有七牛云存储等等），但是都是各有各的限制，腾讯云存储的话需要域名已经备案（然而备案就是一件比较麻烦的事……）。</p>
 <p>所以如果不是非常想折腾的话，还是推荐直接放到GithubPages上即可 ，而且GithubPages有一个比较方便的地方就是可以一键开启HTTPS，这样避免了大多数浏览器烦人的不安全连接问题。</p>
 <h1 id="第二章-环境准备"><a href="#第二章-环境准备" class="headerlink" title="第二章 环境准备"></a>第二章 环境准备</h1><p>在安装hexo框架之前，我们需要先安装其依赖环境：</p>
@@ -189,7 +189,7 @@
 <li>Git</li>
 </ol>
 <p>因为Hexo博客框架就是基于Node.js的，所以必须要先安装Node.js环境，我们可以去<a target="_blank" rel="noopener" href="http://nodejs.cn/download/current/">Node.js中文官网</a>下载，如图</p>
-<p><img src="/post/405e7e90/node%E4%B8%8B%E8%BD%BD%E9%A1%B5%E9%9D%A2.png" alt="Node官网下载页面"></p>
+<p><img src="/post/405e7e90.htm/node%E4%B8%8B%E8%BD%BD%E9%A1%B5%E9%9D%A2.png" alt="Node官网下载页面"></p>
 <h2 id="2-1-提示"><a href="#2-1-提示" class="headerlink" title="2.1 提示"></a>2.1 提示</h2><p>由于一般我们是在windows或者macOS环境下作为本机操作的，所以下载对应的安装包就可以了，下载好后一路点next就完成了，这个没什么问题。</p>
 <p>然后我们需要安装一下Git，Git主要是帮助我们一键部署到Github仓库上面。</p>
 <p>安装Git的话，如果是window系统，可以直接去<a target="_blank" rel="noopener" href="https://gitforwindows.org/">windows的Git下载地址</a>去下载，如果是macOS的话，也可以在<a target="_blank" rel="noopener" href="https://www.git-scm.com/download/">这里下载</a>。当这些环境都部署好之后，就可以开始我们的Hexo博客安装啦！</p>
@@ -216,7 +216,7 @@
 
 <p>这个命令执行的时间非常长，主要是初始化hexo博客中的文件夹，包括hexo博客内置的各种node_modules组件等等，所以耐心的稍等一下！</p>
 <p>初始化完成后，我们打开刚才创建的文件夹，会发现里面有如下文件夹：</p>
-<p><img src="/post/405e7e90/hexo%E5%88%9D%E5%A7%8B%E5%8C%96%E5%AE%8C%E6%88%90%E6%96%87%E4%BB%B6%E5%A4%B9.png" alt="hexo初始化完成文件夹"></p>
+<p><img src="/post/405e7e90.htm/hexo%E5%88%9D%E5%A7%8B%E5%8C%96%E5%AE%8C%E6%88%90%E6%96%87%E4%BB%B6%E5%A4%B9.png" alt="hexo初始化完成文件夹"></p>
 <p>注意，这个里面有一个_config.xml文件，这个我们叫做站点根目录配置文件，里面的初始内容如下：（附上中文介绍）</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Hexo Configuration</span><br><span class="line">## Docs: https://hexo.io/docs/configuration.html</span><br><span class="line">## Source: https://github.com/hexojs/hexo/</span><br><span class="line"></span><br><span class="line"># Site 站点主配置</span><br><span class="line">title: Hexo  # 网站标题</span><br><span class="line">subtitle:    # 网站副标题</span><br><span class="line">description:   # 网站描述</span><br><span class="line">keywords:      # 可以不填写保持默认</span><br><span class="line">author: JankinLui  # 网站拥有者昵称</span><br><span class="line">language:    # 网站语言设置，一般根据依赖的主题而定</span><br><span class="line">timezone:    # 网站时区设置，一般不填写保持默认</span><br><span class="line"></span><br><span class="line"># URL</span><br><span class="line">## If your site is put in a subdirectory, set url as &#x27;http://yoursite.com/child&#x27; and root as &#x27;/child/&#x27;</span><br><span class="line">url: https//:blog.cndis.cn   # 网站url设置</span><br><span class="line">root: /                    # 网站根目录链接</span><br><span class="line">permalink: :year/:month/:day/:title/   # 文章链接，默认是按照 /年/月/日/文章标题 设置的链接</span><br><span class="line">permalink_defaults:                    # 默认链接形式</span><br><span class="line"></span><br><span class="line"># Directory  网站主要目录，这里一般不做改动</span><br><span class="line">source_dir: source</span><br><span class="line">public_dir: public</span><br><span class="line">tag_dir: tags</span><br><span class="line">archive_dir: archives</span><br><span class="line">category_dir: categories</span><br><span class="line">code_dir: downloads/code</span><br><span class="line">i18n_dir: :lang</span><br><span class="line">skip_render:</span><br><span class="line"></span><br><span class="line"># Writing  网站文章设置，同样一般不做改动</span><br><span class="line">new_post_name: :title.md # File name of new posts</span><br><span class="line">default_layout: post</span><br><span class="line">titlecase: false # Transform title into titlecase</span><br><span class="line">external_link: true # Open external links in new tab</span><br><span class="line">filename_case: 0</span><br><span class="line">render_drafts: false</span><br><span class="line">post_asset_folder: false</span><br><span class="line">relative_link: false</span><br><span class="line">future: true</span><br><span class="line">highlight:</span><br><span class="line">  enable: true</span><br><span class="line">  line_number: true</span><br><span class="line">  auto_detect: false</span><br><span class="line">  tab_replace:</span><br><span class="line">  </span><br><span class="line"># Home page setting  主页设置，一般不做改动</span><br><span class="line"># path: Root path for your blogs index page. (default = &#x27;&#x27;)</span><br><span class="line"># per_page: Posts displayed per page. (0 = disable pagination)</span><br><span class="line"># order_by: Posts order. (Order by date descending by default)</span><br><span class="line">index_generator:</span><br><span class="line">  path: &#x27;&#x27;</span><br><span class="line">  per_page: 10</span><br><span class="line">  order_by: -date</span><br><span class="line">  </span><br><span class="line"># Category &amp; Tag  分类设置，一般不做改动</span><br><span class="line">default_category: uncategorized</span><br><span class="line">category_map:</span><br><span class="line">tag_map:</span><br><span class="line"></span><br><span class="line"># Date / Time format  日期设置，一般不做改动</span><br><span class="line">## Hexo uses Moment.js to parse and display date</span><br><span class="line">## You can customize the date format as defined in</span><br><span class="line">## http://momentjs.com/docs/#/displaying/format/</span><br><span class="line">date_format: YYYY-MM-DD</span><br><span class="line">time_format: HH:mm:ss</span><br><span class="line"></span><br><span class="line"># Pagination  导航页，一般不做改动</span><br><span class="line">## Set per_page to 0 to disable pagination</span><br><span class="line">per_page: 10</span><br><span class="line">pagination_dir: page</span><br><span class="line"></span><br><span class="line"># Extensions  使用的主题名称，会在这里切换</span><br><span class="line">## Plugins: https://hexo.io/plugins/</span><br><span class="line">## Themes: https://hexo.io/themes/</span><br><span class="line">theme: fluid  # 此处切换主题名称</span><br><span class="line"></span><br><span class="line"># Deployment  部署，一般选择部署到Github上</span><br><span class="line">## Docs: https://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type:</span><br></pre></td></tr></table></figure>
 
@@ -225,11 +225,11 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
 
 <p>然后我们打开浏览器，输入<a href="http://localhost:4000，是不是惊奇的发现已经完成了？">http://localhost:4000，是不是惊奇的发现已经完成了？</a></p>
-<p><img src="/post/405e7e90/hexo%E5%AE%89%E8%A3%85%E5%AE%8C%E6%88%90%E9%BB%98%E8%AE%A4%E9%A1%B5.png" alt="hexo安装完成默认页"></p>
+<p><img src="/post/405e7e90.htm/hexo%E5%AE%89%E8%A3%85%E5%AE%8C%E6%88%90%E9%BB%98%E8%AE%A4%E9%A1%B5.png" alt="hexo安装完成默认页"></p>
 <p>等….等一下，页面怎么是英文的？？？！</p>
 <p>别慌，上面提到配置文件的时候已经说到是语言没有修改了，我们可以打开hexo目录下的themes文件夹，发现里面有一个landscape文件夹，没错，你刚才看到的默认主题就是这个名叫landscape的主题，是不是内心吐槽了一句好丑啊…..当然啊，不然我们怎么会使用其他主题呢？</p>
 <p>别慌，我们先来分析一下这个landscape文件夹</p>
-<p><img src="/post/405e7e90/lunguages%E6%96%87%E4%BB%B6%E5%A4%B9.png" alt="lunguages文件夹"></p>
+<p><img src="/post/405e7e90.htm/lunguages%E6%96%87%E4%BB%B6%E5%A4%B9.png" alt="lunguages文件夹"></p>
 <p>注意这里面有一个_config.xml配置文件，其实上面已经一再强调过，这个跟前面的站点根目录下配置文件同名，那么这个配置文件我们就叫做<font color="red">主题配置文件。</font></p>
 <p>里面的初始内容我们暂时不管（因为不同主题的配置文件内容不一样，反正我们又不使用这个主题~）。</p>
 <p>先来看看上面的languages文件夹，一看就懂，都知道这就是网站语言配置文件，好，我们进去看一下，噢~里面的zh-CN和zh-TW可不就是中文吗。其中zh-CN指的是简体中文，zh-TW（湾湾）是繁体中文，欧克。然后我们再去站点根目录下，注意这里是站点根目录下的配置文件中，就是最上面提到的，将这里：</p>
@@ -239,10 +239,10 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo g &amp;&amp; hexo s</span><br></pre></td></tr></table></figure>
 
 <p>再重新打开浏览器刷新，是不是页面语言变成中文的了！</p>
-<p><img src="/post/405e7e90/%E4%B8%AD%E6%96%87%E9%BB%98%E8%AE%A4%E9%A1%B5.png" alt="中文默认页"></p>
+<p><img src="/post/405e7e90.htm/%E4%B8%AD%E6%96%87%E9%BB%98%E8%AE%A4%E9%A1%B5.png" alt="中文默认页"></p>
 <p>好吧，现在再说一下上面的hexo s hexo g是什么东西，hexo s是启动hexo服务的，而hexo g是重新生成public文件夹，那么public文件夹是什么呢？</p>
 <p>别慌，我们回头看一下hexo文件夹目录：</p>
-<p><img src="/post/405e7e90/hexo%E7%9B%AE%E5%BD%95.png" alt="hexo目录"></p>
+<p><img src="/post/405e7e90.htm/hexo%E7%9B%AE%E5%BD%95.png" alt="hexo目录"></p>
 <p>看到这个public文件夹吗，这个里面就是生成的所有静态文件，包括html，css，js文件以及图片等，稍微懂点前端的人都知道其中代表的什么意思。简单点来说如果在本地修改了什么文件内容，可以使用hexo g 命令重新生成一下public文件夹，然后再hexo s启动服务就可以看到变化了，当然hexo s本身就具有在线调试的功能，如果hexo s无法刷新页面修改内容，那么使用hexo g &amp;&amp; hexo s就可以看到更改内容啦~</p>
 <p>上面就是搭建hexo博客的基本内容。</p>
 <h1 id="第四章-将Hexo博客部署到Github上"><a href="#第四章-将Hexo博客部署到Github上" class="headerlink" title="第四章 将Hexo博客部署到Github上"></a>第四章 将Hexo博客部署到Github上</h1><p>为什么要部署到Github上呢，当然是有以下原因：</p>
@@ -256,7 +256,7 @@
 </ol>
 <p>所以在部署到Github之前，我们需要准备好自己的Github账号。</p>
 <h2 id="4-1-创建Github仓库"><a href="#4-1-创建Github仓库" class="headerlink" title="4.1 创建Github仓库"></a>4.1 创建Github仓库</h2><p>首先我们需要在Github上创建一个repository，注意名字必须为你的Github用户名.github.io，如下图：</p>
-<p><img src="/post/405e7e90/%E5%88%9B%E5%BB%BAGithub%E4%BB%93%E5%BA%93.png" alt="创建Github仓库"></p>
+<p><img src="/post/405e7e90.htm/%E5%88%9B%E5%BB%BAGithub%E4%BB%93%E5%BA%93.png" alt="创建Github仓库"></p>
 <p>不能设置为其它名字，只能用这个仓库名。这样设置以后，我们在不绑定域名的前提下，可以直接使用<code>http://jankinlui.github.io</code>来访问自己的个人博客，这样就比较方便。</p>
 <h2 id="4-2-配置SSH-key"><a href="#4-2-配置SSH-key" class="headerlink" title="4.2 配置SSH key"></a>4.2 配置SSH key</h2><p>如果是第一次在自己的本机上使用Git上传到Github上，那么必须配置SSH key，表示Github允许这台机器有权限使用Git上传代码。</p>
 <p>首先我们可以再GitBash中使用</p>
@@ -267,9 +267,9 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C &quot;邮件地址&quot;</span><br></pre></td></tr></table></figure>
 
 <p>上面的邮件地址就是你的Github注册邮箱地址，连续回车之后，最终会生成一个文件在C盘用户目录下面</p>
-<p><img src="/post/405e7e90/ssh%E7%9B%AE%E5%BD%95.png" alt="ssh目录"></p>
+<p><img src="/post/405e7e90.htm/ssh%E7%9B%AE%E5%BD%95.png" alt="ssh目录"></p>
 <p>打开这个.ssh文件，里面存放了密钥，然后我们打开自己的Github个人主页，进入<code>个人设置 -&gt; SSH and GPG keys -&gt; New SSH key</code></p>
-<p><img src="/post/405e7e90/ssh-key.png" alt="ssh-key"></p>
+<p><img src="/post/405e7e90.htm/ssh-key.png" alt="ssh-key"></p>
 <p>上面的Titie可以任意填写，下面的key注意要打开.ssh文件，将密钥复制进去。</p>
 <h2 id="4-3-测试是否成功"><a href="#4-3-测试是否成功" class="headerlink" title="4.3 测试是否成功"></a>4.3 测试是否成功</h2><p>使用如下命令：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ssh -T git@github.com <span class="comment"># 注意邮箱地址不用改</span></span></span><br></pre></td></tr></table></figure>
@@ -300,7 +300,7 @@
 <h1 id="第五章-安装Fluid主题"><a href="#第五章-安装Fluid主题" class="headerlink" title="第五章 安装Fluid主题"></a>第五章 安装Fluid主题</h1><p>本次以Fluid主题为例，其他主题为同等方式</p>
 <p>由于默认的主题landscape界面比较丑（当然魔改也是可以的），我们可以使用Hexo官方推荐的主题：<a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=https://hexo.io/themes">https://hexo.io/themes</a> ，如果喜欢这里面的某些主题，可以直接去上面主题对应的界面中的Github中下载</p>
 <h2 id="5-1-下载主题"><a href="#5-1-下载主题" class="headerlink" title="5.1 下载主题"></a>5.1 下载主题</h2><p>找到你喜爱的主题</p>
-<p><img src="/post/405e7e90/%E4%B8%BB%E9%A2%98%E4%B8%8B%E8%BD%BD.png" alt="主题下载"></p>
+<p><img src="/post/405e7e90.htm/%E4%B8%BB%E9%A2%98%E4%B8%8B%E8%BD%BD.png" alt="主题下载"></p>
 <p>我们安装fluid版本的话，有两种方式：</p>
 <ol>
 <li>在GitBash中cd到博客根目录下，然后使用git clone命令将Fluid仓库克隆到hexo目录下的<code>themes/</code>，即命令是<code>git clone https://github.com/fluid-dev/hexo-theme-fluid.git themes/fluid</code></li>

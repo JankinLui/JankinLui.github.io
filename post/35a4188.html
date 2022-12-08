@@ -181,7 +181,7 @@
 <ol start="2">
 <li>输入命令：“xrandr”，显示如下：</li>
 </ol>
-<p><img src="/post/35a4188/pmfbl.png" alt="输出"></p>
+<p><img src="/post/35a4188.htm/pmfbl.png" alt="输出"></p>
 <p>其中VGA1为显示器名称</p>
 <ol start="3">
 <li><p>结合第1步和第2步信息，增加显示模块，并设置为开机启动，编辑”vim &#x2F;etc&#x2F;profile”，在末尾增加：<br>xrandr –newmode “1920x1080_60.00” 173.00 1920 2048 2248 2576 1080 1083 1088 1120 -hsync +vsync<br>xrandr –addmode VGA1 “1920x1080_60.00”</p>

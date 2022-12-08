@@ -180,7 +180,7 @@
 <p>3、排错模式（修复系统 重置系统密码）</p>
 <h1 id="第二章-调整网卡名称"><a href="#第二章-调整网卡名称" class="headerlink" title="第二章 调整网卡名称"></a>第二章 调整网卡名称</h1><p>选择centos安装——-按tab键——-net.ifnames&#x3D;0 biosdevname&#x3D;0</p>
 <h1 id="第三章-系统分区的配置"><a href="#第三章-系统分区的配置" class="headerlink" title="第三章 系统分区的配置"></a>第三章 系统分区的配置</h1><p>分区方法：标准分区方法</p>
-<p><img src="/post/69b2ac3d/%E6%A0%87%E5%87%86%E5%88%86%E5%8C%BA%E6%96%B9%E6%B3%95.png" alt="标准分区方法"></p>
+<p><img src="/post/69b2ac3d.htm/%E6%A0%87%E5%87%86%E5%88%86%E5%8C%BA%E6%96%B9%E6%B3%95.png" alt="标准分区方法"></p>
 <ol>
 <li><p>通用分区方案</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">c盘==/boot 引导分区 200M</span><br><span class="line">     ==/swap 交换分区 当内存不够用的时候，将硬盘中的空间充当内存使用</span><br><span class="line">		      内存&lt;8G</span><br><span class="line">		              建议交换分区大小=内存大小的1.5倍 内存1G--swap1.5G</span><br><span class="line">		      内存&gt;=8G</span><br><span class="line">			    建议交换分区大小=8G</span><br><span class="line">    ==/           根分区 剩余全部空间</span><br><span class="line">   </span><br></pre></td></tr></table></figure>
@@ -308,7 +308,7 @@
 
 <h2 id="19-2-修改优化方法"><a href="#19-2-修改优化方法" class="headerlink" title="19.2 修改优化方法"></a>19.2 修改优化方法</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># vi /etc/profile</span><br><span class="line">		PS1=&quot;\[\e[32;40m\][\u@\h \W]$\e[m&quot;</span><br><span class="line"># source /etc/profile</span><br></pre></td></tr></table></figure>
 
-<p><img src="/post/69b2ac3d/%E5%90%AB%E4%B9%89.png"></p>
+<p><img src="/post/69b2ac3d.htm/%E5%90%AB%E4%B9%89.png"></p>
 <h1 id="第二十章-字符编码优化"><a href="#第二十章-字符编码优化" class="headerlink" title="第二十章 字符编码优化"></a>第二十章 字符编码优化</h1><p>支持中文比较好的编码：</p>
 <table>
 <thead>
